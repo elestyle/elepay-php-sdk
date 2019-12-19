@@ -13,8 +13,8 @@
     </testsuites>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">./src/ElepayApi</directory>
-            <directory suffix=".php">./src/ElepayPojo</directory>
+            <directory suffix=".php">./lib/Api</directory>
+            <directory suffix=".php">./lib/Model</directory>
         </whitelist>
     </filter>
     <php>

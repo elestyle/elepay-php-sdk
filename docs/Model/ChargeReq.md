@@ -4,14 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**amount** | **int** | 金額 | [optional] 
+**amount** | **int** | 金額 | 
 **currency** | **string** | 通貨コード (ISO_4217) | [optional] [default to 'JPY']
-**payment_method** | [**\OpenAPI\Client\ElepayPojo\PaymentMethodType**](PaymentMethodType.md) |  | [optional] 
-**order_no** | **string** | お客様側のシステムオーダーNo（例：注文番号、決済IDなど） | [optional] 
+**paymentMethod** | [**\OpenAPI\Client\Model\PaymentMethodType**](PaymentMethodType.md) |  | 
+**resource** | [**\OpenAPI\Client\Model\ResourceType**](ResourceType.md) |  | [optional] 
+**orderNo** | **string** | お客様側のシステムオーダーNo（例：注文番号、決済IDなど） 最大桁数は20桁です。 | 
 **description** | **string** | 決済に関する説明 | [optional] 
-**extra** | **map[string,object]** | 決済に関する追加情報がある場合に利用します。 | [optional] 
-**metadata** | **map[string,object]** | メタデータ | [optional] 
-**client_ip** | **string** | Client IP アドレス | [optional] 
+**extra** | **map[string,string]** | 決済に関する追加情報がある場合に利用します。具体的設定情報は「開発ガイド-&gt;決済Extra情報設定」を参照してください。 | [optional] 
+**metadata** | **map[string,string]** | メタデータ | [optional] 
+**clientIp** | **string** | Client IP アドレス | [optional] 
+**customerId** | **string** | カスタマID | [optional] 
+**sourceId** | **string** | カスタマソースID | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
