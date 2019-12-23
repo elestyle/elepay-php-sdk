@@ -20,12 +20,6 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
 
 ```json
 {
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/elestyle/elepay-php-sdk.git"
-    }
-  ],
   "require": {
     "elestyle/elepay-php-sdk": ">=1.1.0"
   }
@@ -63,8 +57,8 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
 $config = Elepay\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
+              ->setUsername('Your Elepay Secret Key')
+              ->setPassword('');
 
 
 $apiInstance = new Elepay\Api\ChargeApi(
@@ -74,6 +68,10 @@ $apiInstance = new Elepay\Api\ChargeApi(
     $config
 );
 $chargeReq = new \Elepay\Model\ChargeReq(); // \Elepay\Model\ChargeReq | 支払リクエスト
+$chargeReq->setAmount(100);
+$chargeReq->setOrderNo('order no');
+$chargeReq->setPaymentMethod('creditcard');
+$chargeReq->setResource('web');
 
 try {
     $result = $apiInstance->createCharge($chargeReq);
