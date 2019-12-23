@@ -1,4 +1,4 @@
-# OpenAPI\Client\CustomerApi
+# Elepay\CustomerApi
 
 All URIs are relative to *https://api.elepay.io*
 
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ## createCustomer
 
-> \OpenAPI\Client\Model\CustomerDto createCustomer($customerReq)
+> \Elepay\Model\CustomerDto createCustomer($customerReq)
 
 Create customer
 
@@ -31,18 +31,18 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+$config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new OpenAPI\Client\Api\CustomerApi(
+$apiInstance = new Elepay\Api\CustomerApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$customerReq = new \OpenAPI\Client\Model\CustomerReq(); // \OpenAPI\Client\Model\CustomerReq | カスタマリクエスト
+$customerReq = new \Elepay\Model\CustomerReq(); // \Elepay\Model\CustomerReq | カスタマリクエスト
 
 try {
     $result = $apiInstance->createCustomer($customerReq);
@@ -58,11 +58,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customerReq** | [**\OpenAPI\Client\Model\CustomerReq**](../Model/CustomerReq.md)| カスタマリクエスト |
+ **customerReq** | [**\Elepay\Model\CustomerReq**](../Model/CustomerReq.md)| カスタマリクエスト |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CustomerDto**](../Model/CustomerDto.md)
+[**\Elepay\Model\CustomerDto**](../Model/CustomerDto.md)
 
 ### Authorization
 
@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 ## createSource
 
-> \OpenAPI\Client\Model\SourceDto createSource($customerId, $sourceReq)
+> \Elepay\Model\SourceDto createSource($customerId, $sourceReq)
 
 Create source
 
@@ -94,19 +94,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+$config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new OpenAPI\Client\Api\CustomerApi(
+$apiInstance = new Elepay\Api\CustomerApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $customerId = 'customerId_example'; // string | Customer ID
-$sourceReq = new \OpenAPI\Client\Model\SourceReq(); // \OpenAPI\Client\Model\SourceReq | カスタマソースリクエスト
+$sourceReq = new \Elepay\Model\SourceReq(); // \Elepay\Model\SourceReq | カスタマソースリクエスト
 
 try {
     $result = $apiInstance->createSource($customerId, $sourceReq);
@@ -123,11 +123,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customerId** | **string**| Customer ID |
- **sourceReq** | [**\OpenAPI\Client\Model\SourceReq**](../Model/SourceReq.md)| カスタマソースリクエスト |
+ **sourceReq** | [**\Elepay\Model\SourceReq**](../Model/SourceReq.md)| カスタマソースリクエスト |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SourceDto**](../Model/SourceDto.md)
+[**\Elepay\Model\SourceDto**](../Model/SourceDto.md)
 
 ### Authorization
 
@@ -159,12 +159,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+$config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new OpenAPI\Client\Api\CustomerApi(
+$apiInstance = new Elepay\Api\CustomerApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -221,12 +221,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+$config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new OpenAPI\Client\Api\CustomerApi(
+$apiInstance = new Elepay\Api\CustomerApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -271,7 +271,7 @@ void (empty response body)
 
 ## listCustomers
 
-> \OpenAPI\Client\Model\CustomerResponse listCustomers($limit, $offset)
+> \Elepay\Model\CustomerResponse listCustomers($limit, $offset)
 
 List customers
 
@@ -285,12 +285,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+$config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new OpenAPI\Client\Api\CustomerApi(
+$apiInstance = new Elepay\Api\CustomerApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -318,7 +318,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CustomerResponse**](../Model/CustomerResponse.md)
+[**\Elepay\Model\CustomerResponse**](../Model/CustomerResponse.md)
 
 ### Authorization
 
@@ -336,7 +336,7 @@ Name | Type | Description  | Notes
 
 ## listSources
 
-> \OpenAPI\Client\Model\SourceResponse listSources($customerId, $paymentMethod)
+> \Elepay\Model\SourceResponse listSources($customerId, $paymentMethod)
 
 List sources by customer ID
 
@@ -350,19 +350,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+$config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new OpenAPI\Client\Api\CustomerApi(
+$apiInstance = new Elepay\Api\CustomerApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $customerId = 'customerId_example'; // string | Customer ID
-$paymentMethod = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\PaymentMethodType(); // \OpenAPI\Client\Model\PaymentMethodType | 決済方法
+$paymentMethod = new \Elepay\Model\\Elepay\Model\PaymentMethodType(); // \Elepay\Model\PaymentMethodType | 決済方法
 
 try {
     $result = $apiInstance->listSources($customerId, $paymentMethod);
@@ -379,11 +379,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customerId** | **string**| Customer ID |
- **paymentMethod** | [**\OpenAPI\Client\Model\PaymentMethodType**](../Model/.md)| 決済方法 | [optional]
+ **paymentMethod** | [**\Elepay\Model\PaymentMethodType**](../Model/.md)| 決済方法 | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SourceResponse**](../Model/SourceResponse.md)
+[**\Elepay\Model\SourceResponse**](../Model/SourceResponse.md)
 
 ### Authorization
 
@@ -401,7 +401,7 @@ Name | Type | Description  | Notes
 
 ## retrieveCustomer
 
-> \OpenAPI\Client\Model\CustomerDto retrieveCustomer($customerId)
+> \Elepay\Model\CustomerDto retrieveCustomer($customerId)
 
 Retrieve customer
 
@@ -415,12 +415,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+$config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new OpenAPI\Client\Api\CustomerApi(
+$apiInstance = new Elepay\Api\CustomerApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -446,7 +446,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CustomerDto**](../Model/CustomerDto.md)
+[**\Elepay\Model\CustomerDto**](../Model/CustomerDto.md)
 
 ### Authorization
 
@@ -464,7 +464,7 @@ Name | Type | Description  | Notes
 
 ## retrieveSource
 
-> \OpenAPI\Client\Model\SourceDto retrieveSource($customerId, $sourceId)
+> \Elepay\Model\SourceDto retrieveSource($customerId, $sourceId)
 
 Retrieve source
 
@@ -478,12 +478,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+$config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new OpenAPI\Client\Api\CustomerApi(
+$apiInstance = new Elepay\Api\CustomerApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -511,7 +511,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SourceDto**](../Model/SourceDto.md)
+[**\Elepay\Model\SourceDto**](../Model/SourceDto.md)
 
 ### Authorization
 

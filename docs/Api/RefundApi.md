@@ -1,4 +1,4 @@
-# OpenAPI\Client\RefundApi
+# Elepay\RefundApi
 
 All URIs are relative to *https://api.elepay.io*
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## createRefund
 
-> \OpenAPI\Client\Model\RefundDto createRefund($id, $refundReq)
+> \Elepay\Model\RefundDto createRefund($id, $refundReq)
 
 Create refund
 
@@ -26,19 +26,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+$config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new OpenAPI\Client\Api\RefundApi(
+$apiInstance = new Elepay\Api\RefundApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string | Charge ID
-$refundReq = new \OpenAPI\Client\Model\RefundReq(); // \OpenAPI\Client\Model\RefundReq | 返金の詳細情報
+$refundReq = new \Elepay\Model\RefundReq(); // \Elepay\Model\RefundReq | 返金の詳細情報
 
 try {
     $result = $apiInstance->createRefund($id, $refundReq);
@@ -55,11 +55,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| Charge ID |
- **refundReq** | [**\OpenAPI\Client\Model\RefundReq**](../Model/RefundReq.md)| 返金の詳細情報 |
+ **refundReq** | [**\Elepay\Model\RefundReq**](../Model/RefundReq.md)| 返金の詳細情報 |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\RefundDto**](../Model/RefundDto.md)
+[**\Elepay\Model\RefundDto**](../Model/RefundDto.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 ## listChargesRefunds
 
-> \OpenAPI\Client\Model\RefundsResponse listChargesRefunds($id)
+> \Elepay\Model\RefundsResponse listChargesRefunds($id)
 
 List refunds
 
@@ -91,12 +91,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+$config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new OpenAPI\Client\Api\RefundApi(
+$apiInstance = new Elepay\Api\RefundApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\RefundsResponse**](../Model/RefundsResponse.md)
+[**\Elepay\Model\RefundsResponse**](../Model/RefundsResponse.md)
 
 ### Authorization
 
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 ## retrieveChargeRefund
 
-> \OpenAPI\Client\Model\RefundDto retrieveChargeRefund($id, $refundId)
+> \Elepay\Model\RefundDto retrieveChargeRefund($id, $refundId)
 
 Retrieve refund
 
@@ -154,12 +154,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+$config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new OpenAPI\Client\Api\RefundApi(
+$apiInstance = new Elepay\Api\RefundApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\RefundDto**](../Model/RefundDto.md)
+[**\Elepay\Model\RefundDto**](../Model/RefundDto.md)
 
 ### Authorization
 
