@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **paymentMethod** | [**\Elepay\Model\PaymentMethodType**](PaymentMethodType.md) |  | [optional] 
 **resource** | [**\Elepay\Model\ResourceType**](ResourceType.md) |  | [optional] 
 **description** | **string** | カスタマソースに関する説明 | [optional] 
-**extra** | **map[string,object]** | カスタマソースエキストラデータ | [optional] 
-**info** | **map[string,object]** | カスタマソース補助情報 | [optional] 
-**metadata** | **map[string,object]** | 支払いメタデータ | [optional] 
+**extra** | **map[string,string]** | カスタマソースエキストラデータ | [optional] 
+**info** | **map[string,string]** | カスタマソース補助情報 | [optional] 
+**metadata** | **map[string,string]** | 支払いメタデータ | [optional] 
 **credential** | **string** | Client SDK の認証情報 | [optional] 
 **status** | [**\Elepay\Model\SourceStatusType**](SourceStatusType.md) |  | [optional] 
 
