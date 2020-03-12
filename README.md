@@ -125,6 +125,8 @@ Class | Method | HTTP request | Description
  - [RefundsDto](docs/Model/RefundsDto.md)
  - [RefundsResponse](docs/Model/RefundsResponse.md)
  - [ResourceType](docs/Model/ResourceType.md)
+ - [SdkReportReq](docs/Model/SdkReportReq.md)
+ - [SdkReportResponse](docs/Model/SdkReportResponse.md)
  - [SortOrderType](docs/Model/SortOrderType.md)
  - [SourceConfirmReq](docs/Model/SourceConfirmReq.md)
  - [SourceDto](docs/Model/SourceDto.md)
