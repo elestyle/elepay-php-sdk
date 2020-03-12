@@ -1,6 +1,6 @@
 <?php
 /**
- * SourceConfirmReq
+ * SdkReportReq
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Elepay\ObjectSerializer;
 
 /**
- * SourceConfirmReq Class Doc Comment
+ * SdkReportReq Class Doc Comment
  *
  * @category Class
- * @description Source confirm request
+ * @description sdk report request
  * @package  Elepay
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class SourceConfirmReq implements ModelInterface, ArrayAccess
+class SdkReportReq implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SourceConfirmReq implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SourceConfirmReq';
+    protected static $openAPIModelName = 'SdkReportReq';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,7 @@ class SourceConfirmReq implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'extra' => 'map[string,string]'
+        'reports' => 'string[]'
     ];
 
     /**
@@ -67,7 +67,7 @@ class SourceConfirmReq implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'extra' => null
+        'reports' => null
     ];
 
     /**
@@ -97,7 +97,7 @@ class SourceConfirmReq implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'extra' => 'extra'
+        'reports' => 'reports'
     ];
 
     /**
@@ -106,7 +106,7 @@ class SourceConfirmReq implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'extra' => 'setExtra'
+        'reports' => 'setReports'
     ];
 
     /**
@@ -115,7 +115,7 @@ class SourceConfirmReq implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'extra' => 'getExtra'
+        'reports' => 'getReports'
     ];
 
     /**
@@ -178,7 +178,7 @@ class SourceConfirmReq implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['extra'] = isset($data['extra']) ? $data['extra'] : null;
+        $this->container['reports'] = isset($data['reports']) ? $data['reports'] : null;
     }
 
     /**
@@ -206,25 +206,25 @@ class SourceConfirmReq implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets extra
+     * Gets reports
      *
-     * @return map[string,string]|null
+     * @return string[]|null
      */
-    public function getExtra()
+    public function getReports()
     {
-        return $this->container['extra'];
+        return $this->container['reports'];
     }
 
     /**
-     * Sets extra
+     * Sets reports
      *
-     * @param map[string,string]|null $extra extra
+     * @param string[]|null $reports reports
      *
      * @return $this
      */
-    public function setExtra($extra)
+    public function setReports($reports)
     {
-        $this->container['extra'] = $extra;
+        $this->container['reports'] = $reports;
 
         return $this;
     }

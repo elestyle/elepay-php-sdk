@@ -1,6 +1,6 @@
 <?php
 /**
- * SourceConfirmReq
+ * SdkReportResponse
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Elepay\ObjectSerializer;
 
 /**
- * SourceConfirmReq Class Doc Comment
+ * SdkReportResponse Class Doc Comment
  *
  * @category Class
- * @description Source confirm request
+ * @description sdk report response
  * @package  Elepay
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class SourceConfirmReq implements ModelInterface, ArrayAccess
+class SdkReportResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SourceConfirmReq implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SourceConfirmReq';
+    protected static $openAPIModelName = 'SdkReportResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,8 @@ class SourceConfirmReq implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'extra' => 'map[string,string]'
+        'completed' => 'int',
+        'failedIndexes' => 'int[]'
     ];
 
     /**
@@ -67,7 +68,8 @@ class SourceConfirmReq implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'extra' => null
+        'completed' => null,
+        'failedIndexes' => null
     ];
 
     /**
@@ -97,7 +99,8 @@ class SourceConfirmReq implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'extra' => 'extra'
+        'completed' => 'completed',
+        'failedIndexes' => 'failedIndexes'
     ];
 
     /**
@@ -106,7 +109,8 @@ class SourceConfirmReq implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'extra' => 'setExtra'
+        'completed' => 'setCompleted',
+        'failedIndexes' => 'setFailedIndexes'
     ];
 
     /**
@@ -115,7 +119,8 @@ class SourceConfirmReq implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'extra' => 'getExtra'
+        'completed' => 'getCompleted',
+        'failedIndexes' => 'getFailedIndexes'
     ];
 
     /**
@@ -178,7 +183,8 @@ class SourceConfirmReq implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['extra'] = isset($data['extra']) ? $data['extra'] : null;
+        $this->container['completed'] = isset($data['completed']) ? $data['completed'] : null;
+        $this->container['failedIndexes'] = isset($data['failedIndexes']) ? $data['failedIndexes'] : null;
     }
 
     /**
@@ -206,25 +212,49 @@ class SourceConfirmReq implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets extra
+     * Gets completed
      *
-     * @return map[string,string]|null
+     * @return int|null
      */
-    public function getExtra()
+    public function getCompleted()
     {
-        return $this->container['extra'];
+        return $this->container['completed'];
     }
 
     /**
-     * Sets extra
+     * Sets completed
      *
-     * @param map[string,string]|null $extra extra
+     * @param int|null $completed completed
      *
      * @return $this
      */
-    public function setExtra($extra)
+    public function setCompleted($completed)
     {
-        $this->container['extra'] = $extra;
+        $this->container['completed'] = $completed;
+
+        return $this;
+    }
+
+    /**
+     * Gets failedIndexes
+     *
+     * @return int[]|null
+     */
+    public function getFailedIndexes()
+    {
+        return $this->container['failedIndexes'];
+    }
+
+    /**
+     * Sets failedIndexes
+     *
+     * @param int[]|null $failedIndexes failedIndexes
+     *
+     * @return $this
+     */
+    public function setFailedIndexes($failedIndexes)
+    {
+        $this->container['failedIndexes'] = $failedIndexes;
 
         return $this;
     }
