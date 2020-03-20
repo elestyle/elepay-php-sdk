@@ -211,7 +211,7 @@ void (empty response body)
 
 Delete source
 
-カスタマソースを削除します
+カスタマソースを削除します。
 
 ### Example
 
