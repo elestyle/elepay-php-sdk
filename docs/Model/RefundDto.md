@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **liveMode** | **bool** | 本番モードかどうか - false テストモード - true 本番モード | [optional] 
 **amount** | **int** | 返金金額。全額返金、及び amount を指定することで金額の部分返金を行うことができます。 | [optional] 
 **currency** | **string** | 通貨コード (ISO_4217) | [optional] 
+**metadata** | **map[string,string]** | 返金メタデータ | [optional] 
 **reason** | **string** | 返金理由 | [optional] 
 **status** | [**\Elepay\Model\RefundStatusType**](RefundStatusType.md) |  | [optional] 
 **refundedTime** | **int** | 返金を行う時間のUTCタイムスタンプ。 | [optional] 
