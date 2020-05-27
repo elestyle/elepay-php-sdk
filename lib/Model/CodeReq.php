@@ -1,6 +1,6 @@
 <?php
 /**
- * RefundsDto
+ * CodeReq
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Elepay\ObjectSerializer;
 
 /**
- * RefundsDto Class Doc Comment
+ * CodeReq Class Doc Comment
  *
  * @category Class
- * @description 返金のサマリー。複数回返金された場合、返金内容をサマリーして返します。
+ * @description EasyQRコードリクエスト
  * @package  Elepay
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class RefundsDto implements ModelInterface, ArrayAccess
+class CodeReq implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class RefundsDto implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'RefundsDto';
+    protected static $openAPIModelName = 'CodeReq';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,8 +59,11 @@ class RefundsDto implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'amount' => 'int',
-        'totalCount' => 'int',
-        'data' => '\Elepay\Model\RefundDto[]'
+        'currency' => 'string',
+        'orderNo' => 'string',
+        'description' => 'string',
+        'metadata' => 'map[string,string]',
+        'expiryDuration' => 'int'
     ];
 
     /**
@@ -70,8 +73,11 @@ class RefundsDto implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'amount' => null,
-        'totalCount' => null,
-        'data' => null
+        'currency' => null,
+        'orderNo' => null,
+        'description' => null,
+        'metadata' => null,
+        'expiryDuration' => null
     ];
 
     /**
@@ -102,8 +108,11 @@ class RefundsDto implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'amount' => 'amount',
-        'totalCount' => 'totalCount',
-        'data' => 'data'
+        'currency' => 'currency',
+        'orderNo' => 'orderNo',
+        'description' => 'description',
+        'metadata' => 'metadata',
+        'expiryDuration' => 'expiryDuration'
     ];
 
     /**
@@ -113,8 +122,11 @@ class RefundsDto implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'amount' => 'setAmount',
-        'totalCount' => 'setTotalCount',
-        'data' => 'setData'
+        'currency' => 'setCurrency',
+        'orderNo' => 'setOrderNo',
+        'description' => 'setDescription',
+        'metadata' => 'setMetadata',
+        'expiryDuration' => 'setExpiryDuration'
     ];
 
     /**
@@ -124,8 +136,11 @@ class RefundsDto implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'amount' => 'getAmount',
-        'totalCount' => 'getTotalCount',
-        'data' => 'getData'
+        'currency' => 'getCurrency',
+        'orderNo' => 'getOrderNo',
+        'description' => 'getDescription',
+        'metadata' => 'getMetadata',
+        'expiryDuration' => 'getExpiryDuration'
     ];
 
     /**
@@ -189,8 +204,11 @@ class RefundsDto implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['totalCount'] = isset($data['totalCount']) ? $data['totalCount'] : null;
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : 'JPY';
+        $this->container['orderNo'] = isset($data['orderNo']) ? $data['orderNo'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['expiryDuration'] = isset($data['expiryDuration']) ? $data['expiryDuration'] : null;
     }
 
     /**
@@ -202,6 +220,12 @@ class RefundsDto implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['amount'] === null) {
+            $invalidProperties[] = "'amount' can't be null";
+        }
+        if ($this->container['orderNo'] === null) {
+            $invalidProperties[] = "'orderNo' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -220,7 +244,7 @@ class RefundsDto implements ModelInterface, ArrayAccess
     /**
      * Gets amount
      *
-     * @return int|null
+     * @return int
      */
     public function getAmount()
     {
@@ -230,7 +254,7 @@ class RefundsDto implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param int|null $amount 返金総額
+     * @param int $amount 金額
      *
      * @return $this
      */
@@ -242,49 +266,121 @@ class RefundsDto implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets totalCount
+     * Gets currency
      *
-     * @return int|null
+     * @return string|null
      */
-    public function getTotalCount()
+    public function getCurrency()
     {
-        return $this->container['totalCount'];
+        return $this->container['currency'];
     }
 
     /**
-     * Sets totalCount
+     * Sets currency
      *
-     * @param int|null $totalCount 返金回数
+     * @param string|null $currency 通貨コード (ISO_4217)
      *
      * @return $this
      */
-    public function setTotalCount($totalCount)
+    public function setCurrency($currency)
     {
-        $this->container['totalCount'] = $totalCount;
+        $this->container['currency'] = $currency;
 
         return $this;
     }
 
     /**
-     * Gets data
+     * Gets orderNo
      *
-     * @return \Elepay\Model\RefundDto[]|null
+     * @return string
      */
-    public function getData()
+    public function getOrderNo()
     {
-        return $this->container['data'];
+        return $this->container['orderNo'];
     }
 
     /**
-     * Sets data
+     * Sets orderNo
      *
-     * @param \Elepay\Model\RefundDto[]|null $data 返金詳細情報
+     * @param string $orderNo お客様側のシステムオーダーNo（例：注文番号、決済IDなど） 最大桁数は50桁です。
      *
      * @return $this
      */
-    public function setData($data)
+    public function setOrderNo($orderNo)
     {
-        $this->container['data'] = $data;
+        $this->container['orderNo'] = $orderNo;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description 支払いオブジェクトの「決済に関する説明」
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return map[string,string]|null
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param map[string,string]|null $metadata 支払いオブジェクトの「メタデータ」
+     *
+     * @return $this
+     */
+    public function setMetadata($metadata)
+    {
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets expiryDuration
+     *
+     * @return int|null
+     */
+    public function getExpiryDuration()
+    {
+        return $this->container['expiryDuration'];
+    }
+
+    /**
+     * Sets expiryDuration
+     *
+     * @param int|null $expiryDuration EasyQRコード有効期限(分) 最小:3分、最大:30分、デフォルト:10分
+     *
+     * @return $this
+     */
+    public function setExpiryDuration($expiryDuration)
+    {
+        $this->container['expiryDuration'] = $expiryDuration;
 
         return $this;
     }

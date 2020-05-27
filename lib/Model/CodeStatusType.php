@@ -1,6 +1,6 @@
 <?php
 /**
- * SortOrderType
+ * CodeStatusType
  *
  * PHP version 5
  *
@@ -31,21 +31,22 @@ namespace Elepay\Model;
 use \Elepay\ObjectSerializer;
 
 /**
- * SortOrderType Class Doc Comment
+ * CodeStatusType Class Doc Comment
  *
  * @category Class
- * @description ソート順
+ * @description EasyQrコード状態 - pending 未支払 - captured 支払済み - closed 有効期限切れ・削除された
  * @package  Elepay
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class SortOrderType
+class CodeStatusType
 {
     /**
      * Possible values of this enum
      */
-    const DESC = 'desc';
-    const ASC = 'asc';
+    const PENDING = 'pending';
+    const CAPTURED = 'captured';
+    const CLOSED = 'closed';
     
     /**
      * Gets allowable values of the enum
@@ -54,8 +55,9 @@ class SortOrderType
     public static function getAllowableEnumValues()
     {
         return [
-            self::DESC,
-            self::ASC,
+            self::PENDING,
+            self::CAPTURED,
+            self::CLOSED,
         ];
     }
 }

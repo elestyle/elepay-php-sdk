@@ -1,6 +1,6 @@
 <?php
 /**
- * RefundReq
+ * CodeDto
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Elepay\ObjectSerializer;
 
 /**
- * RefundReq Class Doc Comment
+ * CodeDto Class Doc Comment
  *
  * @category Class
- * @description 返金リクエスト
+ * @description EasyQRコードオブジェクト
  * @package  Elepay
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class RefundReq implements ModelInterface, ArrayAccess
+class CodeDto implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class RefundReq implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'RefundReq';
+    protected static $openAPIModelName = 'CodeDto';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,18 @@ class RefundReq implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'string',
+        'liveMode' => 'bool',
+        'codeUrl' => 'string',
         'amount' => 'int',
         'currency' => 'string',
+        'orderNo' => 'string',
+        'description' => 'string',
         'metadata' => 'map[string,string]',
-        'reason' => 'string'
+        'status' => '\Elepay\Model\CodeStatusType',
+        'expired' => 'bool',
+        'expiryTime' => 'int',
+        'createTime' => 'int'
     ];
 
     /**
@@ -70,10 +78,18 @@ class RefundReq implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'id' => null,
+        'liveMode' => null,
+        'codeUrl' => null,
         'amount' => null,
         'currency' => null,
+        'orderNo' => null,
+        'description' => null,
         'metadata' => null,
-        'reason' => null
+        'status' => null,
+        'expired' => null,
+        'expiryTime' => 'int64',
+        'createTime' => 'int64'
     ];
 
     /**
@@ -103,10 +119,18 @@ class RefundReq implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
+        'liveMode' => 'liveMode',
+        'codeUrl' => 'codeUrl',
         'amount' => 'amount',
         'currency' => 'currency',
+        'orderNo' => 'orderNo',
+        'description' => 'description',
         'metadata' => 'metadata',
-        'reason' => 'reason'
+        'status' => 'status',
+        'expired' => 'expired',
+        'expiryTime' => 'expiryTime',
+        'createTime' => 'createTime'
     ];
 
     /**
@@ -115,10 +139,18 @@ class RefundReq implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
+        'liveMode' => 'setLiveMode',
+        'codeUrl' => 'setCodeUrl',
         'amount' => 'setAmount',
         'currency' => 'setCurrency',
+        'orderNo' => 'setOrderNo',
+        'description' => 'setDescription',
         'metadata' => 'setMetadata',
-        'reason' => 'setReason'
+        'status' => 'setStatus',
+        'expired' => 'setExpired',
+        'expiryTime' => 'setExpiryTime',
+        'createTime' => 'setCreateTime'
     ];
 
     /**
@@ -127,10 +159,18 @@ class RefundReq implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
+        'liveMode' => 'getLiveMode',
+        'codeUrl' => 'getCodeUrl',
         'amount' => 'getAmount',
         'currency' => 'getCurrency',
+        'orderNo' => 'getOrderNo',
+        'description' => 'getDescription',
         'metadata' => 'getMetadata',
-        'reason' => 'getReason'
+        'status' => 'getStatus',
+        'expired' => 'getExpired',
+        'expiryTime' => 'getExpiryTime',
+        'createTime' => 'getCreateTime'
     ];
 
     /**
@@ -193,10 +233,18 @@ class RefundReq implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['liveMode'] = isset($data['liveMode']) ? $data['liveMode'] : null;
+        $this->container['codeUrl'] = isset($data['codeUrl']) ? $data['codeUrl'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : 'JPY';
+        $this->container['orderNo'] = isset($data['orderNo']) ? $data['orderNo'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['expired'] = isset($data['expired']) ? $data['expired'] : null;
+        $this->container['expiryTime'] = isset($data['expiryTime']) ? $data['expiryTime'] : null;
+        $this->container['createTime'] = isset($data['createTime']) ? $data['createTime'] : null;
     }
 
     /**
@@ -208,9 +256,6 @@ class RefundReq implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['amount'] === null) {
-            $invalidProperties[] = "'amount' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -227,9 +272,81 @@ class RefundReq implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id EasyQRコードID
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets liveMode
+     *
+     * @return bool|null
+     */
+    public function getLiveMode()
+    {
+        return $this->container['liveMode'];
+    }
+
+    /**
+     * Sets liveMode
+     *
+     * @param bool|null $liveMode 本番モードかどうか - false テストモード - true 本番モード
+     *
+     * @return $this
+     */
+    public function setLiveMode($liveMode)
+    {
+        $this->container['liveMode'] = $liveMode;
+
+        return $this;
+    }
+
+    /**
+     * Gets codeUrl
+     *
+     * @return string|null
+     */
+    public function getCodeUrl()
+    {
+        return $this->container['codeUrl'];
+    }
+
+    /**
+     * Sets codeUrl
+     *
+     * @param string|null $codeUrl EasyQRコードURL
+     *
+     * @return $this
+     */
+    public function setCodeUrl($codeUrl)
+    {
+        $this->container['codeUrl'] = $codeUrl;
+
+        return $this;
+    }
+
+    /**
      * Gets amount
      *
-     * @return int
+     * @return int|null
      */
     public function getAmount()
     {
@@ -239,7 +356,7 @@ class RefundReq implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param int $amount 返金額。全額返金、及び amount の指定で任意の金額で返金ができます。
+     * @param int|null $amount 支払い金額
      *
      * @return $this
      */
@@ -275,6 +392,54 @@ class RefundReq implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets orderNo
+     *
+     * @return string|null
+     */
+    public function getOrderNo()
+    {
+        return $this->container['orderNo'];
+    }
+
+    /**
+     * Sets orderNo
+     *
+     * @param string|null $orderNo お客様システム側のオーダーNo、例えば注文番号、決済IDなど
+     *
+     * @return $this
+     */
+    public function setOrderNo($orderNo)
+    {
+        $this->container['orderNo'] = $orderNo;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description 支払いオブジェクトの「決済に関する説明」
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
      * Gets metadata
      *
      * @return map[string,string]|null
@@ -287,7 +452,7 @@ class RefundReq implements ModelInterface, ArrayAccess
     /**
      * Sets metadata
      *
-     * @param map[string,string]|null $metadata 返金メタデータ
+     * @param map[string,string]|null $metadata 支払いオブジェクトの「メタデータ」
      *
      * @return $this
      */
@@ -299,25 +464,97 @@ class RefundReq implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets reason
+     * Gets status
      *
-     * @return string|null
+     * @return \Elepay\Model\CodeStatusType|null
      */
-    public function getReason()
+    public function getStatus()
     {
-        return $this->container['reason'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets reason
+     * Sets status
      *
-     * @param string|null $reason 返金理由
+     * @param \Elepay\Model\CodeStatusType|null $status status
      *
      * @return $this
      */
-    public function setReason($reason)
+    public function setStatus($status)
     {
-        $this->container['reason'] = $reason;
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets expired
+     *
+     * @return bool|null
+     */
+    public function getExpired()
+    {
+        return $this->container['expired'];
+    }
+
+    /**
+     * Sets expired
+     *
+     * @param bool|null $expired EasyQRコード有効有無
+     *
+     * @return $this
+     */
+    public function setExpired($expired)
+    {
+        $this->container['expired'] = $expired;
+
+        return $this;
+    }
+
+    /**
+     * Gets expiryTime
+     *
+     * @return int|null
+     */
+    public function getExpiryTime()
+    {
+        return $this->container['expiryTime'];
+    }
+
+    /**
+     * Sets expiryTime
+     *
+     * @param int|null $expiryTime EasyQRコード有効期限のUTCタイムスタンプ
+     *
+     * @return $this
+     */
+    public function setExpiryTime($expiryTime)
+    {
+        $this->container['expiryTime'] = $expiryTime;
+
+        return $this;
+    }
+
+    /**
+     * Gets createTime
+     *
+     * @return int|null
+     */
+    public function getCreateTime()
+    {
+        return $this->container['createTime'];
+    }
+
+    /**
+     * Sets createTime
+     *
+     * @param int|null $createTime コード新規時間のUTCタイムスタンプ
+     *
+     * @return $this
+     */
+    public function setCreateTime($createTime)
+    {
+        $this->container['createTime'] = $createTime;
 
         return $this;
     }
