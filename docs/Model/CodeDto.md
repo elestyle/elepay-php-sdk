@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | EasyQRコードID | [optional] 
+**object** | **string** | 対象種類の表記 | [optional] [default to 'code']
 **liveMode** | **bool** | 本番モードかどうか - false テストモード - true 本番モード | [optional] 
 **codeUrl** | **string** | EasyQRコードURL | [optional] 
 **amount** | **int** | 支払い金額 | [optional] 
@@ -13,6 +14,7 @@ Name | Type | Description | Notes
 **description** | **string** | 支払いオブジェクトの「決済に関する説明」 | [optional] 
 **metadata** | **map[string,string]** | 支払いオブジェクトの「メタデータ」 | [optional] 
 **status** | [**\Elepay\Model\CodeStatusType**](CodeStatusType.md) |  | [optional] 
+**charge** | [**\Elepay\Model\ChargeDto**](ChargeDto.md) |  | [optional] 
 **expired** | **bool** | EasyQRコード有効有無 | [optional] 
 **expiryTime** | **int** | EasyQRコード有効期限のUTCタイムスタンプ | [optional] 
 **createTime** | **int** | コード新規時間のUTCタイムスタンプ | [optional] 
