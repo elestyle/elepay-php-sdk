@@ -1,6 +1,6 @@
 <?php
 /**
- * PaymentMethodResponse
+ * SourceInfo
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Elepay\ObjectSerializer;
 
 /**
- * PaymentMethodResponse Class Doc Comment
+ * SourceInfo Class Doc Comment
  *
  * @category Class
- * @description 利用できる決済方法リスト
+ * @description カスタマソース補助情報
  * @package  Elepay
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class PaymentMethodResponse implements ModelInterface, ArrayAccess
+class SourceInfo implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class PaymentMethodResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PaymentMethodResponse';
+    protected static $openAPIModelName = 'SourceInfo';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,13 @@ class PaymentMethodResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'total' => 'int',
-        'paymentMethods' => '\Elepay\Model\PaymentMethodDto[]'
+        'brand' => 'string',
+        'country' => 'string',
+        'cvcCheck' => 'bool',
+        'last4' => 'string',
+        'expMonth' => 'int',
+        'expYear' => 'int',
+        'name' => 'string'
     ];
 
     /**
@@ -68,8 +73,13 @@ class PaymentMethodResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'total' => null,
-        'paymentMethods' => null
+        'brand' => null,
+        'country' => null,
+        'cvcCheck' => null,
+        'last4' => null,
+        'expMonth' => null,
+        'expYear' => null,
+        'name' => null
     ];
 
     /**
@@ -99,8 +109,13 @@ class PaymentMethodResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'total' => 'total',
-        'paymentMethods' => 'paymentMethods'
+        'brand' => 'brand',
+        'country' => 'country',
+        'cvcCheck' => 'cvcCheck',
+        'last4' => 'last4',
+        'expMonth' => 'expMonth',
+        'expYear' => 'expYear',
+        'name' => 'name'
     ];
 
     /**
@@ -109,8 +124,13 @@ class PaymentMethodResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'total' => 'setTotal',
-        'paymentMethods' => 'setPaymentMethods'
+        'brand' => 'setBrand',
+        'country' => 'setCountry',
+        'cvcCheck' => 'setCvcCheck',
+        'last4' => 'setLast4',
+        'expMonth' => 'setExpMonth',
+        'expYear' => 'setExpYear',
+        'name' => 'setName'
     ];
 
     /**
@@ -119,8 +139,13 @@ class PaymentMethodResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'total' => 'getTotal',
-        'paymentMethods' => 'getPaymentMethods'
+        'brand' => 'getBrand',
+        'country' => 'getCountry',
+        'cvcCheck' => 'getCvcCheck',
+        'last4' => 'getLast4',
+        'expMonth' => 'getExpMonth',
+        'expYear' => 'getExpYear',
+        'name' => 'getName'
     ];
 
     /**
@@ -183,8 +208,13 @@ class PaymentMethodResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
-        $this->container['paymentMethods'] = isset($data['paymentMethods']) ? $data['paymentMethods'] : null;
+        $this->container['brand'] = isset($data['brand']) ? $data['brand'] : null;
+        $this->container['country'] = isset($data['country']) ? $data['country'] : null;
+        $this->container['cvcCheck'] = isset($data['cvcCheck']) ? $data['cvcCheck'] : null;
+        $this->container['last4'] = isset($data['last4']) ? $data['last4'] : null;
+        $this->container['expMonth'] = isset($data['expMonth']) ? $data['expMonth'] : null;
+        $this->container['expYear'] = isset($data['expYear']) ? $data['expYear'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
     }
 
     /**
@@ -212,49 +242,169 @@ class PaymentMethodResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets total
+     * Gets brand
      *
-     * @return int|null
+     * @return string|null
      */
-    public function getTotal()
+    public function getBrand()
     {
-        return $this->container['total'];
+        return $this->container['brand'];
     }
 
     /**
-     * Sets total
+     * Sets brand
      *
-     * @param int|null $total 件数
+     * @param string|null $brand brand
      *
      * @return $this
      */
-    public function setTotal($total)
+    public function setBrand($brand)
     {
-        $this->container['total'] = $total;
+        $this->container['brand'] = $brand;
 
         return $this;
     }
 
     /**
-     * Gets paymentMethods
+     * Gets country
      *
-     * @return \Elepay\Model\PaymentMethodDto[]|null
+     * @return string|null
      */
-    public function getPaymentMethods()
+    public function getCountry()
     {
-        return $this->container['paymentMethods'];
+        return $this->container['country'];
     }
 
     /**
-     * Sets paymentMethods
+     * Sets country
      *
-     * @param \Elepay\Model\PaymentMethodDto[]|null $paymentMethods 決済方法詳細情報
+     * @param string|null $country 通貨コード (ISO_4217)
      *
      * @return $this
      */
-    public function setPaymentMethods($paymentMethods)
+    public function setCountry($country)
     {
-        $this->container['paymentMethods'] = $paymentMethods;
+        $this->container['country'] = $country;
+
+        return $this;
+    }
+
+    /**
+     * Gets cvcCheck
+     *
+     * @return bool|null
+     */
+    public function getCvcCheck()
+    {
+        return $this->container['cvcCheck'];
+    }
+
+    /**
+     * Sets cvcCheck
+     *
+     * @param bool|null $cvcCheck cvcCheck
+     *
+     * @return $this
+     */
+    public function setCvcCheck($cvcCheck)
+    {
+        $this->container['cvcCheck'] = $cvcCheck;
+
+        return $this;
+    }
+
+    /**
+     * Gets last4
+     *
+     * @return string|null
+     */
+    public function getLast4()
+    {
+        return $this->container['last4'];
+    }
+
+    /**
+     * Sets last4
+     *
+     * @param string|null $last4 last4
+     *
+     * @return $this
+     */
+    public function setLast4($last4)
+    {
+        $this->container['last4'] = $last4;
+
+        return $this;
+    }
+
+    /**
+     * Gets expMonth
+     *
+     * @return int|null
+     */
+    public function getExpMonth()
+    {
+        return $this->container['expMonth'];
+    }
+
+    /**
+     * Sets expMonth
+     *
+     * @param int|null $expMonth expMonth
+     *
+     * @return $this
+     */
+    public function setExpMonth($expMonth)
+    {
+        $this->container['expMonth'] = $expMonth;
+
+        return $this;
+    }
+
+    /**
+     * Gets expYear
+     *
+     * @return int|null
+     */
+    public function getExpYear()
+    {
+        return $this->container['expYear'];
+    }
+
+    /**
+     * Sets expYear
+     *
+     * @param int|null $expYear expYear
+     *
+     * @return $this
+     */
+    public function setExpYear($expYear)
+    {
+        $this->container['expYear'] = $expYear;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
 
         return $this;
     }

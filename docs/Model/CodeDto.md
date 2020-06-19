@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **charge** | [**\Elepay\Model\ChargeDto**](ChargeDto.md) |  | [optional] 
 **expired** | **bool** | EasyQRコード有効有無 | [optional] 
 **expiryTime** | **int** | EasyQRコード有効期限のUTCタイムスタンプ | [optional] 
+**expiryPeriod** | **int** | EasyQRコード有効期限までの残りミリ秒数 | [optional] 
 **createTime** | **int** | コード新規時間のUTCタイムスタンプ | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
