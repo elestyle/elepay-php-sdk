@@ -15,6 +15,8 @@ Name | Type | Description | Notes
 **metadata** | **map[string,string]** | 支払いオブジェクトの「メタデータ」 | [optional] 
 **status** | [**\Elepay\Model\CodeStatusType**](CodeStatusType.md) |  | [optional] 
 **charge** | [**\Elepay\Model\ChargeDto**](ChargeDto.md) |  | [optional] 
+**frontUrl** | **string** |  | [optional] 
+**items** | [**\Elepay\Model\CodeItem[]**](CodeItem.md) |  | [optional] 
 **expired** | **bool** | EasyQRコード有効有無 | [optional] 
 **expiryTime** | **int** | EasyQRコード有効期限のUTCタイムスタンプ | [optional] 
 **expiryPeriod** | **int** | EasyQRコード有効期限までの残りミリ秒数 | [optional] 

@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomerDto
+ * CardInfo
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Elepay\ObjectSerializer;
 
 /**
- * CustomerDto Class Doc Comment
+ * CardInfo Class Doc Comment
  *
  * @category Class
- * @description カスタマオブジェクト
+ * @description カード情報
  * @package  Elepay
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class CustomerDto implements ModelInterface, ArrayAccess
+class CardInfo implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CustomerDto implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CustomerDto';
+    protected static $openAPIModelName = 'CardInfo';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,11 +58,11 @@ class CustomerDto implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'object' => 'string',
-        'liveMode' => 'bool',
-        'description' => 'string',
-        'metadata' => 'map[string,string]'
+        'brand' => '\Elepay\Model\CardBrandType',
+        'last4' => 'string',
+        'expMonth' => 'int',
+        'expYear' => 'int',
+        'name' => 'string'
     ];
 
     /**
@@ -71,11 +71,11 @@ class CustomerDto implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'object' => null,
-        'liveMode' => null,
-        'description' => null,
-        'metadata' => null
+        'brand' => null,
+        'last4' => null,
+        'expMonth' => null,
+        'expYear' => null,
+        'name' => null
     ];
 
     /**
@@ -105,11 +105,11 @@ class CustomerDto implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'object' => 'object',
-        'liveMode' => 'liveMode',
-        'description' => 'description',
-        'metadata' => 'metadata'
+        'brand' => 'brand',
+        'last4' => 'last4',
+        'expMonth' => 'expMonth',
+        'expYear' => 'expYear',
+        'name' => 'name'
     ];
 
     /**
@@ -118,11 +118,11 @@ class CustomerDto implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'object' => 'setObject',
-        'liveMode' => 'setLiveMode',
-        'description' => 'setDescription',
-        'metadata' => 'setMetadata'
+        'brand' => 'setBrand',
+        'last4' => 'setLast4',
+        'expMonth' => 'setExpMonth',
+        'expYear' => 'setExpYear',
+        'name' => 'setName'
     ];
 
     /**
@@ -131,11 +131,11 @@ class CustomerDto implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'object' => 'getObject',
-        'liveMode' => 'getLiveMode',
-        'description' => 'getDescription',
-        'metadata' => 'getMetadata'
+        'brand' => 'getBrand',
+        'last4' => 'getLast4',
+        'expMonth' => 'getExpMonth',
+        'expYear' => 'getExpYear',
+        'name' => 'getName'
     ];
 
     /**
@@ -198,11 +198,11 @@ class CustomerDto implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['object'] = isset($data['object']) ? $data['object'] : 'customer';
-        $this->container['liveMode'] = isset($data['liveMode']) ? $data['liveMode'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['brand'] = isset($data['brand']) ? $data['brand'] : null;
+        $this->container['last4'] = isset($data['last4']) ? $data['last4'] : null;
+        $this->container['expMonth'] = isset($data['expMonth']) ? $data['expMonth'] : null;
+        $this->container['expYear'] = isset($data['expYear']) ? $data['expYear'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
     }
 
     /**
@@ -230,121 +230,121 @@ class CustomerDto implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets brand
+     *
+     * @return \Elepay\Model\CardBrandType|null
+     */
+    public function getBrand()
+    {
+        return $this->container['brand'];
+    }
+
+    /**
+     * Sets brand
+     *
+     * @param \Elepay\Model\CardBrandType|null $brand brand
+     *
+     * @return $this
+     */
+    public function setBrand($brand)
+    {
+        $this->container['brand'] = $brand;
+
+        return $this;
+    }
+
+    /**
+     * Gets last4
      *
      * @return string|null
      */
-    public function getId()
+    public function getLast4()
     {
-        return $this->container['id'];
+        return $this->container['last4'];
     }
 
     /**
-     * Sets id
+     * Sets last4
      *
-     * @param string|null $id Charge ID
+     * @param string|null $last4 カード番号の下四桁
      *
      * @return $this
      */
-    public function setId($id)
+    public function setLast4($last4)
     {
-        $this->container['id'] = $id;
+        $this->container['last4'] = $last4;
 
         return $this;
     }
 
     /**
-     * Gets object
+     * Gets expMonth
+     *
+     * @return int|null
+     */
+    public function getExpMonth()
+    {
+        return $this->container['expMonth'];
+    }
+
+    /**
+     * Sets expMonth
+     *
+     * @param int|null $expMonth 有効期限月
+     *
+     * @return $this
+     */
+    public function setExpMonth($expMonth)
+    {
+        $this->container['expMonth'] = $expMonth;
+
+        return $this;
+    }
+
+    /**
+     * Gets expYear
+     *
+     * @return int|null
+     */
+    public function getExpYear()
+    {
+        return $this->container['expYear'];
+    }
+
+    /**
+     * Sets expYear
+     *
+     * @param int|null $expYear 有効期限年
+     *
+     * @return $this
+     */
+    public function setExpYear($expYear)
+    {
+        $this->container['expYear'] = $expYear;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
      *
      * @return string|null
      */
-    public function getObject()
+    public function getName()
     {
-        return $this->container['object'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets object
+     * Sets name
      *
-     * @param string|null $object 対象種類の表記
+     * @param string|null $name カード保有者名
      *
      * @return $this
      */
-    public function setObject($object)
+    public function setName($name)
     {
-        $this->container['object'] = $object;
-
-        return $this;
-    }
-
-    /**
-     * Gets liveMode
-     *
-     * @return bool|null
-     */
-    public function getLiveMode()
-    {
-        return $this->container['liveMode'];
-    }
-
-    /**
-     * Sets liveMode
-     *
-     * @param bool|null $liveMode 本番モードかどうか - false テストモード - true 本番モード
-     *
-     * @return $this
-     */
-    public function setLiveMode($liveMode)
-    {
-        $this->container['liveMode'] = $liveMode;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description カスタマに関する説明
-     *
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return map[string,string]|null
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param map[string,string]|null $metadata 支払いメタデータ
-     *
-     * @return $this
-     */
-    public function setMetadata($metadata)
-    {
-        $this->container['metadata'] = $metadata;
+        $this->container['name'] = $name;
 
         return $this;
     }

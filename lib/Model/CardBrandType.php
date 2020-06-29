@@ -1,6 +1,6 @@
 <?php
 /**
- * CodeStatusType
+ * CardBrandType
  *
  * PHP version 5
  *
@@ -31,22 +31,25 @@ namespace Elepay\Model;
 use \Elepay\ObjectSerializer;
 
 /**
- * CodeStatusType Class Doc Comment
+ * CardBrandType Class Doc Comment
  *
  * @category Class
- * @description EasyQrコード状態 - pending 未支払 - captured 支払済み - closed 有効期限切れ・削除された
+ * @description カードブランド
  * @package  Elepay
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class CodeStatusType
+class CardBrandType
 {
     /**
      * Possible values of this enum
      */
-    const PENDING = 'pending';
-    const CAPTURED = 'captured';
-    const CLOSED = 'closed';
+    const VISA = 'visa';
+    const MASTERCARD = 'mastercard';
+    const AMEX = 'amex';
+    const JCB = 'jcb';
+    const DINERS = 'diners';
+    const UNKNOWN = 'unknown';
     
     /**
      * Gets allowable values of the enum
@@ -55,9 +58,12 @@ class CodeStatusType
     public static function getAllowableEnumValues()
     {
         return [
-            self::PENDING,
-            self::CAPTURED,
-            self::CLOSED,
+            self::VISA,
+            self::MASTERCARD,
+            self::AMEX,
+            self::JCB,
+            self::DINERS,
+            self::UNKNOWN,
         ];
     }
 }

@@ -15,6 +15,8 @@ Name | Type | Description | Notes
 **description** | **string** | 支払い説明文 | [optional] 
 **extra** | **map[string,string]** | 支払いエキストラデータ | [optional] 
 **metadata** | **map[string,string]** | 支払いメタデータ | [optional] 
+**cardInfo** | [**\Elepay\Model\CardInfo**](CardInfo.md) |  | [optional] 
+**voucherNo** | **string** | プロバイダー決済伝票番号 | [optional] 
 **clientIp** | **string** | Client IP アドレス | [optional] 
 **paid** | **bool** | 支払い済みフラグ | [optional] 
 **refunded** | **bool** | 返金済みフラグ | [optional] 

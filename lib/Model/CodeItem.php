@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomerDto
+ * CodeItem
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Elepay\ObjectSerializer;
 
 /**
- * CustomerDto Class Doc Comment
+ * CodeItem Class Doc Comment
  *
  * @category Class
- * @description カスタマオブジェクト
+ * @description 商品情報
  * @package  Elepay
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class CustomerDto implements ModelInterface, ArrayAccess
+class CodeItem implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CustomerDto implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CustomerDto';
+    protected static $openAPIModelName = 'CodeItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,11 +58,10 @@ class CustomerDto implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'object' => 'string',
-        'liveMode' => 'bool',
-        'description' => 'string',
-        'metadata' => 'map[string,string]'
+        'name' => 'string',
+        'image' => 'string',
+        'price' => 'int',
+        'count' => 'int'
     ];
 
     /**
@@ -71,11 +70,10 @@ class CustomerDto implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'object' => null,
-        'liveMode' => null,
-        'description' => null,
-        'metadata' => null
+        'name' => null,
+        'image' => null,
+        'price' => null,
+        'count' => null
     ];
 
     /**
@@ -105,11 +103,10 @@ class CustomerDto implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'object' => 'object',
-        'liveMode' => 'liveMode',
-        'description' => 'description',
-        'metadata' => 'metadata'
+        'name' => 'name',
+        'image' => 'image',
+        'price' => 'price',
+        'count' => 'count'
     ];
 
     /**
@@ -118,11 +115,10 @@ class CustomerDto implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'object' => 'setObject',
-        'liveMode' => 'setLiveMode',
-        'description' => 'setDescription',
-        'metadata' => 'setMetadata'
+        'name' => 'setName',
+        'image' => 'setImage',
+        'price' => 'setPrice',
+        'count' => 'setCount'
     ];
 
     /**
@@ -131,11 +127,10 @@ class CustomerDto implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'object' => 'getObject',
-        'liveMode' => 'getLiveMode',
-        'description' => 'getDescription',
-        'metadata' => 'getMetadata'
+        'name' => 'getName',
+        'image' => 'getImage',
+        'price' => 'getPrice',
+        'count' => 'getCount'
     ];
 
     /**
@@ -198,11 +193,10 @@ class CustomerDto implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['object'] = isset($data['object']) ? $data['object'] : 'customer';
-        $this->container['liveMode'] = isset($data['liveMode']) ? $data['liveMode'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['image'] = isset($data['image']) ? $data['image'] : null;
+        $this->container['price'] = isset($data['price']) ? $data['price'] : null;
+        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
     }
 
     /**
@@ -214,6 +208,19 @@ class CustomerDto implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if (!is_null($this->container['image']) && !preg_match("/https?:\/\/[-A-Za-z0-9+&@#\/%?=~_|!:,.;]+[-A-Za-z0-9+&@#\/%=~_|]/", $this->container['image'])) {
+            $invalidProperties[] = "invalid value for 'image', must be conform to the pattern /https?:\/\/[-A-Za-z0-9+&@#\/%?=~_|!:,.;]+[-A-Za-z0-9+&@#\/%=~_|]/.";
+        }
+
+        if ($this->container['price'] === null) {
+            $invalidProperties[] = "'price' can't be null";
+        }
+        if ($this->container['count'] === null) {
+            $invalidProperties[] = "'count' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -230,121 +237,102 @@ class CustomerDto implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name 商品の名前
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets image
      *
      * @return string|null
      */
-    public function getId()
+    public function getImage()
     {
-        return $this->container['id'];
+        return $this->container['image'];
     }
 
     /**
-     * Sets id
+     * Sets image
      *
-     * @param string|null $id Charge ID
+     * @param string|null $image 商品の画像URL
      *
      * @return $this
      */
-    public function setId($id)
+    public function setImage($image)
     {
-        $this->container['id'] = $id;
+
+        if (!is_null($image) && (!preg_match("/https?:\/\/[-A-Za-z0-9+&@#\/%?=~_|!:,.;]+[-A-Za-z0-9+&@#\/%=~_|]/", $image))) {
+            throw new \InvalidArgumentException("invalid value for $image when calling CodeItem., must conform to the pattern /https?:\/\/[-A-Za-z0-9+&@#\/%?=~_|!:,.;]+[-A-Za-z0-9+&@#\/%=~_|]/.");
+        }
+
+        $this->container['image'] = $image;
 
         return $this;
     }
 
     /**
-     * Gets object
+     * Gets price
      *
-     * @return string|null
+     * @return int
      */
-    public function getObject()
+    public function getPrice()
     {
-        return $this->container['object'];
+        return $this->container['price'];
     }
 
     /**
-     * Sets object
+     * Sets price
      *
-     * @param string|null $object 対象種類の表記
+     * @param int $price 各商品の決済金額
      *
      * @return $this
      */
-    public function setObject($object)
+    public function setPrice($price)
     {
-        $this->container['object'] = $object;
+        $this->container['price'] = $price;
 
         return $this;
     }
 
     /**
-     * Gets liveMode
+     * Gets count
      *
-     * @return bool|null
+     * @return int
      */
-    public function getLiveMode()
+    public function getCount()
     {
-        return $this->container['liveMode'];
+        return $this->container['count'];
     }
 
     /**
-     * Sets liveMode
+     * Sets count
      *
-     * @param bool|null $liveMode 本番モードかどうか - false テストモード - true 本番モード
+     * @param int $count 商品数
      *
      * @return $this
      */
-    public function setLiveMode($liveMode)
+    public function setCount($count)
     {
-        $this->container['liveMode'] = $liveMode;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description カスタマに関する説明
-     *
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return map[string,string]|null
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param map[string,string]|null $metadata 支払いメタデータ
-     *
-     * @return $this
-     */
-    public function setMetadata($metadata)
-    {
-        $this->container['metadata'] = $metadata;
+        $this->container['count'] = $count;
 
         return $this;
     }

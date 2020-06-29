@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **description** | **string** | 支払いオブジェクトの「決済に関する説明」 | [optional] 
 **metadata** | **map[string,string]** | 支払いオブジェクトの「メタデータ」 | [optional] 
 **expiryDuration** | **int** | EasyQRコード有効期限(分) 最小:3分、最大:30分、デフォルト:10分 | [optional] 
+**frontUrl** | **string** | EasyCheckout決済が完了したあとの、戻り先ページのURL | [optional] 
+**items** | [**\Elepay\Model\CodeItem[]**](CodeItem.md) | 商品に関する情報 | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
