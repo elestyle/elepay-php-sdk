@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | Charge ID | [optional] 
+**appId** | **string** | App ID | [optional] 
 **object** | **string** | 対象種類の表記 | [optional] [default to 'charge']
 **liveMode** | **bool** | 本番モードかどうか - false テストモード - true 本番モード | [optional] 
 **amount** | **int** | 支払い金額 | [optional] 

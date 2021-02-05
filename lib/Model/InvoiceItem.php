@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomerReq
+ * InvoiceItem
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Elepay\ObjectSerializer;
 
 /**
- * CustomerReq Class Doc Comment
+ * InvoiceItem Class Doc Comment
  *
  * @category Class
- * @description カスタマリクエスト
+ * @description インボイスオブジェクト
  * @package  Elepay
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class CustomerReq implements ModelInterface, ArrayAccess
+class InvoiceItem implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CustomerReq implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CustomerReq';
+    protected static $openAPIModelName = 'InvoiceItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,13 +58,12 @@ class CustomerReq implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'defaultSource' => 'string',
+        'id' => 'string',
+        'object' => 'string',
         'name' => 'string',
-        'description' => 'string',
-        'email' => 'string',
-        'phone' => 'string',
-        'remark' => 'string',
-        'metadata' => 'map[string,string]'
+        'unitPrice' => 'int',
+        'currency' => 'string',
+        'quantity' => 'int'
     ];
 
     /**
@@ -73,13 +72,12 @@ class CustomerReq implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'defaultSource' => null,
+        'id' => null,
+        'object' => null,
         'name' => null,
-        'description' => null,
-        'email' => null,
-        'phone' => null,
-        'remark' => null,
-        'metadata' => null
+        'unitPrice' => null,
+        'currency' => null,
+        'quantity' => null
     ];
 
     /**
@@ -109,13 +107,12 @@ class CustomerReq implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'defaultSource' => 'defaultSource',
+        'id' => 'id',
+        'object' => 'object',
         'name' => 'name',
-        'description' => 'description',
-        'email' => 'email',
-        'phone' => 'phone',
-        'remark' => 'remark',
-        'metadata' => 'metadata'
+        'unitPrice' => 'unitPrice',
+        'currency' => 'currency',
+        'quantity' => 'quantity'
     ];
 
     /**
@@ -124,13 +121,12 @@ class CustomerReq implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'defaultSource' => 'setDefaultSource',
+        'id' => 'setId',
+        'object' => 'setObject',
         'name' => 'setName',
-        'description' => 'setDescription',
-        'email' => 'setEmail',
-        'phone' => 'setPhone',
-        'remark' => 'setRemark',
-        'metadata' => 'setMetadata'
+        'unitPrice' => 'setUnitPrice',
+        'currency' => 'setCurrency',
+        'quantity' => 'setQuantity'
     ];
 
     /**
@@ -139,13 +135,12 @@ class CustomerReq implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'defaultSource' => 'getDefaultSource',
+        'id' => 'getId',
+        'object' => 'getObject',
         'name' => 'getName',
-        'description' => 'getDescription',
-        'email' => 'getEmail',
-        'phone' => 'getPhone',
-        'remark' => 'getRemark',
-        'metadata' => 'getMetadata'
+        'unitPrice' => 'getUnitPrice',
+        'currency' => 'getCurrency',
+        'quantity' => 'getQuantity'
     ];
 
     /**
@@ -208,13 +203,12 @@ class CustomerReq implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['defaultSource'] = isset($data['defaultSource']) ? $data['defaultSource'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['object'] = isset($data['object']) ? $data['object'] : 'invoiceItem';
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
-        $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
-        $this->container['remark'] = isset($data['remark']) ? $data['remark'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['unitPrice'] = isset($data['unitPrice']) ? $data['unitPrice'] : null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : 'JPY';
+        $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
     }
 
     /**
@@ -242,25 +236,49 @@ class CustomerReq implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets defaultSource
+     * Gets id
      *
      * @return string|null
      */
-    public function getDefaultSource()
+    public function getId()
     {
-        return $this->container['defaultSource'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets defaultSource
+     * Sets id
      *
-     * @param string|null $defaultSource デフォルトカスタマソースID
+     * @param string|null $id Invoice Item ID
      *
      * @return $this
      */
-    public function setDefaultSource($defaultSource)
+    public function setId($id)
     {
-        $this->container['defaultSource'] = $defaultSource;
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets object
+     *
+     * @return string|null
+     */
+    public function getObject()
+    {
+        return $this->container['object'];
+    }
+
+    /**
+     * Sets object
+     *
+     * @param string|null $object 対象種類の表記
+     *
+     * @return $this
+     */
+    public function setObject($object)
+    {
+        $this->container['object'] = $object;
 
         return $this;
     }
@@ -278,7 +296,7 @@ class CustomerReq implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name 名前
+     * @param string|null $name 商品名
      *
      * @return $this
      */
@@ -290,121 +308,73 @@ class CustomerReq implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets description
+     * Gets unitPrice
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getDescription()
+    public function getUnitPrice()
     {
-        return $this->container['description'];
+        return $this->container['unitPrice'];
     }
 
     /**
-     * Sets description
+     * Sets unitPrice
      *
-     * @param string|null $description カスタマに関する説明
+     * @param int|null $unitPrice 単価
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setUnitPrice($unitPrice)
     {
-        $this->container['description'] = $description;
+        $this->container['unitPrice'] = $unitPrice;
 
         return $this;
     }
 
     /**
-     * Gets email
+     * Gets currency
      *
      * @return string|null
      */
-    public function getEmail()
+    public function getCurrency()
     {
-        return $this->container['email'];
+        return $this->container['currency'];
     }
 
     /**
-     * Sets email
+     * Sets currency
      *
-     * @param string|null $email メールアドレス
+     * @param string|null $currency currency code
      *
      * @return $this
      */
-    public function setEmail($email)
+    public function setCurrency($currency)
     {
-        $this->container['email'] = $email;
+        $this->container['currency'] = $currency;
 
         return $this;
     }
 
     /**
-     * Gets phone
+     * Gets quantity
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getPhone()
+    public function getQuantity()
     {
-        return $this->container['phone'];
+        return $this->container['quantity'];
     }
 
     /**
-     * Sets phone
+     * Sets quantity
      *
-     * @param string|null $phone 電話番号
+     * @param int|null $quantity 件数
      *
      * @return $this
      */
-    public function setPhone($phone)
+    public function setQuantity($quantity)
     {
-        $this->container['phone'] = $phone;
-
-        return $this;
-    }
-
-    /**
-     * Gets remark
-     *
-     * @return string|null
-     */
-    public function getRemark()
-    {
-        return $this->container['remark'];
-    }
-
-    /**
-     * Sets remark
-     *
-     * @param string|null $remark 備考
-     *
-     * @return $this
-     */
-    public function setRemark($remark)
-    {
-        $this->container['remark'] = $remark;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return map[string,string]|null
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param map[string,string]|null $metadata メタデータ
-     *
-     * @return $this
-     */
-    public function setMetadata($metadata)
-    {
-        $this->container['metadata'] = $metadata;
+        $this->container['quantity'] = $quantity;
 
         return $this;
     }

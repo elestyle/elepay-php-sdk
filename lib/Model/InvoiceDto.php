@@ -1,6 +1,6 @@
 <?php
 /**
- * SourceDto
+ * InvoiceDto
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Elepay\ObjectSerializer;
 
 /**
- * SourceDto Class Doc Comment
+ * InvoiceDto Class Doc Comment
  *
  * @category Class
- * @description カスタマソースオブジェクト
+ * @description インボイスオブジェクト
  * @package  Elepay
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class SourceDto implements ModelInterface, ArrayAccess
+class InvoiceDto implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SourceDto implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SourceDto';
+    protected static $openAPIModelName = 'InvoiceDto';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -61,15 +61,19 @@ class SourceDto implements ModelInterface, ArrayAccess
         'id' => 'string',
         'object' => 'string',
         'liveMode' => 'bool',
-        'paymentMethod' => '\Elepay\Model\PaymentMethodType',
-        'resource' => '\Elepay\Model\ResourceType',
-        'description' => 'string',
-        'extra' => 'map[string,string]',
-        'info' => 'map[string,object]',
-        'cardInfo' => '\Elepay\Model\CardInfo',
-        'metadata' => 'map[string,string]',
-        'credential' => 'string',
-        'status' => '\Elepay\Model\SourceStatusType'
+        'customer' => '\Elepay\Model\CustomerDto',
+        'invoiceNo' => 'string',
+        'amount' => 'int',
+        'currency' => 'string',
+        'status' => '\Elepay\Model\InvoiceStatusType',
+        'operator' => 'string',
+        'submitTime' => 'int',
+        'paidTime' => 'int',
+        'expiryTime' => 'int',
+        'createTime' => 'int',
+        'items' => '\Elepay\Model\InvoiceItem[]',
+        'remark' => 'string',
+        'metadata' => 'map[string,string]'
     ];
 
     /**
@@ -81,15 +85,19 @@ class SourceDto implements ModelInterface, ArrayAccess
         'id' => null,
         'object' => null,
         'liveMode' => null,
-        'paymentMethod' => null,
-        'resource' => null,
-        'description' => null,
-        'extra' => null,
-        'info' => null,
-        'cardInfo' => null,
-        'metadata' => null,
-        'credential' => null,
-        'status' => null
+        'customer' => null,
+        'invoiceNo' => null,
+        'amount' => null,
+        'currency' => null,
+        'status' => null,
+        'operator' => null,
+        'submitTime' => 'int64',
+        'paidTime' => 'int64',
+        'expiryTime' => 'int64',
+        'createTime' => 'int64',
+        'items' => null,
+        'remark' => null,
+        'metadata' => null
     ];
 
     /**
@@ -122,15 +130,19 @@ class SourceDto implements ModelInterface, ArrayAccess
         'id' => 'id',
         'object' => 'object',
         'liveMode' => 'liveMode',
-        'paymentMethod' => 'paymentMethod',
-        'resource' => 'resource',
-        'description' => 'description',
-        'extra' => 'extra',
-        'info' => 'info',
-        'cardInfo' => 'cardInfo',
-        'metadata' => 'metadata',
-        'credential' => 'credential',
-        'status' => 'status'
+        'customer' => 'customer',
+        'invoiceNo' => 'invoiceNo',
+        'amount' => 'amount',
+        'currency' => 'currency',
+        'status' => 'status',
+        'operator' => 'operator',
+        'submitTime' => 'submitTime',
+        'paidTime' => 'paidTime',
+        'expiryTime' => 'expiryTime',
+        'createTime' => 'createTime',
+        'items' => 'items',
+        'remark' => 'remark',
+        'metadata' => 'metadata'
     ];
 
     /**
@@ -142,15 +154,19 @@ class SourceDto implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'object' => 'setObject',
         'liveMode' => 'setLiveMode',
-        'paymentMethod' => 'setPaymentMethod',
-        'resource' => 'setResource',
-        'description' => 'setDescription',
-        'extra' => 'setExtra',
-        'info' => 'setInfo',
-        'cardInfo' => 'setCardInfo',
-        'metadata' => 'setMetadata',
-        'credential' => 'setCredential',
-        'status' => 'setStatus'
+        'customer' => 'setCustomer',
+        'invoiceNo' => 'setInvoiceNo',
+        'amount' => 'setAmount',
+        'currency' => 'setCurrency',
+        'status' => 'setStatus',
+        'operator' => 'setOperator',
+        'submitTime' => 'setSubmitTime',
+        'paidTime' => 'setPaidTime',
+        'expiryTime' => 'setExpiryTime',
+        'createTime' => 'setCreateTime',
+        'items' => 'setItems',
+        'remark' => 'setRemark',
+        'metadata' => 'setMetadata'
     ];
 
     /**
@@ -162,15 +178,19 @@ class SourceDto implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'object' => 'getObject',
         'liveMode' => 'getLiveMode',
-        'paymentMethod' => 'getPaymentMethod',
-        'resource' => 'getResource',
-        'description' => 'getDescription',
-        'extra' => 'getExtra',
-        'info' => 'getInfo',
-        'cardInfo' => 'getCardInfo',
-        'metadata' => 'getMetadata',
-        'credential' => 'getCredential',
-        'status' => 'getStatus'
+        'customer' => 'getCustomer',
+        'invoiceNo' => 'getInvoiceNo',
+        'amount' => 'getAmount',
+        'currency' => 'getCurrency',
+        'status' => 'getStatus',
+        'operator' => 'getOperator',
+        'submitTime' => 'getSubmitTime',
+        'paidTime' => 'getPaidTime',
+        'expiryTime' => 'getExpiryTime',
+        'createTime' => 'getCreateTime',
+        'items' => 'getItems',
+        'remark' => 'getRemark',
+        'metadata' => 'getMetadata'
     ];
 
     /**
@@ -234,17 +254,21 @@ class SourceDto implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['object'] = isset($data['object']) ? $data['object'] : 'source';
+        $this->container['object'] = isset($data['object']) ? $data['object'] : 'invoice';
         $this->container['liveMode'] = isset($data['liveMode']) ? $data['liveMode'] : null;
-        $this->container['paymentMethod'] = isset($data['paymentMethod']) ? $data['paymentMethod'] : null;
-        $this->container['resource'] = isset($data['resource']) ? $data['resource'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['extra'] = isset($data['extra']) ? $data['extra'] : null;
-        $this->container['info'] = isset($data['info']) ? $data['info'] : null;
-        $this->container['cardInfo'] = isset($data['cardInfo']) ? $data['cardInfo'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['credential'] = isset($data['credential']) ? $data['credential'] : null;
+        $this->container['customer'] = isset($data['customer']) ? $data['customer'] : null;
+        $this->container['invoiceNo'] = isset($data['invoiceNo']) ? $data['invoiceNo'] : null;
+        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : 'JPY';
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['operator'] = isset($data['operator']) ? $data['operator'] : null;
+        $this->container['submitTime'] = isset($data['submitTime']) ? $data['submitTime'] : null;
+        $this->container['paidTime'] = isset($data['paidTime']) ? $data['paidTime'] : null;
+        $this->container['expiryTime'] = isset($data['expiryTime']) ? $data['expiryTime'] : null;
+        $this->container['createTime'] = isset($data['createTime']) ? $data['createTime'] : null;
+        $this->container['items'] = isset($data['items']) ? $data['items'] : null;
+        $this->container['remark'] = isset($data['remark']) ? $data['remark'] : null;
+        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
     }
 
     /**
@@ -284,7 +308,7 @@ class SourceDto implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string|null $id Source ID
+     * @param string|null $id Invoice ID
      *
      * @return $this
      */
@@ -344,145 +368,289 @@ class SourceDto implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets paymentMethod
+     * Gets customer
      *
-     * @return \Elepay\Model\PaymentMethodType|null
+     * @return \Elepay\Model\CustomerDto|null
      */
-    public function getPaymentMethod()
+    public function getCustomer()
     {
-        return $this->container['paymentMethod'];
+        return $this->container['customer'];
     }
 
     /**
-     * Sets paymentMethod
+     * Sets customer
      *
-     * @param \Elepay\Model\PaymentMethodType|null $paymentMethod paymentMethod
+     * @param \Elepay\Model\CustomerDto|null $customer customer
      *
      * @return $this
      */
-    public function setPaymentMethod($paymentMethod)
+    public function setCustomer($customer)
     {
-        $this->container['paymentMethod'] = $paymentMethod;
+        $this->container['customer'] = $customer;
 
         return $this;
     }
 
     /**
-     * Gets resource
-     *
-     * @return \Elepay\Model\ResourceType|null
-     */
-    public function getResource()
-    {
-        return $this->container['resource'];
-    }
-
-    /**
-     * Sets resource
-     *
-     * @param \Elepay\Model\ResourceType|null $resource resource
-     *
-     * @return $this
-     */
-    public function setResource($resource)
-    {
-        $this->container['resource'] = $resource;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
+     * Gets invoiceNo
      *
      * @return string|null
      */
-    public function getDescription()
+    public function getInvoiceNo()
     {
-        return $this->container['description'];
+        return $this->container['invoiceNo'];
     }
 
     /**
-     * Sets description
+     * Sets invoiceNo
      *
-     * @param string|null $description カスタマソースに関する説明
+     * @param string|null $invoiceNo Invoice Number
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setInvoiceNo($invoiceNo)
     {
-        $this->container['description'] = $description;
+        $this->container['invoiceNo'] = $invoiceNo;
 
         return $this;
     }
 
     /**
-     * Gets extra
+     * Gets amount
      *
-     * @return map[string,string]|null
+     * @return int|null
      */
-    public function getExtra()
+    public function getAmount()
     {
-        return $this->container['extra'];
+        return $this->container['amount'];
     }
 
     /**
-     * Sets extra
+     * Sets amount
      *
-     * @param map[string,string]|null $extra カスタマソースエキストラデータ
+     * @param int|null $amount payment amount
      *
      * @return $this
      */
-    public function setExtra($extra)
+    public function setAmount($amount)
     {
-        $this->container['extra'] = $extra;
+        $this->container['amount'] = $amount;
 
         return $this;
     }
 
     /**
-     * Gets info
+     * Gets currency
      *
-     * @return map[string,object]|null
+     * @return string|null
      */
-    public function getInfo()
+    public function getCurrency()
     {
-        return $this->container['info'];
+        return $this->container['currency'];
     }
 
     /**
-     * Sets info
+     * Sets currency
      *
-     * @param map[string,object]|null $info カスタマソース情報
+     * @param string|null $currency currency code
      *
      * @return $this
      */
-    public function setInfo($info)
+    public function setCurrency($currency)
     {
-        $this->container['info'] = $info;
+        $this->container['currency'] = $currency;
 
         return $this;
     }
 
     /**
-     * Gets cardInfo
+     * Gets status
      *
-     * @return \Elepay\Model\CardInfo|null
+     * @return \Elepay\Model\InvoiceStatusType|null
      */
-    public function getCardInfo()
+    public function getStatus()
     {
-        return $this->container['cardInfo'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets cardInfo
+     * Sets status
      *
-     * @param \Elepay\Model\CardInfo|null $cardInfo cardInfo
+     * @param \Elepay\Model\InvoiceStatusType|null $status status
      *
      * @return $this
      */
-    public function setCardInfo($cardInfo)
+    public function setStatus($status)
     {
-        $this->container['cardInfo'] = $cardInfo;
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets operator
+     *
+     * @return string|null
+     */
+    public function getOperator()
+    {
+        return $this->container['operator'];
+    }
+
+    /**
+     * Sets operator
+     *
+     * @param string|null $operator 操作者
+     *
+     * @return $this
+     */
+    public function setOperator($operator)
+    {
+        $this->container['operator'] = $operator;
+
+        return $this;
+    }
+
+    /**
+     * Gets submitTime
+     *
+     * @return int|null
+     */
+    public function getSubmitTime()
+    {
+        return $this->container['submitTime'];
+    }
+
+    /**
+     * Sets submitTime
+     *
+     * @param int|null $submitTime create time
+     *
+     * @return $this
+     */
+    public function setSubmitTime($submitTime)
+    {
+        $this->container['submitTime'] = $submitTime;
+
+        return $this;
+    }
+
+    /**
+     * Gets paidTime
+     *
+     * @return int|null
+     */
+    public function getPaidTime()
+    {
+        return $this->container['paidTime'];
+    }
+
+    /**
+     * Sets paidTime
+     *
+     * @param int|null $paidTime paid time
+     *
+     * @return $this
+     */
+    public function setPaidTime($paidTime)
+    {
+        $this->container['paidTime'] = $paidTime;
+
+        return $this;
+    }
+
+    /**
+     * Gets expiryTime
+     *
+     * @return int|null
+     */
+    public function getExpiryTime()
+    {
+        return $this->container['expiryTime'];
+    }
+
+    /**
+     * Sets expiryTime
+     *
+     * @param int|null $expiryTime expiry time
+     *
+     * @return $this
+     */
+    public function setExpiryTime($expiryTime)
+    {
+        $this->container['expiryTime'] = $expiryTime;
+
+        return $this;
+    }
+
+    /**
+     * Gets createTime
+     *
+     * @return int|null
+     */
+    public function getCreateTime()
+    {
+        return $this->container['createTime'];
+    }
+
+    /**
+     * Sets createTime
+     *
+     * @param int|null $createTime create time
+     *
+     * @return $this
+     */
+    public function setCreateTime($createTime)
+    {
+        $this->container['createTime'] = $createTime;
+
+        return $this;
+    }
+
+    /**
+     * Gets items
+     *
+     * @return \Elepay\Model\InvoiceItem[]|null
+     */
+    public function getItems()
+    {
+        return $this->container['items'];
+    }
+
+    /**
+     * Sets items
+     *
+     * @param \Elepay\Model\InvoiceItem[]|null $items items
+     *
+     * @return $this
+     */
+    public function setItems($items)
+    {
+        $this->container['items'] = $items;
+
+        return $this;
+    }
+
+    /**
+     * Gets remark
+     *
+     * @return string|null
+     */
+    public function getRemark()
+    {
+        return $this->container['remark'];
+    }
+
+    /**
+     * Sets remark
+     *
+     * @param string|null $remark 備考
+     *
+     * @return $this
+     */
+    public function setRemark($remark)
+    {
+        $this->container['remark'] = $remark;
 
         return $this;
     }
@@ -500,61 +668,13 @@ class SourceDto implements ModelInterface, ArrayAccess
     /**
      * Sets metadata
      *
-     * @param map[string,string]|null $metadata 支払いメタデータ
+     * @param map[string,string]|null $metadata メタデータ
      *
      * @return $this
      */
     public function setMetadata($metadata)
     {
         $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets credential
-     *
-     * @return string|null
-     */
-    public function getCredential()
-    {
-        return $this->container['credential'];
-    }
-
-    /**
-     * Sets credential
-     *
-     * @param string|null $credential Client SDK の認証情報
-     *
-     * @return $this
-     */
-    public function setCredential($credential)
-    {
-        $this->container['credential'] = $credential;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return \Elepay\Model\SourceStatusType|null
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param \Elepay\Model\SourceStatusType|null $status status
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
 
         return $this;
     }

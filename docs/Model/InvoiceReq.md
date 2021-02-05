@@ -1,14 +1,14 @@
-# # CustomerReq
+# # InvoiceReq
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**defaultSource** | **string** | デフォルトカスタマソースID | [optional] 
-**name** | **string** | 名前 | [optional] 
-**description** | **string** | カスタマに関する説明 | [optional] 
-**email** | **string** | メールアドレス | [optional] 
-**phone** | **string** | 電話番号 | [optional] 
+**customerId** | **string** | customer id | [optional] 
+**amount** | **int** | payment amount | [optional] 
+**currency** | **string** | currency code | [optional] [default to 'JPY']
+**expiryTime** | **int** | expiry time | [optional] 
+**items** | [**\Elepay\Model\InvoiceItem[]**](InvoiceItem.md) |  | [optional] 
 **remark** | **string** | 備考 | [optional] 
 **metadata** | **map[string,string]** | メタデータ | [optional] 
 

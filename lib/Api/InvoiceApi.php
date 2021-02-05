@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomerApi
+ * InvoiceApi
  * PHP version 5
  *
  * @category Class
@@ -40,14 +40,14 @@ use Elepay\HeaderSelector;
 use Elepay\ObjectSerializer;
 
 /**
- * CustomerApi Class Doc Comment
+ * InvoiceApi Class Doc Comment
  *
  * @category Class
  * @package  Elepay
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class CustomerApi
+class InvoiceApi
 {
     /**
      * @var ClientInterface
@@ -116,36 +116,36 @@ class CustomerApi
     }
 
     /**
-     * Operation createCustomer
+     * Operation cancelInvoice
      *
-     * Create customer
+     * cancel invoice
      *
-     * @param  \Elepay\Model\CustomerReq $customerReq カスタマリクエスト (required)
+     * @param  string $invoiceId Invoice ID (required)
      *
      * @throws \Elepay\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Elepay\Model\CustomerDto
+     * @return \Elepay\Model\InvoiceDto
      */
-    public function createCustomer($customerReq)
+    public function cancelInvoice($invoiceId)
     {
-        list($response) = $this->createCustomerWithHttpInfo($customerReq);
+        list($response) = $this->cancelInvoiceWithHttpInfo($invoiceId);
         return $response;
     }
 
     /**
-     * Operation createCustomerWithHttpInfo
+     * Operation cancelInvoiceWithHttpInfo
      *
-     * Create customer
+     * cancel invoice
      *
-     * @param  \Elepay\Model\CustomerReq $customerReq カスタマリクエスト (required)
+     * @param  string $invoiceId Invoice ID (required)
      *
      * @throws \Elepay\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Elepay\Model\CustomerDto, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Elepay\Model\InvoiceDto, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCustomerWithHttpInfo($customerReq)
+    public function cancelInvoiceWithHttpInfo($invoiceId)
     {
-        $request = $this->createCustomerRequest($customerReq);
+        $request = $this->cancelInvoiceRequest($invoiceId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -177,21 +177,21 @@ class CustomerApi
 
             $responseBody = $response->getBody();
             switch($statusCode) {
-                case 201:
-                    if ('\Elepay\Model\CustomerDto' === '\SplFileObject') {
+                case 200:
+                    if ('\Elepay\Model\InvoiceDto' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Elepay\Model\CustomerDto', []),
+                        ObjectSerializer::deserialize($content, '\Elepay\Model\InvoiceDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Elepay\Model\CustomerDto';
+            $returnType = '\Elepay\Model\InvoiceDto';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -207,10 +207,10 @@ class CustomerApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 201:
+                case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Elepay\Model\CustomerDto',
+                        '\Elepay\Model\InvoiceDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -221,18 +221,18 @@ class CustomerApi
     }
 
     /**
-     * Operation createCustomerAsync
+     * Operation cancelInvoiceAsync
      *
-     * Create customer
+     * cancel invoice
      *
-     * @param  \Elepay\Model\CustomerReq $customerReq カスタマリクエスト (required)
+     * @param  string $invoiceId Invoice ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCustomerAsync($customerReq)
+    public function cancelInvoiceAsync($invoiceId)
     {
-        return $this->createCustomerAsyncWithHttpInfo($customerReq)
+        return $this->cancelInvoiceAsyncWithHttpInfo($invoiceId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -241,19 +241,19 @@ class CustomerApi
     }
 
     /**
-     * Operation createCustomerAsyncWithHttpInfo
+     * Operation cancelInvoiceAsyncWithHttpInfo
      *
-     * Create customer
+     * cancel invoice
      *
-     * @param  \Elepay\Model\CustomerReq $customerReq カスタマリクエスト (required)
+     * @param  string $invoiceId Invoice ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCustomerAsyncWithHttpInfo($customerReq)
+    public function cancelInvoiceAsyncWithHttpInfo($invoiceId)
     {
-        $returnType = '\Elepay\Model\CustomerDto';
-        $request = $this->createCustomerRequest($customerReq);
+        $returnType = '\Elepay\Model\InvoiceDto';
+        $request = $this->cancelInvoiceRequest($invoiceId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -290,305 +290,23 @@ class CustomerApi
     }
 
     /**
-     * Create request for operation 'createCustomer'
+     * Create request for operation 'cancelInvoice'
      *
-     * @param  \Elepay\Model\CustomerReq $customerReq カスタマリクエスト (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function createCustomerRequest($customerReq)
-    {
-        // verify the required parameter 'customerReq' is set
-        if ($customerReq === null || (is_array($customerReq) && count($customerReq) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $customerReq when calling createCustomer'
-            );
-        }
-
-        $resourcePath = '/customers';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // body params
-        $_tempBody = null;
-        if (isset($customerReq)) {
-            $_tempBody = $customerReq;
-        }
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json;charset=utf-8']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json;charset=utf-8'],
-                ['application/json;charset=utf-8']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation createSource
-     *
-     * Create source
-     *
-     * @param  string $customerId Customer ID (required)
-     * @param  \Elepay\Model\SourceReq $sourceReq カスタマソースリクエスト (required)
-     *
-     * @throws \Elepay\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Elepay\Model\SourceDto
-     */
-    public function createSource($customerId, $sourceReq)
-    {
-        list($response) = $this->createSourceWithHttpInfo($customerId, $sourceReq);
-        return $response;
-    }
-
-    /**
-     * Operation createSourceWithHttpInfo
-     *
-     * Create source
-     *
-     * @param  string $customerId Customer ID (required)
-     * @param  \Elepay\Model\SourceReq $sourceReq カスタマソースリクエスト (required)
-     *
-     * @throws \Elepay\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Elepay\Model\SourceDto, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function createSourceWithHttpInfo($customerId, $sourceReq)
-    {
-        $request = $this->createSourceRequest($customerId, $sourceReq);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 201:
-                    if ('\Elepay\Model\SourceDto' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Elepay\Model\SourceDto', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Elepay\Model\SourceDto';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Elepay\Model\SourceDto',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation createSourceAsync
-     *
-     * Create source
-     *
-     * @param  string $customerId Customer ID (required)
-     * @param  \Elepay\Model\SourceReq $sourceReq カスタマソースリクエスト (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function createSourceAsync($customerId, $sourceReq)
-    {
-        return $this->createSourceAsyncWithHttpInfo($customerId, $sourceReq)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation createSourceAsyncWithHttpInfo
-     *
-     * Create source
-     *
-     * @param  string $customerId Customer ID (required)
-     * @param  \Elepay\Model\SourceReq $sourceReq カスタマソースリクエスト (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function createSourceAsyncWithHttpInfo($customerId, $sourceReq)
-    {
-        $returnType = '\Elepay\Model\SourceDto';
-        $request = $this->createSourceRequest($customerId, $sourceReq);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'createSource'
-     *
-     * @param  string $customerId Customer ID (required)
-     * @param  \Elepay\Model\SourceReq $sourceReq カスタマソースリクエスト (required)
+     * @param  string $invoiceId Invoice ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createSourceRequest($customerId, $sourceReq)
+    protected function cancelInvoiceRequest($invoiceId)
     {
-        // verify the required parameter 'customerId' is set
-        if ($customerId === null || (is_array($customerId) && count($customerId) === 0)) {
+        // verify the required parameter 'invoiceId' is set
+        if ($invoiceId === null || (is_array($invoiceId) && count($invoiceId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $customerId when calling createSource'
-            );
-        }
-        // verify the required parameter 'sourceReq' is set
-        if ($sourceReq === null || (is_array($sourceReq) && count($sourceReq) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $sourceReq when calling createSource'
+                'Missing the required parameter $invoiceId when calling cancelInvoice'
             );
         }
 
-        $resourcePath = '/customers/{customerId}/sources';
+        $resourcePath = '/invoices/{invoiceId}/cancel';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -597,18 +315,286 @@ class CustomerApi
 
 
         // path params
-        if ($customerId !== null) {
+        if ($invoiceId !== null) {
             $resourcePath = str_replace(
-                '{' . 'customerId' . '}',
-                ObjectSerializer::toPathValue($customerId),
+                '{' . 'invoiceId' . '}',
+                ObjectSerializer::toPathValue($invoiceId),
                 $resourcePath
             );
         }
 
         // body params
         $_tempBody = null;
-        if (isset($sourceReq)) {
-            $_tempBody = $sourceReq;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json;charset=utf-8']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json;charset=utf-8'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation createInvoice
+     *
+     * Create invoice
+     *
+     * @param  \Elepay\Model\InvoiceReq $invoiceReq インボイスリクエスト (required)
+     *
+     * @throws \Elepay\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Elepay\Model\InvoiceDto
+     */
+    public function createInvoice($invoiceReq)
+    {
+        list($response) = $this->createInvoiceWithHttpInfo($invoiceReq);
+        return $response;
+    }
+
+    /**
+     * Operation createInvoiceWithHttpInfo
+     *
+     * Create invoice
+     *
+     * @param  \Elepay\Model\InvoiceReq $invoiceReq インボイスリクエスト (required)
+     *
+     * @throws \Elepay\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Elepay\Model\InvoiceDto, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createInvoiceWithHttpInfo($invoiceReq)
+    {
+        $request = $this->createInvoiceRequest($invoiceReq);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 201:
+                    if ('\Elepay\Model\InvoiceDto' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Elepay\Model\InvoiceDto', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Elepay\Model\InvoiceDto';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Elepay\Model\InvoiceDto',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createInvoiceAsync
+     *
+     * Create invoice
+     *
+     * @param  \Elepay\Model\InvoiceReq $invoiceReq インボイスリクエスト (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createInvoiceAsync($invoiceReq)
+    {
+        return $this->createInvoiceAsyncWithHttpInfo($invoiceReq)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createInvoiceAsyncWithHttpInfo
+     *
+     * Create invoice
+     *
+     * @param  \Elepay\Model\InvoiceReq $invoiceReq インボイスリクエスト (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createInvoiceAsyncWithHttpInfo($invoiceReq)
+    {
+        $returnType = '\Elepay\Model\InvoiceDto';
+        $request = $this->createInvoiceRequest($invoiceReq);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createInvoice'
+     *
+     * @param  \Elepay\Model\InvoiceReq $invoiceReq インボイスリクエスト (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function createInvoiceRequest($invoiceReq)
+    {
+        // verify the required parameter 'invoiceReq' is set
+        if ($invoiceReq === null || (is_array($invoiceReq) && count($invoiceReq) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $invoiceReq when calling createInvoice'
+            );
+        }
+
+        $resourcePath = '/invoices';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($invoiceReq)) {
+            $_tempBody = $invoiceReq;
         }
 
         if ($multipart) {
@@ -677,35 +663,35 @@ class CustomerApi
     }
 
     /**
-     * Operation deleteCustomer
+     * Operation deleteInvoice
      *
-     * Delete customer
+     * Delete invoice
      *
-     * @param  string $customerId Customer ID (required)
+     * @param  string $invoiceId Invoice ID (required)
      *
      * @throws \Elepay\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteCustomer($customerId)
+    public function deleteInvoice($invoiceId)
     {
-        $this->deleteCustomerWithHttpInfo($customerId);
+        $this->deleteInvoiceWithHttpInfo($invoiceId);
     }
 
     /**
-     * Operation deleteCustomerWithHttpInfo
+     * Operation deleteInvoiceWithHttpInfo
      *
-     * Delete customer
+     * Delete invoice
      *
-     * @param  string $customerId Customer ID (required)
+     * @param  string $invoiceId Invoice ID (required)
      *
      * @throws \Elepay\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteCustomerWithHttpInfo($customerId)
+    public function deleteInvoiceWithHttpInfo($invoiceId)
     {
-        $request = $this->deleteCustomerRequest($customerId);
+        $request = $this->deleteInvoiceRequest($invoiceId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -745,18 +731,18 @@ class CustomerApi
     }
 
     /**
-     * Operation deleteCustomerAsync
+     * Operation deleteInvoiceAsync
      *
-     * Delete customer
+     * Delete invoice
      *
-     * @param  string $customerId Customer ID (required)
+     * @param  string $invoiceId Invoice ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCustomerAsync($customerId)
+    public function deleteInvoiceAsync($invoiceId)
     {
-        return $this->deleteCustomerAsyncWithHttpInfo($customerId)
+        return $this->deleteInvoiceAsyncWithHttpInfo($invoiceId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -765,19 +751,19 @@ class CustomerApi
     }
 
     /**
-     * Operation deleteCustomerAsyncWithHttpInfo
+     * Operation deleteInvoiceAsyncWithHttpInfo
      *
-     * Delete customer
+     * Delete invoice
      *
-     * @param  string $customerId Customer ID (required)
+     * @param  string $invoiceId Invoice ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCustomerAsyncWithHttpInfo($customerId)
+    public function deleteInvoiceAsyncWithHttpInfo($invoiceId)
     {
         $returnType = '';
-        $request = $this->deleteCustomerRequest($customerId);
+        $request = $this->deleteInvoiceRequest($invoiceId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -803,23 +789,23 @@ class CustomerApi
     }
 
     /**
-     * Create request for operation 'deleteCustomer'
+     * Create request for operation 'deleteInvoice'
      *
-     * @param  string $customerId Customer ID (required)
+     * @param  string $invoiceId Invoice ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteCustomerRequest($customerId)
+    protected function deleteInvoiceRequest($invoiceId)
     {
-        // verify the required parameter 'customerId' is set
-        if ($customerId === null || (is_array($customerId) && count($customerId) === 0)) {
+        // verify the required parameter 'invoiceId' is set
+        if ($invoiceId === null || (is_array($invoiceId) && count($invoiceId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $customerId when calling deleteCustomer'
+                'Missing the required parameter $invoiceId when calling deleteInvoice'
             );
         }
 
-        $resourcePath = '/customers/{customerId}';
+        $resourcePath = '/invoices/{invoiceId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -828,10 +814,10 @@ class CustomerApi
 
 
         // path params
-        if ($customerId !== null) {
+        if ($invoiceId !== null) {
             $resourcePath = str_replace(
-                '{' . 'customerId' . '}',
-                ObjectSerializer::toPathValue($customerId),
+                '{' . 'invoiceId' . '}',
+                ObjectSerializer::toPathValue($invoiceId),
                 $resourcePath
             );
         }
@@ -905,287 +891,46 @@ class CustomerApi
     }
 
     /**
-     * Operation deleteSource
+     * Operation listInvoices
      *
-     * Delete source
-     *
-     * @param  string $customerId Customer ID (required)
-     * @param  string $sourceId Source ID (required)
-     *
-     * @throws \Elepay\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function deleteSource($customerId, $sourceId)
-    {
-        $this->deleteSourceWithHttpInfo($customerId, $sourceId);
-    }
-
-    /**
-     * Operation deleteSourceWithHttpInfo
-     *
-     * Delete source
-     *
-     * @param  string $customerId Customer ID (required)
-     * @param  string $sourceId Source ID (required)
-     *
-     * @throws \Elepay\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function deleteSourceWithHttpInfo($customerId, $sourceId)
-    {
-        $request = $this->deleteSourceRequest($customerId, $sourceId);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation deleteSourceAsync
-     *
-     * Delete source
-     *
-     * @param  string $customerId Customer ID (required)
-     * @param  string $sourceId Source ID (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function deleteSourceAsync($customerId, $sourceId)
-    {
-        return $this->deleteSourceAsyncWithHttpInfo($customerId, $sourceId)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation deleteSourceAsyncWithHttpInfo
-     *
-     * Delete source
-     *
-     * @param  string $customerId Customer ID (required)
-     * @param  string $sourceId Source ID (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function deleteSourceAsyncWithHttpInfo($customerId, $sourceId)
-    {
-        $returnType = '';
-        $request = $this->deleteSourceRequest($customerId, $sourceId);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'deleteSource'
-     *
-     * @param  string $customerId Customer ID (required)
-     * @param  string $sourceId Source ID (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function deleteSourceRequest($customerId, $sourceId)
-    {
-        // verify the required parameter 'customerId' is set
-        if ($customerId === null || (is_array($customerId) && count($customerId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $customerId when calling deleteSource'
-            );
-        }
-        // verify the required parameter 'sourceId' is set
-        if ($sourceId === null || (is_array($sourceId) && count($sourceId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $sourceId when calling deleteSource'
-            );
-        }
-
-        $resourcePath = '/customers/{customerId}/sources/{sourceId}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($customerId !== null) {
-            $resourcePath = str_replace(
-                '{' . 'customerId' . '}',
-                ObjectSerializer::toPathValue($customerId),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($sourceId !== null) {
-            $resourcePath = str_replace(
-                '{' . 'sourceId' . '}',
-                ObjectSerializer::toPathValue($sourceId),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                [],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation listCustomers
-     *
-     * List customers
+     * List invoices
      *
      * @param  string $keyword keyword (optional)
+     * @param  int $from dateRange from (optional)
+     * @param  int $to dateRange from (optional)
+     * @param  \Elepay\Model\InvoiceStatusType[] $status status (optional)
      * @param  int $limit 最大件数 (optional, default to 20)
      * @param  int $offset 検索開始位置 (optional, default to 0)
      *
      * @throws \Elepay\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Elepay\Model\CustomerResponse
+     * @return \Elepay\Model\InvoicesResponse
      */
-    public function listCustomers($keyword = null, $limit = 20, $offset = 0)
+    public function listInvoices($keyword = null, $from = null, $to = null, $status = null, $limit = 20, $offset = 0)
     {
-        list($response) = $this->listCustomersWithHttpInfo($keyword, $limit, $offset);
+        list($response) = $this->listInvoicesWithHttpInfo($keyword, $from, $to, $status, $limit, $offset);
         return $response;
     }
 
     /**
-     * Operation listCustomersWithHttpInfo
+     * Operation listInvoicesWithHttpInfo
      *
-     * List customers
+     * List invoices
      *
      * @param  string $keyword keyword (optional)
+     * @param  int $from dateRange from (optional)
+     * @param  int $to dateRange from (optional)
+     * @param  \Elepay\Model\InvoiceStatusType[] $status status (optional)
      * @param  int $limit 最大件数 (optional, default to 20)
      * @param  int $offset 検索開始位置 (optional, default to 0)
      *
      * @throws \Elepay\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Elepay\Model\CustomerResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Elepay\Model\InvoicesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listCustomersWithHttpInfo($keyword = null, $limit = 20, $offset = 0)
+    public function listInvoicesWithHttpInfo($keyword = null, $from = null, $to = null, $status = null, $limit = 20, $offset = 0)
     {
-        $request = $this->listCustomersRequest($keyword, $limit, $offset);
+        $request = $this->listInvoicesRequest($keyword, $from, $to, $status, $limit, $offset);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1218,20 +963,20 @@ class CustomerApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Elepay\Model\CustomerResponse' === '\SplFileObject') {
+                    if ('\Elepay\Model\InvoicesResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Elepay\Model\CustomerResponse', []),
+                        ObjectSerializer::deserialize($content, '\Elepay\Model\InvoicesResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Elepay\Model\CustomerResponse';
+            $returnType = '\Elepay\Model\InvoicesResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1250,7 +995,7 @@ class CustomerApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Elepay\Model\CustomerResponse',
+                        '\Elepay\Model\InvoicesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1261,20 +1006,23 @@ class CustomerApi
     }
 
     /**
-     * Operation listCustomersAsync
+     * Operation listInvoicesAsync
      *
-     * List customers
+     * List invoices
      *
      * @param  string $keyword keyword (optional)
+     * @param  int $from dateRange from (optional)
+     * @param  int $to dateRange from (optional)
+     * @param  \Elepay\Model\InvoiceStatusType[] $status status (optional)
      * @param  int $limit 最大件数 (optional, default to 20)
      * @param  int $offset 検索開始位置 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listCustomersAsync($keyword = null, $limit = 20, $offset = 0)
+    public function listInvoicesAsync($keyword = null, $from = null, $to = null, $status = null, $limit = 20, $offset = 0)
     {
-        return $this->listCustomersAsyncWithHttpInfo($keyword, $limit, $offset)
+        return $this->listInvoicesAsyncWithHttpInfo($keyword, $from, $to, $status, $limit, $offset)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1283,21 +1031,24 @@ class CustomerApi
     }
 
     /**
-     * Operation listCustomersAsyncWithHttpInfo
+     * Operation listInvoicesAsyncWithHttpInfo
      *
-     * List customers
+     * List invoices
      *
      * @param  string $keyword keyword (optional)
+     * @param  int $from dateRange from (optional)
+     * @param  int $to dateRange from (optional)
+     * @param  \Elepay\Model\InvoiceStatusType[] $status status (optional)
      * @param  int $limit 最大件数 (optional, default to 20)
      * @param  int $offset 検索開始位置 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listCustomersAsyncWithHttpInfo($keyword = null, $limit = 20, $offset = 0)
+    public function listInvoicesAsyncWithHttpInfo($keyword = null, $from = null, $to = null, $status = null, $limit = 20, $offset = 0)
     {
-        $returnType = '\Elepay\Model\CustomerResponse';
-        $request = $this->listCustomersRequest($keyword, $limit, $offset);
+        $returnType = '\Elepay\Model\InvoicesResponse';
+        $request = $this->listInvoicesRequest($keyword, $from, $to, $status, $limit, $offset);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1334,23 +1085,26 @@ class CustomerApi
     }
 
     /**
-     * Create request for operation 'listCustomers'
+     * Create request for operation 'listInvoices'
      *
      * @param  string $keyword keyword (optional)
+     * @param  int $from dateRange from (optional)
+     * @param  int $to dateRange from (optional)
+     * @param  \Elepay\Model\InvoiceStatusType[] $status status (optional)
      * @param  int $limit 最大件数 (optional, default to 20)
      * @param  int $offset 検索開始位置 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listCustomersRequest($keyword = null, $limit = 20, $offset = 0)
+    protected function listInvoicesRequest($keyword = null, $from = null, $to = null, $status = null, $limit = 20, $offset = 0)
     {
         if ($limit !== null && $limit > 100) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling CustomerApi.listCustomers, must be smaller than or equal to 100.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling InvoiceApi.listInvoices, must be smaller than or equal to 100.');
         }
 
 
-        $resourcePath = '/customers';
+        $resourcePath = '/invoices';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1360,6 +1114,21 @@ class CustomerApi
         // query params
         if ($keyword !== null) {
             $queryParams['keyword'] = ObjectSerializer::toQueryValue($keyword);
+        }
+        // query params
+        if ($from !== null) {
+            $queryParams['from'] = ObjectSerializer::toQueryValue($from);
+        }
+        // query params
+        if ($to !== null) {
+            $queryParams['to'] = ObjectSerializer::toQueryValue($to);
+        }
+        // query params
+        if (is_array($status)) {
+            $status = ObjectSerializer::serializeCollection($status, 'multi', true);
+        }
+        if ($status !== null) {
+            $queryParams['status'] = ObjectSerializer::toQueryValue($status);
         }
         // query params
         if ($limit !== null) {
@@ -1440,38 +1209,36 @@ class CustomerApi
     }
 
     /**
-     * Operation listSources
+     * Operation retrieveInvoice
      *
-     * List sources by customer ID
+     * Retrieve invoice
      *
-     * @param  string $customerId Customer ID (required)
-     * @param  \Elepay\Model\PaymentMethodType $paymentMethod 決済方法 (optional)
+     * @param  string $invoiceId Invoice ID (required)
      *
      * @throws \Elepay\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Elepay\Model\SourceResponse
+     * @return \Elepay\Model\InvoiceDto
      */
-    public function listSources($customerId, $paymentMethod = null)
+    public function retrieveInvoice($invoiceId)
     {
-        list($response) = $this->listSourcesWithHttpInfo($customerId, $paymentMethod);
+        list($response) = $this->retrieveInvoiceWithHttpInfo($invoiceId);
         return $response;
     }
 
     /**
-     * Operation listSourcesWithHttpInfo
+     * Operation retrieveInvoiceWithHttpInfo
      *
-     * List sources by customer ID
+     * Retrieve invoice
      *
-     * @param  string $customerId Customer ID (required)
-     * @param  \Elepay\Model\PaymentMethodType $paymentMethod 決済方法 (optional)
+     * @param  string $invoiceId Invoice ID (required)
      *
      * @throws \Elepay\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Elepay\Model\SourceResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Elepay\Model\InvoiceDto, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listSourcesWithHttpInfo($customerId, $paymentMethod = null)
+    public function retrieveInvoiceWithHttpInfo($invoiceId)
     {
-        $request = $this->listSourcesRequest($customerId, $paymentMethod);
+        $request = $this->retrieveInvoiceRequest($invoiceId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1504,20 +1271,20 @@ class CustomerApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Elepay\Model\SourceResponse' === '\SplFileObject') {
+                    if ('\Elepay\Model\InvoiceDto' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Elepay\Model\SourceResponse', []),
+                        ObjectSerializer::deserialize($content, '\Elepay\Model\InvoiceDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Elepay\Model\SourceResponse';
+            $returnType = '\Elepay\Model\InvoiceDto';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1536,7 +1303,7 @@ class CustomerApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Elepay\Model\SourceResponse',
+                        '\Elepay\Model\InvoiceDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1547,19 +1314,18 @@ class CustomerApi
     }
 
     /**
-     * Operation listSourcesAsync
+     * Operation retrieveInvoiceAsync
      *
-     * List sources by customer ID
+     * Retrieve invoice
      *
-     * @param  string $customerId Customer ID (required)
-     * @param  \Elepay\Model\PaymentMethodType $paymentMethod 決済方法 (optional)
+     * @param  string $invoiceId Invoice ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listSourcesAsync($customerId, $paymentMethod = null)
+    public function retrieveInvoiceAsync($invoiceId)
     {
-        return $this->listSourcesAsyncWithHttpInfo($customerId, $paymentMethod)
+        return $this->retrieveInvoiceAsyncWithHttpInfo($invoiceId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1568,20 +1334,19 @@ class CustomerApi
     }
 
     /**
-     * Operation listSourcesAsyncWithHttpInfo
+     * Operation retrieveInvoiceAsyncWithHttpInfo
      *
-     * List sources by customer ID
+     * Retrieve invoice
      *
-     * @param  string $customerId Customer ID (required)
-     * @param  \Elepay\Model\PaymentMethodType $paymentMethod 決済方法 (optional)
+     * @param  string $invoiceId Invoice ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listSourcesAsyncWithHttpInfo($customerId, $paymentMethod = null)
+    public function retrieveInvoiceAsyncWithHttpInfo($invoiceId)
     {
-        $returnType = '\Elepay\Model\SourceResponse';
-        $request = $this->listSourcesRequest($customerId, $paymentMethod);
+        $returnType = '\Elepay\Model\InvoiceDto';
+        $request = $this->retrieveInvoiceRequest($invoiceId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1618,40 +1383,35 @@ class CustomerApi
     }
 
     /**
-     * Create request for operation 'listSources'
+     * Create request for operation 'retrieveInvoice'
      *
-     * @param  string $customerId Customer ID (required)
-     * @param  \Elepay\Model\PaymentMethodType $paymentMethod 決済方法 (optional)
+     * @param  string $invoiceId Invoice ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listSourcesRequest($customerId, $paymentMethod = null)
+    protected function retrieveInvoiceRequest($invoiceId)
     {
-        // verify the required parameter 'customerId' is set
-        if ($customerId === null || (is_array($customerId) && count($customerId) === 0)) {
+        // verify the required parameter 'invoiceId' is set
+        if ($invoiceId === null || (is_array($invoiceId) && count($invoiceId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $customerId when calling listSources'
+                'Missing the required parameter $invoiceId when calling retrieveInvoice'
             );
         }
 
-        $resourcePath = '/customers/{customerId}/sources';
+        $resourcePath = '/invoices/{invoiceId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if ($paymentMethod !== null) {
-            $queryParams['paymentMethod'] = ObjectSerializer::toQueryValue($paymentMethod);
-        }
 
         // path params
-        if ($customerId !== null) {
+        if ($invoiceId !== null) {
             $resourcePath = str_replace(
-                '{' . 'customerId' . '}',
-                ObjectSerializer::toPathValue($customerId),
+                '{' . 'invoiceId' . '}',
+                ObjectSerializer::toPathValue($invoiceId),
                 $resourcePath
             );
         }
@@ -1725,36 +1485,36 @@ class CustomerApi
     }
 
     /**
-     * Operation retrieveCustomer
+     * Operation sendInvoice
      *
-     * Retrieve customer
+     * send invoice
      *
-     * @param  string $customerId Customer ID (required)
+     * @param  string $invoiceId invoice id (required)
      *
      * @throws \Elepay\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Elepay\Model\CustomerDto
+     * @return \Elepay\Model\InvoiceDto
      */
-    public function retrieveCustomer($customerId)
+    public function sendInvoice($invoiceId)
     {
-        list($response) = $this->retrieveCustomerWithHttpInfo($customerId);
+        list($response) = $this->sendInvoiceWithHttpInfo($invoiceId);
         return $response;
     }
 
     /**
-     * Operation retrieveCustomerWithHttpInfo
+     * Operation sendInvoiceWithHttpInfo
      *
-     * Retrieve customer
+     * send invoice
      *
-     * @param  string $customerId Customer ID (required)
+     * @param  string $invoiceId invoice id (required)
      *
      * @throws \Elepay\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Elepay\Model\CustomerDto, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Elepay\Model\InvoiceDto, HTTP status code, HTTP response headers (array of strings)
      */
-    public function retrieveCustomerWithHttpInfo($customerId)
+    public function sendInvoiceWithHttpInfo($invoiceId)
     {
-        $request = $this->retrieveCustomerRequest($customerId);
+        $request = $this->sendInvoiceRequest($invoiceId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1786,21 +1546,21 @@ class CustomerApi
 
             $responseBody = $response->getBody();
             switch($statusCode) {
-                case 200:
-                    if ('\Elepay\Model\CustomerDto' === '\SplFileObject') {
+                case 202:
+                    if ('\Elepay\Model\InvoiceDto' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Elepay\Model\CustomerDto', []),
+                        ObjectSerializer::deserialize($content, '\Elepay\Model\InvoiceDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Elepay\Model\CustomerDto';
+            $returnType = '\Elepay\Model\InvoiceDto';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1816,10 +1576,10 @@ class CustomerApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 200:
+                case 202:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Elepay\Model\CustomerDto',
+                        '\Elepay\Model\InvoiceDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1830,18 +1590,18 @@ class CustomerApi
     }
 
     /**
-     * Operation retrieveCustomerAsync
+     * Operation sendInvoiceAsync
      *
-     * Retrieve customer
+     * send invoice
      *
-     * @param  string $customerId Customer ID (required)
+     * @param  string $invoiceId invoice id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retrieveCustomerAsync($customerId)
+    public function sendInvoiceAsync($invoiceId)
     {
-        return $this->retrieveCustomerAsyncWithHttpInfo($customerId)
+        return $this->sendInvoiceAsyncWithHttpInfo($invoiceId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1850,19 +1610,19 @@ class CustomerApi
     }
 
     /**
-     * Operation retrieveCustomerAsyncWithHttpInfo
+     * Operation sendInvoiceAsyncWithHttpInfo
      *
-     * Retrieve customer
+     * send invoice
      *
-     * @param  string $customerId Customer ID (required)
+     * @param  string $invoiceId invoice id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retrieveCustomerAsyncWithHttpInfo($customerId)
+    public function sendInvoiceAsyncWithHttpInfo($invoiceId)
     {
-        $returnType = '\Elepay\Model\CustomerDto';
-        $request = $this->retrieveCustomerRequest($customerId);
+        $returnType = '\Elepay\Model\InvoiceDto';
+        $request = $this->sendInvoiceRequest($invoiceId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1899,23 +1659,23 @@ class CustomerApi
     }
 
     /**
-     * Create request for operation 'retrieveCustomer'
+     * Create request for operation 'sendInvoice'
      *
-     * @param  string $customerId Customer ID (required)
+     * @param  string $invoiceId invoice id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function retrieveCustomerRequest($customerId)
+    protected function sendInvoiceRequest($invoiceId)
     {
-        // verify the required parameter 'customerId' is set
-        if ($customerId === null || (is_array($customerId) && count($customerId) === 0)) {
+        // verify the required parameter 'invoiceId' is set
+        if ($invoiceId === null || (is_array($invoiceId) && count($invoiceId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $customerId when calling retrieveCustomer'
+                'Missing the required parameter $invoiceId when calling sendInvoice'
             );
         }
 
-        $resourcePath = '/customers/{customerId}';
+        $resourcePath = '/invoices/{invoiceId}/send';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1924,10 +1684,10 @@ class CustomerApi
 
 
         // path params
-        if ($customerId !== null) {
+        if ($invoiceId !== null) {
             $resourcePath = str_replace(
-                '{' . 'customerId' . '}',
-                ObjectSerializer::toPathValue($customerId),
+                '{' . 'invoiceId' . '}',
+                ObjectSerializer::toPathValue($invoiceId),
                 $resourcePath
             );
         }
@@ -1993,7 +1753,7 @@ class CustomerApi
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
-            'GET',
+            'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -2001,38 +1761,38 @@ class CustomerApi
     }
 
     /**
-     * Operation retrieveSource
+     * Operation updateInvoice
      *
-     * Retrieve source
+     * Update invoice
      *
-     * @param  string $customerId Customer ID (required)
-     * @param  string $sourceId Source ID (required)
+     * @param  string $invoiceId Invoice ID (required)
+     * @param  \Elepay\Model\InvoiceReq $invoiceReq インボイスリクエスト (required)
      *
      * @throws \Elepay\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Elepay\Model\SourceDto
+     * @return \Elepay\Model\InvoiceDto
      */
-    public function retrieveSource($customerId, $sourceId)
+    public function updateInvoice($invoiceId, $invoiceReq)
     {
-        list($response) = $this->retrieveSourceWithHttpInfo($customerId, $sourceId);
+        list($response) = $this->updateInvoiceWithHttpInfo($invoiceId, $invoiceReq);
         return $response;
     }
 
     /**
-     * Operation retrieveSourceWithHttpInfo
+     * Operation updateInvoiceWithHttpInfo
      *
-     * Retrieve source
+     * Update invoice
      *
-     * @param  string $customerId Customer ID (required)
-     * @param  string $sourceId Source ID (required)
+     * @param  string $invoiceId Invoice ID (required)
+     * @param  \Elepay\Model\InvoiceReq $invoiceReq インボイスリクエスト (required)
      *
      * @throws \Elepay\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Elepay\Model\SourceDto, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Elepay\Model\InvoiceDto, HTTP status code, HTTP response headers (array of strings)
      */
-    public function retrieveSourceWithHttpInfo($customerId, $sourceId)
+    public function updateInvoiceWithHttpInfo($invoiceId, $invoiceReq)
     {
-        $request = $this->retrieveSourceRequest($customerId, $sourceId);
+        $request = $this->updateInvoiceRequest($invoiceId, $invoiceReq);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2065,20 +1825,20 @@ class CustomerApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Elepay\Model\SourceDto' === '\SplFileObject') {
+                    if ('\Elepay\Model\InvoiceDto' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Elepay\Model\SourceDto', []),
+                        ObjectSerializer::deserialize($content, '\Elepay\Model\InvoiceDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Elepay\Model\SourceDto';
+            $returnType = '\Elepay\Model\InvoiceDto';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2097,7 +1857,7 @@ class CustomerApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Elepay\Model\SourceDto',
+                        '\Elepay\Model\InvoiceDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2108,19 +1868,19 @@ class CustomerApi
     }
 
     /**
-     * Operation retrieveSourceAsync
+     * Operation updateInvoiceAsync
      *
-     * Retrieve source
+     * Update invoice
      *
-     * @param  string $customerId Customer ID (required)
-     * @param  string $sourceId Source ID (required)
+     * @param  string $invoiceId Invoice ID (required)
+     * @param  \Elepay\Model\InvoiceReq $invoiceReq インボイスリクエスト (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retrieveSourceAsync($customerId, $sourceId)
+    public function updateInvoiceAsync($invoiceId, $invoiceReq)
     {
-        return $this->retrieveSourceAsyncWithHttpInfo($customerId, $sourceId)
+        return $this->updateInvoiceAsyncWithHttpInfo($invoiceId, $invoiceReq)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2129,20 +1889,20 @@ class CustomerApi
     }
 
     /**
-     * Operation retrieveSourceAsyncWithHttpInfo
+     * Operation updateInvoiceAsyncWithHttpInfo
      *
-     * Retrieve source
+     * Update invoice
      *
-     * @param  string $customerId Customer ID (required)
-     * @param  string $sourceId Source ID (required)
+     * @param  string $invoiceId Invoice ID (required)
+     * @param  \Elepay\Model\InvoiceReq $invoiceReq インボイスリクエスト (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retrieveSourceAsyncWithHttpInfo($customerId, $sourceId)
+    public function updateInvoiceAsyncWithHttpInfo($invoiceId, $invoiceReq)
     {
-        $returnType = '\Elepay\Model\SourceDto';
-        $request = $this->retrieveSourceRequest($customerId, $sourceId);
+        $returnType = '\Elepay\Model\InvoiceDto';
+        $request = $this->updateInvoiceRequest($invoiceId, $invoiceReq);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2179,30 +1939,30 @@ class CustomerApi
     }
 
     /**
-     * Create request for operation 'retrieveSource'
+     * Create request for operation 'updateInvoice'
      *
-     * @param  string $customerId Customer ID (required)
-     * @param  string $sourceId Source ID (required)
+     * @param  string $invoiceId Invoice ID (required)
+     * @param  \Elepay\Model\InvoiceReq $invoiceReq インボイスリクエスト (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function retrieveSourceRequest($customerId, $sourceId)
+    protected function updateInvoiceRequest($invoiceId, $invoiceReq)
     {
-        // verify the required parameter 'customerId' is set
-        if ($customerId === null || (is_array($customerId) && count($customerId) === 0)) {
+        // verify the required parameter 'invoiceId' is set
+        if ($invoiceId === null || (is_array($invoiceId) && count($invoiceId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $customerId when calling retrieveSource'
+                'Missing the required parameter $invoiceId when calling updateInvoice'
             );
         }
-        // verify the required parameter 'sourceId' is set
-        if ($sourceId === null || (is_array($sourceId) && count($sourceId) === 0)) {
+        // verify the required parameter 'invoiceReq' is set
+        if ($invoiceReq === null || (is_array($invoiceReq) && count($invoiceReq) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $sourceId when calling retrieveSource'
+                'Missing the required parameter $invoiceReq when calling updateInvoice'
             );
         }
 
-        $resourcePath = '/customers/{customerId}/sources/{sourceId}';
+        $resourcePath = '/invoices/{invoiceId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2211,313 +1971,18 @@ class CustomerApi
 
 
         // path params
-        if ($customerId !== null) {
+        if ($invoiceId !== null) {
             $resourcePath = str_replace(
-                '{' . 'customerId' . '}',
-                ObjectSerializer::toPathValue($customerId),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($sourceId !== null) {
-            $resourcePath = str_replace(
-                '{' . 'sourceId' . '}',
-                ObjectSerializer::toPathValue($sourceId),
+                '{' . 'invoiceId' . '}',
+                ObjectSerializer::toPathValue($invoiceId),
                 $resourcePath
             );
         }
 
         // body params
         $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json;charset=utf-8']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json;charset=utf-8'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation updateCustomer
-     *
-     * update customer
-     *
-     * @param  string $customerId Customer ID (required)
-     * @param  \Elepay\Model\CustomerReq $customerReq カスタマリクエスト (required)
-     *
-     * @throws \Elepay\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Elepay\Model\CustomerDto
-     */
-    public function updateCustomer($customerId, $customerReq)
-    {
-        list($response) = $this->updateCustomerWithHttpInfo($customerId, $customerReq);
-        return $response;
-    }
-
-    /**
-     * Operation updateCustomerWithHttpInfo
-     *
-     * update customer
-     *
-     * @param  string $customerId Customer ID (required)
-     * @param  \Elepay\Model\CustomerReq $customerReq カスタマリクエスト (required)
-     *
-     * @throws \Elepay\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Elepay\Model\CustomerDto, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function updateCustomerWithHttpInfo($customerId, $customerReq)
-    {
-        $request = $this->updateCustomerRequest($customerId, $customerReq);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 200:
-                    if ('\Elepay\Model\CustomerDto' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Elepay\Model\CustomerDto', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Elepay\Model\CustomerDto';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Elepay\Model\CustomerDto',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation updateCustomerAsync
-     *
-     * update customer
-     *
-     * @param  string $customerId Customer ID (required)
-     * @param  \Elepay\Model\CustomerReq $customerReq カスタマリクエスト (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function updateCustomerAsync($customerId, $customerReq)
-    {
-        return $this->updateCustomerAsyncWithHttpInfo($customerId, $customerReq)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation updateCustomerAsyncWithHttpInfo
-     *
-     * update customer
-     *
-     * @param  string $customerId Customer ID (required)
-     * @param  \Elepay\Model\CustomerReq $customerReq カスタマリクエスト (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function updateCustomerAsyncWithHttpInfo($customerId, $customerReq)
-    {
-        $returnType = '\Elepay\Model\CustomerDto';
-        $request = $this->updateCustomerRequest($customerId, $customerReq);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'updateCustomer'
-     *
-     * @param  string $customerId Customer ID (required)
-     * @param  \Elepay\Model\CustomerReq $customerReq カスタマリクエスト (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function updateCustomerRequest($customerId, $customerReq)
-    {
-        // verify the required parameter 'customerId' is set
-        if ($customerId === null || (is_array($customerId) && count($customerId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $customerId when calling updateCustomer'
-            );
-        }
-        // verify the required parameter 'customerReq' is set
-        if ($customerReq === null || (is_array($customerReq) && count($customerReq) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $customerReq when calling updateCustomer'
-            );
-        }
-
-        $resourcePath = '/customers/{customerId}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($customerId !== null) {
-            $resourcePath = str_replace(
-                '{' . 'customerId' . '}',
-                ObjectSerializer::toPathValue($customerId),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-        if (isset($customerReq)) {
-            $_tempBody = $customerReq;
+        if (isset($invoiceReq)) {
+            $_tempBody = $invoiceReq;
         }
 
         if ($multipart) {

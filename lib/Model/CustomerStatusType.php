@@ -1,6 +1,6 @@
 <?php
 /**
- * RefundStatusType
+ * CustomerStatusType
  *
  * PHP version 5
  *
@@ -31,21 +31,21 @@ namespace Elepay\Model;
 use \Elepay\ObjectSerializer;
 
 /**
- * RefundStatusType Class Doc Comment
+ * CustomerStatusType Class Doc Comment
  *
  * @category Class
- * @description 返金状態 - pending 未返金 - refunded 返金済み
+ * @description 状態
  * @package  Elepay
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class RefundStatusType
+class CustomerStatusType
 {
     /**
      * Possible values of this enum
      */
-    const PENDING = 'pending';
-    const REFUNDED = 'refunded';
+    const ACTIVE = 'active';
+    const DELETED = 'deleted';
     
     /**
      * Gets allowable values of the enum
@@ -54,8 +54,8 @@ class RefundStatusType
     public static function getAllowableEnumValues()
     {
         return [
-            self::PENDING,
-            self::REFUNDED,
+            self::ACTIVE,
+            self::DELETED,
         ];
     }
 }
