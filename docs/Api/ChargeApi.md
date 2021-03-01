@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**createCharge**](ChargeApi.md#createCharge) | **POST** /charges | Create charge
 [**listCharges**](ChargeApi.md#listCharges) | **GET** /charges | List charges
 [**retrieveCharge**](ChargeApi.md#retrieveCharge) | **GET** /charges/{id} | Retrieve charge
+[**retrieveChargeStatus**](ChargeApi.md#retrieveChargeStatus) | **GET** /charges/{id}/status | Retrieve charge&#39;s status
 
 
 
@@ -200,6 +201,69 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Elepay\Model\ChargeDto**](../Model/ChargeDto.md)
+
+### Authorization
+
+[basicAuth](../../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## retrieveChargeStatus
+
+> \Elepay\Model\ChargeStatusDto retrieveChargeStatus($id)
+
+Retrieve charge's status
+
+決済のステータスに関する詳細情報を取得します。
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: basicAuth
+$config = Elepay\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+
+$apiInstance = new Elepay\Api\ChargeApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | Charge ID
+
+try {
+    $result = $apiInstance->retrieveChargeStatus($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ChargeApi->retrieveChargeStatus: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| Charge ID |
+
+### Return type
+
+[**\Elepay\Model\ChargeStatusDto**](../Model/ChargeStatusDto.md)
 
 ### Authorization
 

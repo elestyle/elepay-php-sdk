@@ -1,6 +1,6 @@
 <?php
 /**
- * CardInfo
+ * TerminalTokenReq
  *
  * PHP version 5
  *
@@ -33,15 +33,14 @@ use \ArrayAccess;
 use \Elepay\ObjectSerializer;
 
 /**
- * CardInfo Class Doc Comment
+ * TerminalTokenReq Class Doc Comment
  *
  * @category Class
- * @description カード情報
  * @package  Elepay
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class CardInfo implements ModelInterface, ArrayAccess
+class TerminalTokenReq implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +49,7 @@ class CardInfo implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CardInfo';
+    protected static $openAPIModelName = 'TerminalTokenReq';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,11 +57,7 @@ class CardInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'brand' => '\Elepay\Model\CardBrandType',
-        'last4' => 'string',
-        'expMonth' => 'int',
-        'expYear' => 'int',
-        'name' => 'string'
+        'locationId' => 'string'
     ];
 
     /**
@@ -71,11 +66,7 @@ class CardInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'brand' => null,
-        'last4' => null,
-        'expMonth' => null,
-        'expYear' => null,
-        'name' => null
+        'locationId' => null
     ];
 
     /**
@@ -105,11 +96,7 @@ class CardInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'brand' => 'brand',
-        'last4' => 'last4',
-        'expMonth' => 'expMonth',
-        'expYear' => 'expYear',
-        'name' => 'name'
+        'locationId' => 'locationId'
     ];
 
     /**
@@ -118,11 +105,7 @@ class CardInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'brand' => 'setBrand',
-        'last4' => 'setLast4',
-        'expMonth' => 'setExpMonth',
-        'expYear' => 'setExpYear',
-        'name' => 'setName'
+        'locationId' => 'setLocationId'
     ];
 
     /**
@@ -131,11 +114,7 @@ class CardInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'brand' => 'getBrand',
-        'last4' => 'getLast4',
-        'expMonth' => 'getExpMonth',
-        'expYear' => 'getExpYear',
-        'name' => 'getName'
+        'locationId' => 'getLocationId'
     ];
 
     /**
@@ -198,11 +177,7 @@ class CardInfo implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['brand'] = isset($data['brand']) ? $data['brand'] : null;
-        $this->container['last4'] = isset($data['last4']) ? $data['last4'] : null;
-        $this->container['expMonth'] = isset($data['expMonth']) ? $data['expMonth'] : null;
-        $this->container['expYear'] = isset($data['expYear']) ? $data['expYear'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['locationId'] = isset($data['locationId']) ? $data['locationId'] : null;
     }
 
     /**
@@ -230,121 +205,25 @@ class CardInfo implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets brand
-     *
-     * @return \Elepay\Model\CardBrandType|null
-     */
-    public function getBrand()
-    {
-        return $this->container['brand'];
-    }
-
-    /**
-     * Sets brand
-     *
-     * @param \Elepay\Model\CardBrandType|null $brand brand
-     *
-     * @return $this
-     */
-    public function setBrand($brand)
-    {
-        $this->container['brand'] = $brand;
-
-        return $this;
-    }
-
-    /**
-     * Gets last4
+     * Gets locationId
      *
      * @return string|null
      */
-    public function getLast4()
+    public function getLocationId()
     {
-        return $this->container['last4'];
+        return $this->container['locationId'];
     }
 
     /**
-     * Sets last4
+     * Sets locationId
      *
-     * @param string|null $last4 カード番号の下四桁
+     * @param string|null $locationId locationId
      *
      * @return $this
      */
-    public function setLast4($last4)
+    public function setLocationId($locationId)
     {
-        $this->container['last4'] = $last4;
-
-        return $this;
-    }
-
-    /**
-     * Gets expMonth
-     *
-     * @return int|null
-     */
-    public function getExpMonth()
-    {
-        return $this->container['expMonth'];
-    }
-
-    /**
-     * Sets expMonth
-     *
-     * @param int|null $expMonth 有効期限月
-     *
-     * @return $this
-     */
-    public function setExpMonth($expMonth)
-    {
-        $this->container['expMonth'] = $expMonth;
-
-        return $this;
-    }
-
-    /**
-     * Gets expYear
-     *
-     * @return int|null
-     */
-    public function getExpYear()
-    {
-        return $this->container['expYear'];
-    }
-
-    /**
-     * Sets expYear
-     *
-     * @param int|null $expYear 有効期限年
-     *
-     * @return $this
-     */
-    public function setExpYear($expYear)
-    {
-        $this->container['expYear'] = $expYear;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name カード保有者名
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
+        $this->container['locationId'] = $locationId;
 
         return $this;
     }

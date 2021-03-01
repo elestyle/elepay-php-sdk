@@ -1,6 +1,6 @@
 <?php
 /**
- * RefundApi
+ * SquareApi
  * PHP version 5
  *
  * @category Class
@@ -40,14 +40,14 @@ use Elepay\HeaderSelector;
 use Elepay\ObjectSerializer;
 
 /**
- * RefundApi Class Doc Comment
+ * SquareApi Class Doc Comment
  *
  * @category Class
  * @package  Elepay
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class RefundApi
+class SquareApi
 {
     /**
      * @var ClientInterface
@@ -116,38 +116,36 @@ class RefundApi
     }
 
     /**
-     * Operation createRefund
+     * Operation createSquareTerminalToken
      *
-     * Create refund
+     * create square terminal token
      *
-     * @param  string $id Charge ID (required)
-     * @param  \Elepay\Model\RefundReq $refundReq 返金の詳細情報 (required)
+     * @param  \Elepay\Model\TerminalTokenReq $terminalTokenReq terminalTokenReq (required)
      *
      * @throws \Elepay\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Elepay\Model\RefundDto
+     * @return \Elepay\Model\TerminalTokenDto
      */
-    public function createRefund($id, $refundReq)
+    public function createSquareTerminalToken($terminalTokenReq)
     {
-        list($response) = $this->createRefundWithHttpInfo($id, $refundReq);
+        list($response) = $this->createSquareTerminalTokenWithHttpInfo($terminalTokenReq);
         return $response;
     }
 
     /**
-     * Operation createRefundWithHttpInfo
+     * Operation createSquareTerminalTokenWithHttpInfo
      *
-     * Create refund
+     * create square terminal token
      *
-     * @param  string $id Charge ID (required)
-     * @param  \Elepay\Model\RefundReq $refundReq 返金の詳細情報 (required)
+     * @param  \Elepay\Model\TerminalTokenReq $terminalTokenReq (required)
      *
      * @throws \Elepay\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Elepay\Model\RefundDto, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Elepay\Model\TerminalTokenDto, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createRefundWithHttpInfo($id, $refundReq)
+    public function createSquareTerminalTokenWithHttpInfo($terminalTokenReq)
     {
-        $request = $this->createRefundRequest($id, $refundReq);
+        $request = $this->createSquareTerminalTokenRequest($terminalTokenReq);
 
         try {
             $options = $this->createHttpClientOption();
@@ -180,20 +178,20 @@ class RefundApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 201:
-                    if ('\Elepay\Model\RefundDto' === '\SplFileObject') {
+                    if ('\Elepay\Model\TerminalTokenDto' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Elepay\Model\RefundDto', []),
+                        ObjectSerializer::deserialize($content, '\Elepay\Model\TerminalTokenDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Elepay\Model\RefundDto';
+            $returnType = '\Elepay\Model\TerminalTokenDto';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -212,7 +210,7 @@ class RefundApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Elepay\Model\RefundDto',
+                        '\Elepay\Model\TerminalTokenDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -223,19 +221,18 @@ class RefundApi
     }
 
     /**
-     * Operation createRefundAsync
+     * Operation createSquareTerminalTokenAsync
      *
-     * Create refund
+     * create square terminal token
      *
-     * @param  string $id Charge ID (required)
-     * @param  \Elepay\Model\RefundReq $refundReq 返金の詳細情報 (required)
+     * @param  \Elepay\Model\TerminalTokenReq $terminalTokenReq (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRefundAsync($id, $refundReq)
+    public function createSquareTerminalTokenAsync($terminalTokenReq)
     {
-        return $this->createRefundAsyncWithHttpInfo($id, $refundReq)
+        return $this->createSquareTerminalTokenAsyncWithHttpInfo($terminalTokenReq)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -244,20 +241,19 @@ class RefundApi
     }
 
     /**
-     * Operation createRefundAsyncWithHttpInfo
+     * Operation createSquareTerminalTokenAsyncWithHttpInfo
      *
-     * Create refund
+     * create square terminal token
      *
-     * @param  string $id Charge ID (required)
-     * @param  \Elepay\Model\RefundReq $refundReq 返金の詳細情報 (required)
+     * @param  \Elepay\Model\TerminalTokenReq $terminalTokenReq (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRefundAsyncWithHttpInfo($id, $refundReq)
+    public function createSquareTerminalTokenAsyncWithHttpInfo($terminalTokenReq)
     {
-        $returnType = '\Elepay\Model\RefundDto';
-        $request = $this->createRefundRequest($id, $refundReq);
+        $returnType = '\Elepay\Model\TerminalTokenDto';
+        $request = $this->createSquareTerminalTokenRequest($terminalTokenReq);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -294,30 +290,23 @@ class RefundApi
     }
 
     /**
-     * Create request for operation 'createRefund'
+     * Create request for operation 'createSquareTerminalToken'
      *
-     * @param  string $id Charge ID (required)
-     * @param  \Elepay\Model\RefundReq $refundReq 返金の詳細情報 (required)
+     * @param  \Elepay\Model\TerminalTokenReq $terminalTokenReq (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createRefundRequest($id, $refundReq)
+    protected function createSquareTerminalTokenRequest($terminalTokenReq)
     {
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
+        // verify the required parameter 'terminalTokenReq' is set
+        if ($terminalTokenReq === null || (is_array($terminalTokenReq) && count($terminalTokenReq) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling createRefund'
-            );
-        }
-        // verify the required parameter 'refundReq' is set
-        if ($refundReq === null || (is_array($refundReq) && count($refundReq) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $refundReq when calling createRefund'
+                'Missing the required parameter $terminalTokenReq when calling createSquareTerminalToken'
             );
         }
 
-        $resourcePath = '/charges/{id}/refunds';
+        $resourcePath = '/terminal/square/token';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -325,19 +314,11 @@ class RefundApi
         $multipart = false;
 
 
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
 
         // body params
         $_tempBody = null;
-        if (isset($refundReq)) {
-            $_tempBody = $refundReq;
+        if (isset($terminalTokenReq)) {
+            $_tempBody = $terminalTokenReq;
         }
 
         if ($multipart) {
@@ -406,36 +387,34 @@ class RefundApi
     }
 
     /**
-     * Operation listChargesRefunds
+     * Operation listSquareLocations
      *
-     * List refunds
+     * list Square locations
      *
-     * @param  string $id Charge ID (required)
      *
      * @throws \Elepay\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Elepay\Model\RefundsResponse
+     * @return \Elepay\Model\LocationsResponse
      */
-    public function listChargesRefunds($id)
+    public function listSquareLocations()
     {
-        list($response) = $this->listChargesRefundsWithHttpInfo($id);
+        list($response) = $this->listSquareLocationsWithHttpInfo();
         return $response;
     }
 
     /**
-     * Operation listChargesRefundsWithHttpInfo
+     * Operation listSquareLocationsWithHttpInfo
      *
-     * List refunds
+     * list Square locations
      *
-     * @param  string $id Charge ID (required)
      *
      * @throws \Elepay\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Elepay\Model\RefundsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Elepay\Model\LocationsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listChargesRefundsWithHttpInfo($id)
+    public function listSquareLocationsWithHttpInfo()
     {
-        $request = $this->listChargesRefundsRequest($id);
+        $request = $this->listSquareLocationsRequest();
 
         try {
             $options = $this->createHttpClientOption();
@@ -468,20 +447,20 @@ class RefundApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Elepay\Model\RefundsResponse' === '\SplFileObject') {
+                    if ('\Elepay\Model\LocationsResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Elepay\Model\RefundsResponse', []),
+                        ObjectSerializer::deserialize($content, '\Elepay\Model\LocationsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Elepay\Model\RefundsResponse';
+            $returnType = '\Elepay\Model\LocationsResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -500,7 +479,7 @@ class RefundApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Elepay\Model\RefundsResponse',
+                        '\Elepay\Model\LocationsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -511,18 +490,17 @@ class RefundApi
     }
 
     /**
-     * Operation listChargesRefundsAsync
+     * Operation listSquareLocationsAsync
      *
-     * List refunds
+     * list Square locations
      *
-     * @param  string $id Charge ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listChargesRefundsAsync($id)
+    public function listSquareLocationsAsync()
     {
-        return $this->listChargesRefundsAsyncWithHttpInfo($id)
+        return $this->listSquareLocationsAsyncWithHttpInfo()
             ->then(
                 function ($response) {
                     return $response[0];
@@ -531,19 +509,18 @@ class RefundApi
     }
 
     /**
-     * Operation listChargesRefundsAsyncWithHttpInfo
+     * Operation listSquareLocationsAsyncWithHttpInfo
      *
-     * List refunds
+     * list Square locations
      *
-     * @param  string $id Charge ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listChargesRefundsAsyncWithHttpInfo($id)
+    public function listSquareLocationsAsyncWithHttpInfo()
     {
-        $returnType = '\Elepay\Model\RefundsResponse';
-        $request = $this->listChargesRefundsRequest($id);
+        $returnType = '\Elepay\Model\LocationsResponse';
+        $request = $this->listSquareLocationsRequest();
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -580,23 +557,16 @@ class RefundApi
     }
 
     /**
-     * Create request for operation 'listChargesRefunds'
+     * Create request for operation 'listSquareLocations'
      *
-     * @param  string $id Charge ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listChargesRefundsRequest($id)
+    protected function listSquareLocationsRequest()
     {
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling listChargesRefunds'
-            );
-        }
 
-        $resourcePath = '/charges/{id}/refunds';
+        $resourcePath = '/terminal/square/locations';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -604,309 +574,6 @@ class RefundApi
         $multipart = false;
 
 
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json;charset=utf-8']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json;charset=utf-8'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation retrieveChargeRefund
-     *
-     * Retrieve refund
-     *
-     * @param  string $id Charge ID (required)
-     * @param  string $refundId Refund ID (required)
-     *
-     * @throws \Elepay\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Elepay\Model\RefundDto
-     */
-    public function retrieveChargeRefund($id, $refundId)
-    {
-        list($response) = $this->retrieveChargeRefundWithHttpInfo($id, $refundId);
-        return $response;
-    }
-
-    /**
-     * Operation retrieveChargeRefundWithHttpInfo
-     *
-     * Retrieve refund
-     *
-     * @param  string $id Charge ID (required)
-     * @param  string $refundId Refund ID (required)
-     *
-     * @throws \Elepay\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Elepay\Model\RefundDto, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function retrieveChargeRefundWithHttpInfo($id, $refundId)
-    {
-        $request = $this->retrieveChargeRefundRequest($id, $refundId);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 200:
-                    if ('\Elepay\Model\RefundDto' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Elepay\Model\RefundDto', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Elepay\Model\RefundDto';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Elepay\Model\RefundDto',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation retrieveChargeRefundAsync
-     *
-     * Retrieve refund
-     *
-     * @param  string $id Charge ID (required)
-     * @param  string $refundId Refund ID (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function retrieveChargeRefundAsync($id, $refundId)
-    {
-        return $this->retrieveChargeRefundAsyncWithHttpInfo($id, $refundId)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation retrieveChargeRefundAsyncWithHttpInfo
-     *
-     * Retrieve refund
-     *
-     * @param  string $id Charge ID (required)
-     * @param  string $refundId Refund ID (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function retrieveChargeRefundAsyncWithHttpInfo($id, $refundId)
-    {
-        $returnType = '\Elepay\Model\RefundDto';
-        $request = $this->retrieveChargeRefundRequest($id, $refundId);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'retrieveChargeRefund'
-     *
-     * @param  string $id Charge ID (required)
-     * @param  string $refundId Refund ID (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function retrieveChargeRefundRequest($id, $refundId)
-    {
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling retrieveChargeRefund'
-            );
-        }
-        // verify the required parameter 'refundId' is set
-        if ($refundId === null || (is_array($refundId) && count($refundId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $refundId when calling retrieveChargeRefund'
-            );
-        }
-
-        $resourcePath = '/charges/{id}/refunds/{refundId}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($refundId !== null) {
-            $resourcePath = str_replace(
-                '{' . 'refundId' . '}',
-                ObjectSerializer::toPathValue($refundId),
-                $resourcePath
-            );
-        }
 
         // body params
         $_tempBody = null;

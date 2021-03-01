@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **refunded** | **bool** | 返金済みフラグ | [optional] 
 **refunds** | [**\Elepay\Model\RefundsDto**](RefundsDto.md) |  | [optional] 
 **status** | [**\Elepay\Model\ChargeStatusType**](ChargeStatusType.md) |  | [optional] 
+**codeContent** | **string** | 店舗側提示型QRコード(リソースはmpm場合のみ) | [optional] 
 **credential** | **string** | Client SDK の認証情報 | [optional] 
 **paidTime** | **int** | 支払い時間のUTCタイムスタンプ | [optional] 
 **refundTime** | **int** | 返金時間のUTCタイムスタンプ | [optional] 

@@ -1,6 +1,6 @@
 <?php
 /**
- * CardInfo
+ * TerminalTokenDto
  *
  * PHP version 5
  *
@@ -33,15 +33,14 @@ use \ArrayAccess;
 use \Elepay\ObjectSerializer;
 
 /**
- * CardInfo Class Doc Comment
+ * TerminalTokenDto Class Doc Comment
  *
  * @category Class
- * @description カード情報
  * @package  Elepay
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class CardInfo implements ModelInterface, ArrayAccess
+class TerminalTokenDto implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +49,7 @@ class CardInfo implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CardInfo';
+    protected static $openAPIModelName = 'TerminalTokenDto';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,11 +57,8 @@ class CardInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'brand' => '\Elepay\Model\CardBrandType',
-        'last4' => 'string',
-        'expMonth' => 'int',
-        'expYear' => 'int',
-        'name' => 'string'
+        'token' => 'string',
+        'expiryTime' => 'int'
     ];
 
     /**
@@ -71,11 +67,8 @@ class CardInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'brand' => null,
-        'last4' => null,
-        'expMonth' => null,
-        'expYear' => null,
-        'name' => null
+        'token' => null,
+        'expiryTime' => 'int64'
     ];
 
     /**
@@ -105,11 +98,8 @@ class CardInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'brand' => 'brand',
-        'last4' => 'last4',
-        'expMonth' => 'expMonth',
-        'expYear' => 'expYear',
-        'name' => 'name'
+        'token' => 'token',
+        'expiryTime' => 'expiryTime'
     ];
 
     /**
@@ -118,11 +108,8 @@ class CardInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'brand' => 'setBrand',
-        'last4' => 'setLast4',
-        'expMonth' => 'setExpMonth',
-        'expYear' => 'setExpYear',
-        'name' => 'setName'
+        'token' => 'setToken',
+        'expiryTime' => 'setExpiryTime'
     ];
 
     /**
@@ -131,11 +118,8 @@ class CardInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'brand' => 'getBrand',
-        'last4' => 'getLast4',
-        'expMonth' => 'getExpMonth',
-        'expYear' => 'getExpYear',
-        'name' => 'getName'
+        'token' => 'getToken',
+        'expiryTime' => 'getExpiryTime'
     ];
 
     /**
@@ -198,11 +182,8 @@ class CardInfo implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['brand'] = isset($data['brand']) ? $data['brand'] : null;
-        $this->container['last4'] = isset($data['last4']) ? $data['last4'] : null;
-        $this->container['expMonth'] = isset($data['expMonth']) ? $data['expMonth'] : null;
-        $this->container['expYear'] = isset($data['expYear']) ? $data['expYear'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['token'] = isset($data['token']) ? $data['token'] : null;
+        $this->container['expiryTime'] = isset($data['expiryTime']) ? $data['expiryTime'] : null;
     }
 
     /**
@@ -230,121 +211,49 @@ class CardInfo implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets brand
-     *
-     * @return \Elepay\Model\CardBrandType|null
-     */
-    public function getBrand()
-    {
-        return $this->container['brand'];
-    }
-
-    /**
-     * Sets brand
-     *
-     * @param \Elepay\Model\CardBrandType|null $brand brand
-     *
-     * @return $this
-     */
-    public function setBrand($brand)
-    {
-        $this->container['brand'] = $brand;
-
-        return $this;
-    }
-
-    /**
-     * Gets last4
+     * Gets token
      *
      * @return string|null
      */
-    public function getLast4()
+    public function getToken()
     {
-        return $this->container['last4'];
+        return $this->container['token'];
     }
 
     /**
-     * Sets last4
+     * Sets token
      *
-     * @param string|null $last4 カード番号の下四桁
+     * @param string|null $token token
      *
      * @return $this
      */
-    public function setLast4($last4)
+    public function setToken($token)
     {
-        $this->container['last4'] = $last4;
+        $this->container['token'] = $token;
 
         return $this;
     }
 
     /**
-     * Gets expMonth
+     * Gets expiryTime
      *
      * @return int|null
      */
-    public function getExpMonth()
+    public function getExpiryTime()
     {
-        return $this->container['expMonth'];
+        return $this->container['expiryTime'];
     }
 
     /**
-     * Sets expMonth
+     * Sets expiryTime
      *
-     * @param int|null $expMonth 有効期限月
+     * @param int|null $expiryTime expiryTime
      *
      * @return $this
      */
-    public function setExpMonth($expMonth)
+    public function setExpiryTime($expiryTime)
     {
-        $this->container['expMonth'] = $expMonth;
-
-        return $this;
-    }
-
-    /**
-     * Gets expYear
-     *
-     * @return int|null
-     */
-    public function getExpYear()
-    {
-        return $this->container['expYear'];
-    }
-
-    /**
-     * Sets expYear
-     *
-     * @param int|null $expYear 有効期限年
-     *
-     * @return $this
-     */
-    public function setExpYear($expYear)
-    {
-        $this->container['expYear'] = $expYear;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name カード保有者名
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
+        $this->container['expiryTime'] = $expiryTime;
 
         return $this;
     }

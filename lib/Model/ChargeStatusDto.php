@@ -1,6 +1,6 @@
 <?php
 /**
- * CardInfo
+ * ChargeStatusDto
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Elepay\ObjectSerializer;
 
 /**
- * CardInfo Class Doc Comment
+ * ChargeStatusDto Class Doc Comment
  *
  * @category Class
- * @description カード情報
+ * @description 支払いオブジェクト
  * @package  Elepay
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class CardInfo implements ModelInterface, ArrayAccess
+class ChargeStatusDto implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CardInfo implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CardInfo';
+    protected static $openAPIModelName = 'ChargeStatusDto';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,11 +58,10 @@ class CardInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'brand' => '\Elepay\Model\CardBrandType',
-        'last4' => 'string',
-        'expMonth' => 'int',
-        'expYear' => 'int',
-        'name' => 'string'
+        'id' => 'string',
+        'appId' => 'string',
+        'liveMode' => 'bool',
+        'status' => '\Elepay\Model\ChargeStatusType'
     ];
 
     /**
@@ -71,11 +70,10 @@ class CardInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'brand' => null,
-        'last4' => null,
-        'expMonth' => null,
-        'expYear' => null,
-        'name' => null
+        'id' => null,
+        'appId' => null,
+        'liveMode' => null,
+        'status' => null
     ];
 
     /**
@@ -105,11 +103,10 @@ class CardInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'brand' => 'brand',
-        'last4' => 'last4',
-        'expMonth' => 'expMonth',
-        'expYear' => 'expYear',
-        'name' => 'name'
+        'id' => 'id',
+        'appId' => 'appId',
+        'liveMode' => 'liveMode',
+        'status' => 'status'
     ];
 
     /**
@@ -118,11 +115,10 @@ class CardInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'brand' => 'setBrand',
-        'last4' => 'setLast4',
-        'expMonth' => 'setExpMonth',
-        'expYear' => 'setExpYear',
-        'name' => 'setName'
+        'id' => 'setId',
+        'appId' => 'setAppId',
+        'liveMode' => 'setLiveMode',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -131,11 +127,10 @@ class CardInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'brand' => 'getBrand',
-        'last4' => 'getLast4',
-        'expMonth' => 'getExpMonth',
-        'expYear' => 'getExpYear',
-        'name' => 'getName'
+        'id' => 'getId',
+        'appId' => 'getAppId',
+        'liveMode' => 'getLiveMode',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -198,11 +193,10 @@ class CardInfo implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['brand'] = isset($data['brand']) ? $data['brand'] : null;
-        $this->container['last4'] = isset($data['last4']) ? $data['last4'] : null;
-        $this->container['expMonth'] = isset($data['expMonth']) ? $data['expMonth'] : null;
-        $this->container['expYear'] = isset($data['expYear']) ? $data['expYear'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['appId'] = isset($data['appId']) ? $data['appId'] : null;
+        $this->container['liveMode'] = isset($data['liveMode']) ? $data['liveMode'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -230,121 +224,97 @@ class CardInfo implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets brand
-     *
-     * @return \Elepay\Model\CardBrandType|null
-     */
-    public function getBrand()
-    {
-        return $this->container['brand'];
-    }
-
-    /**
-     * Sets brand
-     *
-     * @param \Elepay\Model\CardBrandType|null $brand brand
-     *
-     * @return $this
-     */
-    public function setBrand($brand)
-    {
-        $this->container['brand'] = $brand;
-
-        return $this;
-    }
-
-    /**
-     * Gets last4
+     * Gets id
      *
      * @return string|null
      */
-    public function getLast4()
+    public function getId()
     {
-        return $this->container['last4'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets last4
+     * Sets id
      *
-     * @param string|null $last4 カード番号の下四桁
+     * @param string|null $id Charge ID
      *
      * @return $this
      */
-    public function setLast4($last4)
+    public function setId($id)
     {
-        $this->container['last4'] = $last4;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets expMonth
-     *
-     * @return int|null
-     */
-    public function getExpMonth()
-    {
-        return $this->container['expMonth'];
-    }
-
-    /**
-     * Sets expMonth
-     *
-     * @param int|null $expMonth 有効期限月
-     *
-     * @return $this
-     */
-    public function setExpMonth($expMonth)
-    {
-        $this->container['expMonth'] = $expMonth;
-
-        return $this;
-    }
-
-    /**
-     * Gets expYear
-     *
-     * @return int|null
-     */
-    public function getExpYear()
-    {
-        return $this->container['expYear'];
-    }
-
-    /**
-     * Sets expYear
-     *
-     * @param int|null $expYear 有効期限年
-     *
-     * @return $this
-     */
-    public function setExpYear($expYear)
-    {
-        $this->container['expYear'] = $expYear;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
+     * Gets appId
      *
      * @return string|null
      */
-    public function getName()
+    public function getAppId()
     {
-        return $this->container['name'];
+        return $this->container['appId'];
     }
 
     /**
-     * Sets name
+     * Sets appId
      *
-     * @param string|null $name カード保有者名
+     * @param string|null $appId App ID
      *
      * @return $this
      */
-    public function setName($name)
+    public function setAppId($appId)
     {
-        $this->container['name'] = $name;
+        $this->container['appId'] = $appId;
+
+        return $this;
+    }
+
+    /**
+     * Gets liveMode
+     *
+     * @return bool|null
+     */
+    public function getLiveMode()
+    {
+        return $this->container['liveMode'];
+    }
+
+    /**
+     * Sets liveMode
+     *
+     * @param bool|null $liveMode 本番モードかどうか - false テストモード - true 本番モード
+     *
+     * @return $this
+     */
+    public function setLiveMode($liveMode)
+    {
+        $this->container['liveMode'] = $liveMode;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return \Elepay\Model\ChargeStatusType|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param \Elepay\Model\ChargeStatusType|null $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
 
         return $this;
     }
