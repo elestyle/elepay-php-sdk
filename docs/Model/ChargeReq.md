@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **amount** | **int** | 金額 | 
+**capture** | **bool** | 支払い処理を確定するかどうか falseの場合、承認と支払い額の確保のみ行う。デフォルトはtrue | [optional] [default to true]
 **currency** | **string** | 通貨コード (ISO_4217) | [optional] [default to 'JPY']
 **paymentMethod** | [**\Elepay\Model\PaymentMethodType**](PaymentMethodType.md) |  | 
 **resource** | [**\Elepay\Model\ResourceType**](ResourceType.md) |  | [optional] 

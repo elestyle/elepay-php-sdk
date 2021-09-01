@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **clientIp** | **string** | Client IP アドレス | [optional] 
 **paid** | **bool** | 支払い済みフラグ | [optional] 
 **refunded** | **bool** | 返金済みフラグ | [optional] 
+**disputed** | **bool** | TODO | [optional] 
 **refunds** | [**\Elepay\Model\RefundsDto**](RefundsDto.md) |  | [optional] 
 **status** | [**\Elepay\Model\ChargeStatusType**](ChargeStatusType.md) |  | [optional] 
 **codeContent** | **string** | 店舗側提示型QRコード(リソースはmpm場合のみ) | [optional] 

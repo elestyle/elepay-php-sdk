@@ -4,11 +4,78 @@ All URIs are relative to *https://api.elepay.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**captureCharge**](ChargeApi.md#captureCharge) | **POST** /charges/{id}/capture | Capture charge
 [**createCharge**](ChargeApi.md#createCharge) | **POST** /charges | Create charge
 [**listCharges**](ChargeApi.md#listCharges) | **GET** /charges | List charges
 [**retrieveCharge**](ChargeApi.md#retrieveCharge) | **GET** /charges/{id} | Retrieve charge
 [**retrieveChargeStatus**](ChargeApi.md#retrieveChargeStatus) | **GET** /charges/{id}/status | Retrieve charge&#39;s status
+[**revokeCharge**](ChargeApi.md#revokeCharge) | **POST** /charges/{id}/revoke | Revoke charge
 
+
+
+## captureCharge
+
+> \Elepay\Model\ChargeDto captureCharge($id, $chargeCaptureReq)
+
+Capture charge
+
+決済を確定します。
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: basicAuth
+$config = Elepay\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+
+$apiInstance = new Elepay\Api\ChargeApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | Charge ID
+$chargeCaptureReq = new \Elepay\Model\ChargeCaptureReq(); // \Elepay\Model\ChargeCaptureReq | 
+
+try {
+    $result = $apiInstance->captureCharge($id, $chargeCaptureReq);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ChargeApi->captureCharge: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| Charge ID |
+ **chargeCaptureReq** | [**\Elepay\Model\ChargeCaptureReq**](../Model/ChargeCaptureReq.md)|  | [optional]
+
+### Return type
+
+[**\Elepay\Model\ChargeDto**](../Model/ChargeDto.md)
+
+### Authorization
+
+[basicAuth](../../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json;charset=utf-8
+- **Accept**: application/json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
 
 ## createCharge
@@ -264,6 +331,69 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Elepay\Model\ChargeStatusDto**](../Model/ChargeStatusDto.md)
+
+### Authorization
+
+[basicAuth](../../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## revokeCharge
+
+> \Elepay\Model\ChargeDto revokeCharge($id)
+
+Revoke charge
+
+決済を取消します。
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: basicAuth
+$config = Elepay\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+
+$apiInstance = new Elepay\Api\ChargeApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | Charge ID
+
+try {
+    $result = $apiInstance->revokeCharge($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ChargeApi->revokeCharge: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| Charge ID |
+
+### Return type
+
+[**\Elepay\Model\ChargeDto**](../Model/ChargeDto.md)
 
 ### Authorization
 
