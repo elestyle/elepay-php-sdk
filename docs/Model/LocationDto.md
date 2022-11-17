@@ -4,12 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** |  | [optional] 
-**name** | **string** |  | [optional] 
-**country** | **string** |  | [optional] 
-**description** | **string** |  | [optional] 
-**logoUrl** | **string** |  | [optional] 
+**id** | **string** | Location ID | [optional]
+**name** | **string** | Location名 | [optional]
+**country** | **string** | Location国名 | [optional]
+**description** | **string** | Location詳細 | [optional]
+**logoUrl** | **string** | LocationロゴURL | [optional]
 
-[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
-
-
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

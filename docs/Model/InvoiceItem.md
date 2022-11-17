@@ -4,13 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** | Invoice Item ID | [optional] 
+**id** | **string** | Invoice Item ID | [optional]
 **object** | **string** | 対象種類の表記 | [optional] [default to 'invoiceItem']
-**name** | **string** | 商品名 | [optional] 
-**unitPrice** | **int** | 単価 | [optional] 
+**name** | **string** | 商品名 | [optional]
+**unitPrice** | **int** | 単価 | [optional]
 **currency** | **string** | currency code | [optional] [default to 'JPY']
-**quantity** | **int** | 件数 | [optional] 
+**quantity** | **int** | 件数 | [optional]
 
-[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
-
-
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

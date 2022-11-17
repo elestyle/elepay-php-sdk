@@ -1,22 +1,24 @@
 # Elepay\InvoiceApi
 
-All URIs are relative to *https://api.elepay.io*
+All URIs are relative to https://api.elepay.io, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**cancelInvoice**](InvoiceApi.md#cancelInvoice) | **POST** /invoices/{invoiceId}/cancel | cancel invoice
-[**createInvoice**](InvoiceApi.md#createInvoice) | **POST** /invoices | Create invoice
-[**deleteInvoice**](InvoiceApi.md#deleteInvoice) | **DELETE** /invoices/{invoiceId} | Delete invoice
-[**listInvoices**](InvoiceApi.md#listInvoices) | **GET** /invoices | List invoices
-[**retrieveInvoice**](InvoiceApi.md#retrieveInvoice) | **GET** /invoices/{invoiceId} | Retrieve invoice
-[**sendInvoice**](InvoiceApi.md#sendInvoice) | **POST** /invoices/{invoiceId}/send | send invoice
-[**updateInvoice**](InvoiceApi.md#updateInvoice) | **POST** /invoices/{invoiceId} | Update invoice
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**cancelInvoice()**](InvoiceApi.md#cancelInvoice) | **POST** /invoices/{invoiceId}/cancel | cancel invoice |
+| [**createInvoice()**](InvoiceApi.md#createInvoice) | **POST** /invoices | Create invoice |
+| [**deleteInvoice()**](InvoiceApi.md#deleteInvoice) | **DELETE** /invoices/{invoiceId} | Delete invoice |
+| [**listInvoices()**](InvoiceApi.md#listInvoices) | **GET** /invoices | List invoices |
+| [**retrieveInvoice()**](InvoiceApi.md#retrieveInvoice) | **GET** /invoices/{invoiceId} | Retrieve invoice |
+| [**sendInvoice()**](InvoiceApi.md#sendInvoice) | **POST** /invoices/{invoiceId}/send | send invoice |
+| [**submitInvoice()**](InvoiceApi.md#submitInvoice) | **POST** /invoices/{invoiceId}/submit | submit invoice |
+| [**updateInvoice()**](InvoiceApi.md#updateInvoice) | **POST** /invoices/{invoiceId} | Update invoice |
 
 
+## `cancelInvoice()`
 
-## cancelInvoice
-
-> \Elepay\Model\InvoiceDto cancelInvoice($invoiceId)
+```php
+cancelInvoice($invoiceId): \Elepay\Model\InvoiceDto
+```
 
 cancel invoice
 
@@ -49,15 +51,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling InvoiceApi->cancelInvoice: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **invoiceId** | **string**| Invoice ID |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **invoiceId** | **string**| Invoice ID | |
 
 ### Return type
 
@@ -70,16 +70,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;charset=utf-8
+- **Accept**: `application/json;charset=utf-8`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createInvoice()`
 
-## createInvoice
-
-> \Elepay\Model\InvoiceDto createInvoice($invoiceReq)
+```php
+createInvoice($invoiceReq): \Elepay\Model\InvoiceDto
+```
 
 Create invoice
 
@@ -112,15 +113,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling InvoiceApi->createInvoice: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **invoiceReq** | [**\Elepay\Model\InvoiceReq**](../Model/InvoiceReq.md)| インボイスリクエスト |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **invoiceReq** | [**\Elepay\Model\InvoiceReq**](../Model/InvoiceReq.md)| インボイスリクエスト | |
 
 ### Return type
 
@@ -132,17 +131,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json;charset=utf-8
-- **Accept**: application/json;charset=utf-8
+- **Content-Type**: `application/json;charset=utf-8`
+- **Accept**: `application/json;charset=utf-8`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `deleteInvoice()`
 
-## deleteInvoice
-
-> deleteInvoice($invoiceId)
+```php
+deleteInvoice($invoiceId)
+```
 
 Delete invoice
 
@@ -174,15 +174,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling InvoiceApi->deleteInvoice: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **invoiceId** | **string**| Invoice ID |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **invoiceId** | **string**| Invoice ID | |
 
 ### Return type
 
@@ -197,14 +195,15 @@ void (empty response body)
 - **Content-Type**: Not defined
 - **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `listInvoices()`
 
-## listInvoices
-
-> \Elepay\Model\InvoicesResponse listInvoices($keyword, $from, $to, $status, $limit, $offset)
+```php
+listInvoices($keyword, $from, $to, $status, $limit, $offset): \Elepay\Model\InvoicesResponse
+```
 
 List invoices
 
@@ -229,7 +228,7 @@ $apiInstance = new Elepay\Api\InvoiceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$keyword = 'keyword_example'; // string | keyword
+$keyword = 'keyword_example'; // string | キーワード
 $from = 56; // int | dateRange from
 $to = 56; // int | dateRange from
 $status = array(new \Elepay\Model\\Elepay\Model\InvoiceStatusType()); // \Elepay\Model\InvoiceStatusType[] | status
@@ -242,20 +241,18 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling InvoiceApi->listInvoices: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **keyword** | **string**| keyword | [optional]
- **from** | **int**| dateRange from | [optional]
- **to** | **int**| dateRange from | [optional]
- **status** | [**\Elepay\Model\InvoiceStatusType[]**](../Model/\Elepay\Model\InvoiceStatusType.md)| status | [optional]
- **limit** | **int**| 最大件数 | [optional] [default to 20]
- **offset** | **int**| 検索開始位置 | [optional] [default to 0]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **keyword** | **string**| キーワード | [optional] |
+| **from** | **int**| dateRange from | [optional] |
+| **to** | **int**| dateRange from | [optional] |
+| **status** | [**\Elepay\Model\InvoiceStatusType[]**](../Model/\Elepay\Model\InvoiceStatusType.md)| status | [optional] |
+| **limit** | **int**| 最大件数 | [optional] [default to 20] |
+| **offset** | **int**| 検索開始位置 | [optional] [default to 0] |
 
 ### Return type
 
@@ -268,16 +265,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;charset=utf-8
+- **Accept**: `application/json;charset=utf-8`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `retrieveInvoice()`
 
-## retrieveInvoice
-
-> \Elepay\Model\InvoiceDto retrieveInvoice($invoiceId)
+```php
+retrieveInvoice($invoiceId): \Elepay\Model\InvoiceDto
+```
 
 Retrieve invoice
 
@@ -310,15 +308,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling InvoiceApi->retrieveInvoice: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **invoiceId** | **string**| Invoice ID |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **invoiceId** | **string**| Invoice ID | |
 
 ### Return type
 
@@ -331,16 +327,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;charset=utf-8
+- **Accept**: `application/json;charset=utf-8`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `sendInvoice()`
 
-## sendInvoice
-
-> \Elepay\Model\InvoiceDto sendInvoice($invoiceId)
+```php
+sendInvoice($invoiceId): \Elepay\Model\InvoiceDto
+```
 
 send invoice
 
@@ -373,15 +370,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling InvoiceApi->sendInvoice: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **invoiceId** | **string**| invoice id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **invoiceId** | **string**| invoice id | |
 
 ### Return type
 
@@ -394,16 +389,79 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;charset=utf-8
+- **Accept**: `application/json;charset=utf-8`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `submitInvoice()`
 
-## updateInvoice
+```php
+submitInvoice($invoiceId): \Elepay\Model\InvoiceDto
+```
 
-> \Elepay\Model\InvoiceDto updateInvoice($invoiceId, $invoiceReq)
+submit invoice
+
+TODO。
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: basicAuth
+$config = Elepay\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+
+$apiInstance = new Elepay\Api\InvoiceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$invoiceId = 'invoiceId_example'; // string | Invoice ID
+
+try {
+    $result = $apiInstance->submitInvoice($invoiceId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling InvoiceApi->submitInvoice: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **invoiceId** | **string**| Invoice ID | |
+
+### Return type
+
+[**\Elepay\Model\InvoiceDto**](../Model/InvoiceDto.md)
+
+### Authorization
+
+[basicAuth](../../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json;charset=utf-8`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateInvoice()`
+
+```php
+updateInvoice($invoiceId, $invoiceReq): \Elepay\Model\InvoiceDto
+```
 
 Update invoice
 
@@ -437,16 +495,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling InvoiceApi->updateInvoice: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **invoiceId** | **string**| Invoice ID |
- **invoiceReq** | [**\Elepay\Model\InvoiceReq**](../Model/InvoiceReq.md)| インボイスリクエスト |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **invoiceId** | **string**| Invoice ID | |
+| **invoiceReq** | [**\Elepay\Model\InvoiceReq**](../Model/InvoiceReq.md)| インボイスリクエスト | |
 
 ### Return type
 
@@ -458,10 +514,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json;charset=utf-8
-- **Accept**: application/json;charset=utf-8
+- **Content-Type**: `application/json;charset=utf-8`
+- **Accept**: `application/json;charset=utf-8`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

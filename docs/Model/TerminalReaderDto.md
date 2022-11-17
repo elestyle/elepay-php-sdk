@@ -4,16 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** |  | [optional] 
-**appId** | **string** | App ID | [optional] 
+**id** | **string** | Reader ID | [optional]
+**appId** | **string** | App ID | [optional]
 **object** | **string** | 対象種類の表記 | [optional] [default to 'terminal.reader']
-**liveMode** | **bool** | 本番モードかどうか - false テストモード - true 本番モード | [optional] 
-**locationId** | **string** |  | [optional] 
-**serialNumber** | **string** |  | [optional] 
-**registrationCode** | **string** |  | [optional] 
-**metadata** | **map[string,string]** |  | [optional] 
-**status** | [**\Elepay\Model\ReaderStatusType**](ReaderStatusType.md) |  | [optional] 
+**liveMode** | **bool** | 本番モードかどうか - false テストモード - true 本番モード | [optional]
+**locationId** | **string** | Location ID | [optional]
+**serialNumber** | **string** | シリアルナンバー | [optional]
+**registrationCode** | **string** | ペアリングコード | [optional]
+**metadata** | **array<string,string>** | メタデータ | [optional]
+**status** | [**\Elepay\Model\ReaderStatusType**](ReaderStatusType.md) |  | [optional]
 
-[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
-
-
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

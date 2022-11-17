@@ -1,18 +1,19 @@
 # Elepay\CodeApi
 
-All URIs are relative to *https://api.elepay.io*
+All URIs are relative to https://api.elepay.io, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**closeCode**](CodeApi.md#closeCode) | **DELETE** /codes/{codeId} | Close EasyQR code
-[**createCode**](CodeApi.md#createCode) | **POST** /codes | Create EasyQR code
-[**retrieveCode**](CodeApi.md#retrieveCode) | **GET** /codes/{codeId} | Retrieve EasyQR code
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**closeCode()**](CodeApi.md#closeCode) | **DELETE** /codes/{codeId} | Close EasyQR code |
+| [**createCode()**](CodeApi.md#createCode) | **POST** /codes | Create EasyQR code |
+| [**retrieveCode()**](CodeApi.md#retrieveCode) | **GET** /codes/{codeId} | Retrieve EasyQR code |
 
 
+## `closeCode()`
 
-## closeCode
-
-> closeCode($codeId)
+```php
+closeCode($codeId)
+```
 
 Close EasyQR code
 
@@ -44,15 +45,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CodeApi->closeCode: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **codeId** | **string**| EasyQRコード |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **codeId** | **string**| EasyQRコード | |
 
 ### Return type
 
@@ -67,14 +66,15 @@ void (empty response body)
 - **Content-Type**: Not defined
 - **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createCode()`
 
-## createCode
-
-> \Elepay\Model\CodeDto createCode($codeReq)
+```php
+createCode($codeReq): \Elepay\Model\CodeDto
+```
 
 Create EasyQR code
 
@@ -107,15 +107,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CodeApi->createCode: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **codeReq** | [**\Elepay\Model\CodeReq**](../Model/CodeReq.md)| EasyQRコードリクエスト |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **codeReq** | [**\Elepay\Model\CodeReq**](../Model/CodeReq.md)| EasyQRコードリクエスト | |
 
 ### Return type
 
@@ -127,17 +125,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json;charset=utf-8
-- **Accept**: application/json;charset=utf-8
+- **Content-Type**: `application/json;charset=utf-8`
+- **Accept**: `application/json;charset=utf-8`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `retrieveCode()`
 
-## retrieveCode
-
-> \Elepay\Model\CodeDto retrieveCode($codeId)
+```php
+retrieveCode($codeId): \Elepay\Model\CodeDto
+```
 
 Retrieve EasyQR code
 
@@ -170,15 +169,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CodeApi->retrieveCode: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **codeId** | **string**| EasyQRコード |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **codeId** | **string**| EasyQRコード | |
 
 ### Return type
 
@@ -191,9 +188,8 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;charset=utf-8
+- **Accept**: `application/json;charset=utf-8`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

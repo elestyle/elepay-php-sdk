@@ -1,20 +1,21 @@
 # Elepay\TerminalApi
 
-All URIs are relative to *https://api.elepay.io*
+All URIs are relative to https://api.elepay.io, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createReader**](TerminalApi.md#createReader) | **POST** /terminal/readers | create terminal reader
-[**deleteReader**](TerminalApi.md#deleteReader) | **DELETE** /terminal/readers/{readerId} | delete reader
-[**getReader**](TerminalApi.md#getReader) | **GET** /terminal/readers/{readerId} | get reader
-[**listLocations**](TerminalApi.md#listLocations) | **GET** /terminal/locations | list locations
-[**listReaders**](TerminalApi.md#listReaders) | **GET** /terminal/readers | list readers
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**createReader()**](TerminalApi.md#createReader) | **POST** /terminal/readers | create terminal reader |
+| [**deleteReader()**](TerminalApi.md#deleteReader) | **DELETE** /terminal/readers/{readerId} | delete reader |
+| [**getReader()**](TerminalApi.md#getReader) | **GET** /terminal/readers/{readerId} | get reader |
+| [**listLocations()**](TerminalApi.md#listLocations) | **GET** /terminal/locations | list locations |
+| [**listReaders()**](TerminalApi.md#listReaders) | **GET** /terminal/readers | list readers |
 
 
+## `createReader()`
 
-## createReader
-
-> \Elepay\Model\TerminalReaderDto createReader($terminalReaderReq)
+```php
+createReader($terminalReaderReq): \Elepay\Model\TerminalReaderDto
+```
 
 create terminal reader
 
@@ -37,7 +38,7 @@ $apiInstance = new Elepay\Api\TerminalApi(
     new GuzzleHttp\Client(),
     $config
 );
-$terminalReaderReq = new \Elepay\Model\TerminalReaderReq(); // \Elepay\Model\TerminalReaderReq | 
+$terminalReaderReq = new \Elepay\Model\TerminalReaderReq(); // \Elepay\Model\TerminalReaderReq
 
 try {
     $result = $apiInstance->createReader($terminalReaderReq);
@@ -45,15 +46,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling TerminalApi->createReader: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **terminalReaderReq** | [**\Elepay\Model\TerminalReaderReq**](../Model/TerminalReaderReq.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **terminalReaderReq** | [**\Elepay\Model\TerminalReaderReq**](../Model/TerminalReaderReq.md)|  | |
 
 ### Return type
 
@@ -65,17 +64,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json;charset=utf-8
-- **Accept**: application/json;charset=utf-8
+- **Content-Type**: `application/json;charset=utf-8`
+- **Accept**: `application/json;charset=utf-8`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `deleteReader()`
 
-## deleteReader
-
-> deleteReader($readerId)
+```php
+deleteReader($readerId)
+```
 
 delete reader
 
@@ -105,15 +105,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling TerminalApi->deleteReader: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **readerId** | **string**| reader Id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **readerId** | **string**| reader Id | |
 
 ### Return type
 
@@ -128,14 +126,15 @@ void (empty response body)
 - **Content-Type**: Not defined
 - **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getReader()`
 
-## getReader
-
-> \Elepay\Model\TerminalReaderDto getReader($readerId)
+```php
+getReader($readerId): \Elepay\Model\TerminalReaderDto
+```
 
 get reader
 
@@ -166,15 +165,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling TerminalApi->getReader: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **readerId** | **string**| reader Id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **readerId** | **string**| reader Id | |
 
 ### Return type
 
@@ -187,16 +184,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;charset=utf-8
+- **Accept**: `application/json;charset=utf-8`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `listLocations()`
 
-## listLocations
-
-> \Elepay\Model\LocationsResponse listLocations()
+```php
+listLocations(): \Elepay\Model\LocationsResponse
+```
 
 list locations
 
@@ -226,7 +224,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling TerminalApi->listLocations: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -244,16 +241,17 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;charset=utf-8
+- **Accept**: `application/json;charset=utf-8`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `listReaders()`
 
-## listReaders
-
-> \Elepay\Model\TerminalReadersResponse listReaders($limit, $offset)
+```php
+listReaders($limit, $offset): \Elepay\Model\TerminalReadersResponse
+```
 
 list readers
 
@@ -285,16 +283,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling TerminalApi->listReaders: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int**| 最大件数 | [optional] [default to 20]
- **offset** | **int**| 検索開始位置 | [optional] [default to 0]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **limit** | **int**| 最大件数 | [optional] [default to 20] |
+| **offset** | **int**| 検索開始位置 | [optional] [default to 0] |
 
 ### Return type
 
@@ -307,9 +303,8 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;charset=utf-8
+- **Accept**: `application/json;charset=utf-8`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

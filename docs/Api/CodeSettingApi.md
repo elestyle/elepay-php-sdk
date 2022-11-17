@@ -1,16 +1,17 @@
 # Elepay\CodeSettingApi
 
-All URIs are relative to *https://api.elepay.io*
+All URIs are relative to https://api.elepay.io, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**listCodePaymentMethods**](CodeSettingApi.md#listCodePaymentMethods) | **GET** /code-setting/payment-methods | List all enabled EasyQR payment methods
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**listCodePaymentMethods()**](CodeSettingApi.md#listCodePaymentMethods) | **GET** /code-setting/payment-methods | List all enabled EasyQR payment methods |
 
 
+## `listCodePaymentMethods()`
 
-## listCodePaymentMethods
-
-> \Elepay\Model\CodePaymentMethodResponse listCodePaymentMethods()
+```php
+listCodePaymentMethods(): \Elepay\Model\CodePaymentMethodResponse
+```
 
 List all enabled EasyQR payment methods
 
@@ -42,7 +43,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CodeSettingApi->listCodePaymentMethods: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -60,9 +60,8 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;charset=utf-8
+- **Accept**: `application/json;charset=utf-8`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

@@ -1,24 +1,26 @@
 # Elepay\CustomerApi
 
-All URIs are relative to *https://api.elepay.io*
+All URIs are relative to https://api.elepay.io, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createCustomer**](CustomerApi.md#createCustomer) | **POST** /customers | Create customer
-[**createSource**](CustomerApi.md#createSource) | **POST** /customers/{customerId}/sources | Create source
-[**deleteCustomer**](CustomerApi.md#deleteCustomer) | **DELETE** /customers/{customerId} | Delete customer
-[**deleteSource**](CustomerApi.md#deleteSource) | **DELETE** /customers/{customerId}/sources/{sourceId} | Delete source
-[**listCustomers**](CustomerApi.md#listCustomers) | **GET** /customers | List customers
-[**listSources**](CustomerApi.md#listSources) | **GET** /customers/{customerId}/sources | List sources by customer ID
-[**retrieveCustomer**](CustomerApi.md#retrieveCustomer) | **GET** /customers/{customerId} | Retrieve customer
-[**retrieveSource**](CustomerApi.md#retrieveSource) | **GET** /customers/{customerId}/sources/{sourceId} | Retrieve source
-[**updateCustomer**](CustomerApi.md#updateCustomer) | **POST** /customers/{customerId} | update customer
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**createCustomer()**](CustomerApi.md#createCustomer) | **POST** /customers | Create customer |
+| [**createSource()**](CustomerApi.md#createSource) | **POST** /customers/{customerId}/sources | Create source |
+| [**deleteCustomer()**](CustomerApi.md#deleteCustomer) | **DELETE** /customers/{customerId} | Delete customer |
+| [**deleteSource()**](CustomerApi.md#deleteSource) | **DELETE** /customers/{customerId}/sources/{sourceId} | Delete source |
+| [**listCustomers()**](CustomerApi.md#listCustomers) | **GET** /customers | List customers |
+| [**listSources()**](CustomerApi.md#listSources) | **GET** /customers/{customerId}/sources | List sources by customer ID |
+| [**retrieveCustomer()**](CustomerApi.md#retrieveCustomer) | **GET** /customers/{customerId} | Retrieve customer |
+| [**retrieveSource()**](CustomerApi.md#retrieveSource) | **GET** /customers/{customerId}/sources/{sourceId} | Retrieve source |
+| [**retrieveSourceStatus()**](CustomerApi.md#retrieveSourceStatus) | **GET** /sources/{sourceId}/status | Retrieve source&#39;s status |
+| [**updateCustomer()**](CustomerApi.md#updateCustomer) | **POST** /customers/{customerId} | Update customer |
 
 
+## `createCustomer()`
 
-## createCustomer
-
-> \Elepay\Model\CustomerDto createCustomer($customerReq)
+```php
+createCustomer($customerReq): \Elepay\Model\CustomerDto
+```
 
 Create customer
 
@@ -51,15 +53,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CustomerApi->createCustomer: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **customerReq** | [**\Elepay\Model\CustomerReq**](../Model/CustomerReq.md)| カスタマリクエスト |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **customerReq** | [**\Elepay\Model\CustomerReq**](../Model/CustomerReq.md)| カスタマリクエスト | |
 
 ### Return type
 
@@ -71,17 +71,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json;charset=utf-8
-- **Accept**: application/json;charset=utf-8
+- **Content-Type**: `application/json;charset=utf-8`
+- **Accept**: `application/json;charset=utf-8`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createSource()`
 
-## createSource
-
-> \Elepay\Model\SourceDto createSource($customerId, $sourceReq)
+```php
+createSource($customerId, $sourceReq): \Elepay\Model\SourceDto
+```
 
 Create source
 
@@ -115,16 +116,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CustomerApi->createSource: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **customerId** | **string**| Customer ID |
- **sourceReq** | [**\Elepay\Model\SourceReq**](../Model/SourceReq.md)| カスタマソースリクエスト |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **customerId** | **string**| Customer ID | |
+| **sourceReq** | [**\Elepay\Model\SourceReq**](../Model/SourceReq.md)| カスタマソースリクエスト | |
 
 ### Return type
 
@@ -136,17 +135,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json;charset=utf-8
-- **Accept**: application/json;charset=utf-8
+- **Content-Type**: `application/json;charset=utf-8`
+- **Accept**: `application/json;charset=utf-8`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `deleteCustomer()`
 
-## deleteCustomer
-
-> deleteCustomer($customerId)
+```php
+deleteCustomer($customerId)
+```
 
 Delete customer
 
@@ -178,15 +178,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CustomerApi->deleteCustomer: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **customerId** | **string**| Customer ID |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **customerId** | **string**| Customer ID | |
 
 ### Return type
 
@@ -201,14 +199,15 @@ void (empty response body)
 - **Content-Type**: Not defined
 - **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `deleteSource()`
 
-## deleteSource
-
-> deleteSource($customerId, $sourceId)
+```php
+deleteSource($customerId, $sourceId)
+```
 
 Delete source
 
@@ -241,16 +240,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CustomerApi->deleteSource: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **customerId** | **string**| Customer ID |
- **sourceId** | **string**| Source ID |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **customerId** | **string**| Customer ID | |
+| **sourceId** | **string**| Source ID | |
 
 ### Return type
 
@@ -265,14 +262,15 @@ void (empty response body)
 - **Content-Type**: Not defined
 - **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `listCustomers()`
 
-## listCustomers
-
-> \Elepay\Model\CustomerResponse listCustomers($keyword, $limit, $offset)
+```php
+listCustomers($keyword, $limit, $offset): \Elepay\Model\CustomerResponse
+```
 
 List customers
 
@@ -297,7 +295,7 @@ $apiInstance = new Elepay\Api\CustomerApi(
     new GuzzleHttp\Client(),
     $config
 );
-$keyword = 'keyword_example'; // string | keyword
+$keyword = 'keyword_example'; // string | キーワード
 $limit = 20; // int | 最大件数
 $offset = 0; // int | 検索開始位置
 
@@ -307,17 +305,15 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CustomerApi->listCustomers: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **keyword** | **string**| keyword | [optional]
- **limit** | **int**| 最大件数 | [optional] [default to 20]
- **offset** | **int**| 検索開始位置 | [optional] [default to 0]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **keyword** | **string**| キーワード | [optional] |
+| **limit** | **int**| 最大件数 | [optional] [default to 20] |
+| **offset** | **int**| 検索開始位置 | [optional] [default to 0] |
 
 ### Return type
 
@@ -330,16 +326,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;charset=utf-8
+- **Accept**: `application/json;charset=utf-8`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `listSources()`
 
-## listSources
-
-> \Elepay\Model\SourceResponse listSources($customerId, $paymentMethod)
+```php
+listSources($customerId, $paymentMethod): \Elepay\Model\SourceResponse
+```
 
 List sources by customer ID
 
@@ -365,7 +362,7 @@ $apiInstance = new Elepay\Api\CustomerApi(
     $config
 );
 $customerId = 'customerId_example'; // string | Customer ID
-$paymentMethod = new \Elepay\Model\\Elepay\Model\PaymentMethodType(); // \Elepay\Model\PaymentMethodType | 決済方法
+$paymentMethod = new \Elepay\Model\PaymentMethodType(); // PaymentMethodType | 決済方法
 
 try {
     $result = $apiInstance->listSources($customerId, $paymentMethod);
@@ -373,16 +370,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CustomerApi->listSources: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **customerId** | **string**| Customer ID |
- **paymentMethod** | [**\Elepay\Model\PaymentMethodType**](../Model/.md)| 決済方法 | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **customerId** | **string**| Customer ID | |
+| **paymentMethod** | [**PaymentMethodType**](../Model/.md)| 決済方法 | [optional] |
 
 ### Return type
 
@@ -395,16 +390,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;charset=utf-8
+- **Accept**: `application/json;charset=utf-8`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `retrieveCustomer()`
 
-## retrieveCustomer
-
-> \Elepay\Model\CustomerDto retrieveCustomer($customerId)
+```php
+retrieveCustomer($customerId): \Elepay\Model\CustomerDto
+```
 
 Retrieve customer
 
@@ -437,15 +433,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CustomerApi->retrieveCustomer: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **customerId** | **string**| Customer ID |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **customerId** | **string**| Customer ID | |
 
 ### Return type
 
@@ -458,16 +452,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;charset=utf-8
+- **Accept**: `application/json;charset=utf-8`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `retrieveSource()`
 
-## retrieveSource
-
-> \Elepay\Model\SourceDto retrieveSource($customerId, $sourceId)
+```php
+retrieveSource($customerId, $sourceId): \Elepay\Model\SourceDto
+```
 
 Retrieve source
 
@@ -501,16 +496,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CustomerApi->retrieveSource: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **customerId** | **string**| Customer ID |
- **sourceId** | **string**| Source ID |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **customerId** | **string**| Customer ID | |
+| **sourceId** | **string**| Source ID | |
 
 ### Return type
 
@@ -523,18 +516,81 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;charset=utf-8
+- **Accept**: `application/json;charset=utf-8`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `retrieveSourceStatus()`
 
-## updateCustomer
+```php
+retrieveSourceStatus($sourceId): \Elepay\Model\SourceStatusDto
+```
 
-> \Elepay\Model\CustomerDto updateCustomer($customerId, $customerReq)
+Retrieve source's status
 
-update customer
+カスタマソースのステータスに関する詳細情報を取得します。
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: basicAuth
+$config = Elepay\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+
+$apiInstance = new Elepay\Api\CustomerApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$sourceId = 'sourceId_example'; // string | Source ID
+
+try {
+    $result = $apiInstance->retrieveSourceStatus($sourceId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CustomerApi->retrieveSourceStatus: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **sourceId** | **string**| Source ID | |
+
+### Return type
+
+[**\Elepay\Model\SourceStatusDto**](../Model/SourceStatusDto.md)
+
+### Authorization
+
+[basicAuth](../../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json;charset=utf-8`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateCustomer()`
+
+```php
+updateCustomer($customerId, $customerReq): \Elepay\Model\CustomerDto
+```
+
+Update customer
 
 カスタマを更新します。
 
@@ -566,16 +622,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CustomerApi->updateCustomer: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **customerId** | **string**| Customer ID |
- **customerReq** | [**\Elepay\Model\CustomerReq**](../Model/CustomerReq.md)| カスタマリクエスト |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **customerId** | **string**| Customer ID | |
+| **customerReq** | [**\Elepay\Model\CustomerReq**](../Model/CustomerReq.md)| カスタマリクエスト | |
 
 ### Return type
 
@@ -587,10 +641,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json;charset=utf-8
-- **Accept**: application/json;charset=utf-8
+- **Content-Type**: `application/json;charset=utf-8`
+- **Accept**: `application/json;charset=utf-8`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-
