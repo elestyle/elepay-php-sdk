@@ -1,10 +1,10 @@
 # Elepay\PaymentMethodApi
 
-All URIs are relative to https://api.elepay.io, except if the operation defines another base path.
+All URIs are relative to https://api.elepay.io.
 
-| Method | HTTP request | Description |
-| ------------- | ------------- | ------------- |
-| [**listPaymentMethods()**](PaymentMethodApi.md#listPaymentMethods) | **GET** /payment-methods | List supported payment methods |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**listPaymentMethods()**](PaymentMethodApi.md#listPaymentMethods) | **GET** /payment-methods | List supported payment methods
 
 
 ## `listPaymentMethods()`

@@ -1,10 +1,10 @@
 # Elepay\CodeSettingApi
 
-All URIs are relative to https://api.elepay.io, except if the operation defines another base path.
+All URIs are relative to https://api.elepay.io.
 
-| Method | HTTP request | Description |
-| ------------- | ------------- | ------------- |
-| [**listCodePaymentMethods()**](CodeSettingApi.md#listCodePaymentMethods) | **GET** /code-setting/payment-methods | List all enabled EasyQR payment methods |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**listCodePaymentMethods()**](CodeSettingApi.md#listCodePaymentMethods) | **GET** /code-setting/payment-methods | List all enabled EasyQR payment methods
 
 
 ## `listCodePaymentMethods()`

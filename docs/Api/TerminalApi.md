@@ -1,14 +1,14 @@
 # Elepay\TerminalApi
 
-All URIs are relative to https://api.elepay.io, except if the operation defines another base path.
+All URIs are relative to https://api.elepay.io.
 
-| Method | HTTP request | Description |
-| ------------- | ------------- | ------------- |
-| [**createReader()**](TerminalApi.md#createReader) | **POST** /terminal/readers | create terminal reader |
-| [**deleteReader()**](TerminalApi.md#deleteReader) | **DELETE** /terminal/readers/{readerId} | delete reader |
-| [**getReader()**](TerminalApi.md#getReader) | **GET** /terminal/readers/{readerId} | get reader |
-| [**listLocations()**](TerminalApi.md#listLocations) | **GET** /terminal/locations | list locations |
-| [**listReaders()**](TerminalApi.md#listReaders) | **GET** /terminal/readers | list readers |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**createReader()**](TerminalApi.md#createReader) | **POST** /terminal/readers | create terminal reader
+[**deleteReader()**](TerminalApi.md#deleteReader) | **DELETE** /terminal/readers/{readerId} | delete reader
+[**getReader()**](TerminalApi.md#getReader) | **GET** /terminal/readers/{readerId} | get reader
+[**listLocations()**](TerminalApi.md#listLocations) | **GET** /terminal/locations | list locations
+[**listReaders()**](TerminalApi.md#listReaders) | **GET** /terminal/readers | list readers
 
 
 ## `createReader()`
@@ -50,9 +50,9 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **terminalReaderReq** | [**\Elepay\Model\TerminalReaderReq**](../Model/TerminalReaderReq.md)|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **terminalReaderReq** | [**\Elepay\Model\TerminalReaderReq**](../Model/TerminalReaderReq.md)|  |
 
 ### Return type
 
@@ -109,9 +109,9 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **readerId** | **string**| reader Id | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **readerId** | **string**| reader Id |
 
 ### Return type
 
@@ -169,9 +169,9 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **readerId** | **string**| reader Id | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **readerId** | **string**| reader Id |
 
 ### Return type
 
@@ -287,10 +287,10 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **limit** | **int**| 最大件数 | [optional] [default to 20] |
-| **offset** | **int**| 検索開始位置 | [optional] [default to 0] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **int**| 最大件数 | [optional] [default to 20]
+ **offset** | **int**| 検索開始位置 | [optional] [default to 0]
 
 ### Return type
 

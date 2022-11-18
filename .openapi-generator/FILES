@@ -1,5 +1,5 @@
 .gitignore
-.php-cs-fixer.dist.php
+.php_cs
 .travis.yml
 README.md
 composer.json
@@ -148,15 +148,3 @@ lib/Model/TerminalReaderReq.php
 lib/Model/TerminalReadersResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/SubscriptionApiTest.php
-test/Model/CustomerPropertiesDtoTest.php
-test/Model/SourceStatusDtoTest.php
-test/Model/SubscriptionDtoTest.php
-test/Model/SubscriptionIntervalTypeTest.php
-test/Model/SubscriptionPeriodDtoTest.php
-test/Model/SubscriptionPeriodsResponseTest.php
-test/Model/SubscriptionReqTest.php
-test/Model/SubscriptionScheduleChargesResponseTest.php
-test/Model/SubscriptionStatusTypeTest.php
-test/Model/SubscriptionUpdateReqTest.php
-test/Model/SubscriptionsResponseTest.php

@@ -1,12 +1,12 @@
 # Elepay\RefundApi
 
-All URIs are relative to https://api.elepay.io, except if the operation defines another base path.
+All URIs are relative to https://api.elepay.io.
 
-| Method | HTTP request | Description |
-| ------------- | ------------- | ------------- |
-| [**createRefund()**](RefundApi.md#createRefund) | **POST** /charges/{id}/refunds | Create refund |
-| [**listChargesRefunds()**](RefundApi.md#listChargesRefunds) | **GET** /charges/{id}/refunds | List refunds |
-| [**retrieveChargeRefund()**](RefundApi.md#retrieveChargeRefund) | **GET** /charges/{id}/refunds/{refundId} | Retrieve refund |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**createRefund()**](RefundApi.md#createRefund) | **POST** /charges/{id}/refunds | Create refund
+[**listChargesRefunds()**](RefundApi.md#listChargesRefunds) | **GET** /charges/{id}/refunds | List refunds
+[**retrieveChargeRefund()**](RefundApi.md#retrieveChargeRefund) | **GET** /charges/{id}/refunds/{refundId} | Retrieve refund
 
 
 ## `createRefund()`
@@ -51,10 +51,10 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Charge ID | |
-| **refundReq** | [**\Elepay\Model\RefundReq**](../Model/RefundReq.md)| 返金の詳細情報 | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| Charge ID |
+ **refundReq** | [**\Elepay\Model\RefundReq**](../Model/RefundReq.md)| 返金の詳細情報 |
 
 ### Return type
 
@@ -114,9 +114,9 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Charge ID | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| Charge ID |
 
 ### Return type
 
@@ -177,10 +177,10 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Charge ID | |
-| **refundId** | **string**| Refund ID | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| Charge ID |
+ **refundId** | **string**| Refund ID |
 
 ### Return type
 

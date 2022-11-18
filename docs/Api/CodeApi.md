@@ -1,12 +1,12 @@
 # Elepay\CodeApi
 
-All URIs are relative to https://api.elepay.io, except if the operation defines another base path.
+All URIs are relative to https://api.elepay.io.
 
-| Method | HTTP request | Description |
-| ------------- | ------------- | ------------- |
-| [**closeCode()**](CodeApi.md#closeCode) | **DELETE** /codes/{codeId} | Close EasyQR code |
-| [**createCode()**](CodeApi.md#createCode) | **POST** /codes | Create EasyQR code |
-| [**retrieveCode()**](CodeApi.md#retrieveCode) | **GET** /codes/{codeId} | Retrieve EasyQR code |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**closeCode()**](CodeApi.md#closeCode) | **DELETE** /codes/{codeId} | Close EasyQR code
+[**createCode()**](CodeApi.md#createCode) | **POST** /codes | Create EasyQR code
+[**retrieveCode()**](CodeApi.md#retrieveCode) | **GET** /codes/{codeId} | Retrieve EasyQR code
 
 
 ## `closeCode()`
@@ -49,9 +49,9 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **codeId** | **string**| EasyQRコード | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **codeId** | **string**| EasyQRコード |
 
 ### Return type
 
@@ -111,9 +111,9 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **codeReq** | [**\Elepay\Model\CodeReq**](../Model/CodeReq.md)| EasyQRコードリクエスト | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **codeReq** | [**\Elepay\Model\CodeReq**](../Model/CodeReq.md)| EasyQRコードリクエスト |
 
 ### Return type
 
@@ -173,9 +173,9 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **codeId** | **string**| EasyQRコード | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **codeId** | **string**| EasyQRコード |
 
 ### Return type
 

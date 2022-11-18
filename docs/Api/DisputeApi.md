@@ -1,11 +1,11 @@
 # Elepay\DisputeApi
 
-All URIs are relative to https://api.elepay.io, except if the operation defines another base path.
+All URIs are relative to https://api.elepay.io.
 
-| Method | HTTP request | Description |
-| ------------- | ------------- | ------------- |
-| [**listDisputes()**](DisputeApi.md#listDisputes) | **GET** /disputes | List disputes |
-| [**retrieveDispute()**](DisputeApi.md#retrieveDispute) | **GET** /disputes/{id} | Retrieve dispute |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**listDisputes()**](DisputeApi.md#listDisputes) | **GET** /disputes | List disputes
+[**retrieveDispute()**](DisputeApi.md#retrieveDispute) | **GET** /disputes/{id} | Retrieve dispute
 
 
 ## `listDisputes()`
@@ -40,12 +40,12 @@ $apiInstance = new Elepay\Api\DisputeApi(
 $chargeId = 'chargeId_example'; // string | Charge ID
 $from = 56; // int | 開始時間（UTC）。指定した時間以降に作成されたデータを取得します。
 $to = 56; // int | 終了時間（UTC）。指定した時間以前に作成されたデータを取得します
-$dateField = new \Elepay\Model\DisputeDateTimeType(); // DisputeDateTimeType | 開始時間と終了時間の項目を指定します。 - resolved_time 不審請求解決時間 - create_time 不審請求発生時間
-$status = new \Elepay\Model\DisputeStatusType(); // DisputeStatusType | 不審請求ステータス
+$dateField = new \Elepay\Model\\Elepay\Model\DisputeDateTimeType(); // \Elepay\Model\DisputeDateTimeType | 開始時間と終了時間の項目を指定します。 - resolved_time 不審請求解決時間 - create_time 不審請求発生時間
+$status = new \Elepay\Model\\Elepay\Model\DisputeStatusType(); // \Elepay\Model\DisputeStatusType | 不審請求ステータス
 $limit = 20; // int | 最大件数
 $offset = 0; // int | 検索開始位置
-$sort = new \Elepay\Model\DisputeDateTimeType(); // DisputeDateTimeType | ソート項目 - resolved_time 不審請求解決時間 - create_time 決済新規時間
-$order = new \Elepay\Model\SortOrderType(); // SortOrderType | ソート順 - desc 降順 - asc 昇順
+$sort = new \Elepay\Model\\Elepay\Model\DisputeDateTimeType(); // \Elepay\Model\DisputeDateTimeType | ソート項目 - resolved_time 不審請求解決時間 - create_time 決済新規時間
+$order = new \Elepay\Model\\Elepay\Model\SortOrderType(); // \Elepay\Model\SortOrderType | ソート順 - desc 降順 - asc 昇順
 
 try {
     $result = $apiInstance->listDisputes($chargeId, $from, $to, $dateField, $status, $limit, $offset, $sort, $order);
@@ -57,17 +57,17 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **chargeId** | **string**| Charge ID | [optional] |
-| **from** | **int**| 開始時間（UTC）。指定した時間以降に作成されたデータを取得します。 | [optional] |
-| **to** | **int**| 終了時間（UTC）。指定した時間以前に作成されたデータを取得します | [optional] |
-| **dateField** | [**DisputeDateTimeType**](../Model/.md)| 開始時間と終了時間の項目を指定します。 - resolved_time 不審請求解決時間 - create_time 不審請求発生時間 | [optional] |
-| **status** | [**DisputeStatusType**](../Model/.md)| 不審請求ステータス | [optional] |
-| **limit** | **int**| 最大件数 | [optional] [default to 20] |
-| **offset** | **int**| 検索開始位置 | [optional] [default to 0] |
-| **sort** | [**DisputeDateTimeType**](../Model/.md)| ソート項目 - resolved_time 不審請求解決時間 - create_time 決済新規時間 | [optional] |
-| **order** | [**SortOrderType**](../Model/.md)| ソート順 - desc 降順 - asc 昇順 | [optional] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **chargeId** | **string**| Charge ID | [optional]
+ **from** | **int**| 開始時間（UTC）。指定した時間以降に作成されたデータを取得します。 | [optional]
+ **to** | **int**| 終了時間（UTC）。指定した時間以前に作成されたデータを取得します | [optional]
+ **dateField** | [**\Elepay\Model\DisputeDateTimeType**](../Model/.md)| 開始時間と終了時間の項目を指定します。 - resolved_time 不審請求解決時間 - create_time 不審請求発生時間 | [optional]
+ **status** | [**\Elepay\Model\DisputeStatusType**](../Model/.md)| 不審請求ステータス | [optional]
+ **limit** | **int**| 最大件数 | [optional] [default to 20]
+ **offset** | **int**| 検索開始位置 | [optional] [default to 0]
+ **sort** | [**\Elepay\Model\DisputeDateTimeType**](../Model/.md)| ソート項目 - resolved_time 不審請求解決時間 - create_time 決済新規時間 | [optional]
+ **order** | [**\Elepay\Model\SortOrderType**](../Model/.md)| ソート順 - desc 降順 - asc 昇順 | [optional]
 
 ### Return type
 
@@ -127,9 +127,9 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Dispute ID | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| Dispute ID |
 
 ### Return type
 

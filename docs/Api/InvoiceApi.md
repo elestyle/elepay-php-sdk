@@ -1,17 +1,17 @@
 # Elepay\InvoiceApi
 
-All URIs are relative to https://api.elepay.io, except if the operation defines another base path.
+All URIs are relative to https://api.elepay.io.
 
-| Method | HTTP request | Description |
-| ------------- | ------------- | ------------- |
-| [**cancelInvoice()**](InvoiceApi.md#cancelInvoice) | **POST** /invoices/{invoiceId}/cancel | cancel invoice |
-| [**createInvoice()**](InvoiceApi.md#createInvoice) | **POST** /invoices | Create invoice |
-| [**deleteInvoice()**](InvoiceApi.md#deleteInvoice) | **DELETE** /invoices/{invoiceId} | Delete invoice |
-| [**listInvoices()**](InvoiceApi.md#listInvoices) | **GET** /invoices | List invoices |
-| [**retrieveInvoice()**](InvoiceApi.md#retrieveInvoice) | **GET** /invoices/{invoiceId} | Retrieve invoice |
-| [**sendInvoice()**](InvoiceApi.md#sendInvoice) | **POST** /invoices/{invoiceId}/send | send invoice |
-| [**submitInvoice()**](InvoiceApi.md#submitInvoice) | **POST** /invoices/{invoiceId}/submit | submit invoice |
-| [**updateInvoice()**](InvoiceApi.md#updateInvoice) | **POST** /invoices/{invoiceId} | Update invoice |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**cancelInvoice()**](InvoiceApi.md#cancelInvoice) | **POST** /invoices/{invoiceId}/cancel | cancel invoice
+[**createInvoice()**](InvoiceApi.md#createInvoice) | **POST** /invoices | Create invoice
+[**deleteInvoice()**](InvoiceApi.md#deleteInvoice) | **DELETE** /invoices/{invoiceId} | Delete invoice
+[**listInvoices()**](InvoiceApi.md#listInvoices) | **GET** /invoices | List invoices
+[**retrieveInvoice()**](InvoiceApi.md#retrieveInvoice) | **GET** /invoices/{invoiceId} | Retrieve invoice
+[**sendInvoice()**](InvoiceApi.md#sendInvoice) | **POST** /invoices/{invoiceId}/send | send invoice
+[**submitInvoice()**](InvoiceApi.md#submitInvoice) | **POST** /invoices/{invoiceId}/submit | submit invoice
+[**updateInvoice()**](InvoiceApi.md#updateInvoice) | **POST** /invoices/{invoiceId} | Update invoice
 
 
 ## `cancelInvoice()`
@@ -55,9 +55,9 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **invoiceId** | **string**| Invoice ID | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **invoiceId** | **string**| Invoice ID |
 
 ### Return type
 
@@ -117,9 +117,9 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **invoiceReq** | [**\Elepay\Model\InvoiceReq**](../Model/InvoiceReq.md)| インボイスリクエスト | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **invoiceReq** | [**\Elepay\Model\InvoiceReq**](../Model/InvoiceReq.md)| インボイスリクエスト |
 
 ### Return type
 
@@ -178,9 +178,9 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **invoiceId** | **string**| Invoice ID | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **invoiceId** | **string**| Invoice ID |
 
 ### Return type
 
@@ -245,14 +245,14 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **keyword** | **string**| キーワード | [optional] |
-| **from** | **int**| dateRange from | [optional] |
-| **to** | **int**| dateRange from | [optional] |
-| **status** | [**\Elepay\Model\InvoiceStatusType[]**](../Model/\Elepay\Model\InvoiceStatusType.md)| status | [optional] |
-| **limit** | **int**| 最大件数 | [optional] [default to 20] |
-| **offset** | **int**| 検索開始位置 | [optional] [default to 0] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **keyword** | **string**| キーワード | [optional]
+ **from** | **int**| dateRange from | [optional]
+ **to** | **int**| dateRange from | [optional]
+ **status** | [**\Elepay\Model\InvoiceStatusType[]**](../Model/\Elepay\Model\InvoiceStatusType.md)| status | [optional]
+ **limit** | **int**| 最大件数 | [optional] [default to 20]
+ **offset** | **int**| 検索開始位置 | [optional] [default to 0]
 
 ### Return type
 
@@ -312,9 +312,9 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **invoiceId** | **string**| Invoice ID | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **invoiceId** | **string**| Invoice ID |
 
 ### Return type
 
@@ -374,9 +374,9 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **invoiceId** | **string**| invoice id | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **invoiceId** | **string**| invoice id |
 
 ### Return type
 
@@ -436,9 +436,9 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **invoiceId** | **string**| Invoice ID | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **invoiceId** | **string**| Invoice ID |
 
 ### Return type
 
@@ -499,10 +499,10 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **invoiceId** | **string**| Invoice ID | |
-| **invoiceReq** | [**\Elepay\Model\InvoiceReq**](../Model/InvoiceReq.md)| インボイスリクエスト | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **invoiceId** | **string**| Invoice ID |
+ **invoiceReq** | [**\Elepay\Model\InvoiceReq**](../Model/InvoiceReq.md)| インボイスリクエスト |
 
 ### Return type
 
