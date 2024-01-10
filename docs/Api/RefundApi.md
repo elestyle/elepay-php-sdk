@@ -1,12 +1,12 @@
 # Elepay\RefundApi
 
-All URIs are relative to https://api.elepay.io.
+All URIs are relative to https://api.elepay.io, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createRefund()**](RefundApi.md#createRefund) | **POST** /charges/{id}/refunds | Create refund
-[**listChargesRefunds()**](RefundApi.md#listChargesRefunds) | **GET** /charges/{id}/refunds | List refunds
-[**retrieveChargeRefund()**](RefundApi.md#retrieveChargeRefund) | **GET** /charges/{id}/refunds/{refundId} | Retrieve refund
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**createRefund()**](RefundApi.md#createRefund) | **POST** /charges/{id}/refunds | Create refund |
+| [**listChargesRefunds()**](RefundApi.md#listChargesRefunds) | **GET** /charges/{id}/refunds | List refunds |
+| [**retrieveChargeRefund()**](RefundApi.md#retrieveChargeRefund) | **GET** /charges/{id}/refunds/{refundId} | Retrieve refund |
 
 
 ## `createRefund()`
@@ -31,6 +31,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\RefundApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -51,10 +54,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Charge ID |
- **refundReq** | [**\Elepay\Model\RefundReq**](../Model/RefundReq.md)| 返金の詳細情報 |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Charge ID | |
+| **refundReq** | [**\Elepay\Model\RefundReq**](../Model/RefundReq.md)| 返金の詳細情報 | |
 
 ### Return type
 
@@ -62,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -95,6 +98,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\RefundApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -114,9 +120,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Charge ID |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Charge ID | |
 
 ### Return type
 
@@ -124,7 +130,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -157,6 +163,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\RefundApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -177,10 +186,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Charge ID |
- **refundId** | **string**| Refund ID |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Charge ID | |
+| **refundId** | **string**| Refund ID | |
 
 ### Return type
 
@@ -188,7 +197,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 

@@ -1,12 +1,12 @@
 # Elepay\CodeApi
 
-All URIs are relative to https://api.elepay.io.
+All URIs are relative to https://api.elepay.io, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**closeCode()**](CodeApi.md#closeCode) | **DELETE** /codes/{codeId} | Close EasyQR code
-[**createCode()**](CodeApi.md#createCode) | **POST** /codes | Create EasyQR code
-[**retrieveCode()**](CodeApi.md#retrieveCode) | **GET** /codes/{codeId} | Retrieve EasyQR code
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**closeCode()**](CodeApi.md#closeCode) | **DELETE** /codes/{codeId} | Close EasyQR code |
+| [**createCode()**](CodeApi.md#createCode) | **POST** /codes | Create EasyQR code |
+| [**retrieveCode()**](CodeApi.md#retrieveCode) | **GET** /codes/{codeId} | Retrieve EasyQR code |
 
 
 ## `closeCode()`
@@ -31,6 +31,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\CodeApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -49,9 +52,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **codeId** | **string**| EasyQRコード |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **codeId** | **string**| EasyQRコード | |
 
 ### Return type
 
@@ -59,7 +62,7 @@ void (empty response body)
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -92,6 +95,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\CodeApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -111,9 +117,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **codeReq** | [**\Elepay\Model\CodeReq**](../Model/CodeReq.md)| EasyQRコードリクエスト |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **codeReq** | [**\Elepay\Model\CodeReq**](../Model/CodeReq.md)| EasyQRコードリクエスト | |
 
 ### Return type
 
@@ -121,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -154,6 +160,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\CodeApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -173,9 +182,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **codeId** | **string**| EasyQRコード |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **codeId** | **string**| EasyQRコード | |
 
 ### Return type
 
@@ -183,7 +192,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 

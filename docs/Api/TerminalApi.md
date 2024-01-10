@@ -1,14 +1,14 @@
 # Elepay\TerminalApi
 
-All URIs are relative to https://api.elepay.io.
+All URIs are relative to https://api.elepay.io, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createReader()**](TerminalApi.md#createReader) | **POST** /terminal/readers | create terminal reader
-[**deleteReader()**](TerminalApi.md#deleteReader) | **DELETE** /terminal/readers/{readerId} | delete reader
-[**getReader()**](TerminalApi.md#getReader) | **GET** /terminal/readers/{readerId} | get reader
-[**listLocations()**](TerminalApi.md#listLocations) | **GET** /terminal/locations | list locations
-[**listReaders()**](TerminalApi.md#listReaders) | **GET** /terminal/readers | list readers
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**createReader()**](TerminalApi.md#createReader) | **POST** /terminal/readers | create terminal reader |
+| [**deleteReader()**](TerminalApi.md#deleteReader) | **DELETE** /terminal/readers/{readerId} | delete reader |
+| [**getReader()**](TerminalApi.md#getReader) | **GET** /terminal/readers/{readerId} | get reader |
+| [**listLocations()**](TerminalApi.md#listLocations) | **GET** /terminal/locations | list locations |
+| [**listReaders()**](TerminalApi.md#listReaders) | **GET** /terminal/readers | list readers |
 
 
 ## `createReader()`
@@ -31,6 +31,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\TerminalApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -50,9 +53,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **terminalReaderReq** | [**\Elepay\Model\TerminalReaderReq**](../Model/TerminalReaderReq.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **terminalReaderReq** | [**\Elepay\Model\TerminalReaderReq**](../Model/TerminalReaderReq.md)|  | |
 
 ### Return type
 
@@ -60,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -91,6 +94,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\TerminalApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -109,9 +115,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **readerId** | **string**| reader Id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **readerId** | **string**| reader Id | |
 
 ### Return type
 
@@ -119,7 +125,7 @@ void (empty response body)
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -150,6 +156,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\TerminalApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -169,9 +178,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **readerId** | **string**| reader Id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **readerId** | **string**| reader Id | |
 
 ### Return type
 
@@ -179,7 +188,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -210,6 +219,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\TerminalApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -236,7 +248,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -267,6 +279,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\TerminalApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -287,10 +302,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int**| 最大件数 | [optional] [default to 20]
- **offset** | **int**| 検索開始位置 | [optional] [default to 0]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **limit** | **int**| 最大件数 | [optional] [default to 20] |
+| **offset** | **int**| 検索開始位置 | [optional] [default to 0] |
 
 ### Return type
 
@@ -298,7 +313,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 

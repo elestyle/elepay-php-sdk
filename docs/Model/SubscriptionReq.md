@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **currency** | **string** | 通貨コード (ISO_4217) | [optional] [default to 'JPY']
 **amount** | **int** | 每期課金金額 | [optional]
 **interval** | [**\Elepay\Model\SubscriptionIntervalType**](SubscriptionIntervalType.md) |  | [optional]
+**intervalSpan** | **int** | 定期課金周期間隔（何周期単位ごとに課金されます） | [optional] [default to 1]
 **initialAmount** | **int** | 初回支払い前の固定支払額 | [optional]
 **firstChargeTime** | **int** | 初回支払いUTCタイムスタンプ | [optional]
 **metadata** | **array<string,string>** | メタデータ | [optional]

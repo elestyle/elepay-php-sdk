@@ -1,17 +1,17 @@
 # Elepay\InvoiceApi
 
-All URIs are relative to https://api.elepay.io.
+All URIs are relative to https://api.elepay.io, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**cancelInvoice()**](InvoiceApi.md#cancelInvoice) | **POST** /invoices/{invoiceId}/cancel | cancel invoice
-[**createInvoice()**](InvoiceApi.md#createInvoice) | **POST** /invoices | Create invoice
-[**deleteInvoice()**](InvoiceApi.md#deleteInvoice) | **DELETE** /invoices/{invoiceId} | Delete invoice
-[**listInvoices()**](InvoiceApi.md#listInvoices) | **GET** /invoices | List invoices
-[**retrieveInvoice()**](InvoiceApi.md#retrieveInvoice) | **GET** /invoices/{invoiceId} | Retrieve invoice
-[**sendInvoice()**](InvoiceApi.md#sendInvoice) | **POST** /invoices/{invoiceId}/send | send invoice
-[**submitInvoice()**](InvoiceApi.md#submitInvoice) | **POST** /invoices/{invoiceId}/submit | submit invoice
-[**updateInvoice()**](InvoiceApi.md#updateInvoice) | **POST** /invoices/{invoiceId} | Update invoice
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**cancelInvoice()**](InvoiceApi.md#cancelInvoice) | **POST** /invoices/{invoiceId}/cancel | cancel invoice |
+| [**createInvoice()**](InvoiceApi.md#createInvoice) | **POST** /invoices | Create invoice |
+| [**deleteInvoice()**](InvoiceApi.md#deleteInvoice) | **DELETE** /invoices/{invoiceId} | Delete invoice |
+| [**listInvoices()**](InvoiceApi.md#listInvoices) | **GET** /invoices | List invoices |
+| [**retrieveInvoice()**](InvoiceApi.md#retrieveInvoice) | **GET** /invoices/{invoiceId} | Retrieve invoice |
+| [**sendInvoice()**](InvoiceApi.md#sendInvoice) | **POST** /invoices/{invoiceId}/send | send invoice |
+| [**submitInvoice()**](InvoiceApi.md#submitInvoice) | **POST** /invoices/{invoiceId}/submit | submit invoice |
+| [**updateInvoice()**](InvoiceApi.md#updateInvoice) | **POST** /invoices/{invoiceId} | Update invoice |
 
 
 ## `cancelInvoice()`
@@ -36,6 +36,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\InvoiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -55,9 +58,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **invoiceId** | **string**| Invoice ID |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **invoiceId** | **string**| Invoice ID | |
 
 ### Return type
 
@@ -65,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -98,6 +101,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\InvoiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -117,9 +123,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **invoiceReq** | [**\Elepay\Model\InvoiceReq**](../Model/InvoiceReq.md)| インボイスリクエスト |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **invoiceReq** | [**\Elepay\Model\InvoiceReq**](../Model/InvoiceReq.md)| インボイスリクエスト | |
 
 ### Return type
 
@@ -127,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -160,6 +166,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\InvoiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -178,9 +187,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **invoiceId** | **string**| Invoice ID |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **invoiceId** | **string**| Invoice ID | |
 
 ### Return type
 
@@ -188,7 +197,7 @@ void (empty response body)
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -221,6 +230,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\InvoiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -245,14 +257,14 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **keyword** | **string**| キーワード | [optional]
- **from** | **int**| dateRange from | [optional]
- **to** | **int**| dateRange from | [optional]
- **status** | [**\Elepay\Model\InvoiceStatusType[]**](../Model/\Elepay\Model\InvoiceStatusType.md)| status | [optional]
- **limit** | **int**| 最大件数 | [optional] [default to 20]
- **offset** | **int**| 検索開始位置 | [optional] [default to 0]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **keyword** | **string**| キーワード | [optional] |
+| **from** | **int**| dateRange from | [optional] |
+| **to** | **int**| dateRange from | [optional] |
+| **status** | [**\Elepay\Model\InvoiceStatusType[]**](../Model/\Elepay\Model\InvoiceStatusType.md)| status | [optional] |
+| **limit** | **int**| 最大件数 | [optional] [default to 20] |
+| **offset** | **int**| 検索開始位置 | [optional] [default to 0] |
 
 ### Return type
 
@@ -260,7 +272,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -293,6 +305,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\InvoiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -312,9 +327,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **invoiceId** | **string**| Invoice ID |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **invoiceId** | **string**| Invoice ID | |
 
 ### Return type
 
@@ -322,7 +337,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -355,6 +370,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\InvoiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -374,9 +392,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **invoiceId** | **string**| invoice id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **invoiceId** | **string**| invoice id | |
 
 ### Return type
 
@@ -384,7 +402,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -417,6 +435,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\InvoiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -436,9 +457,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **invoiceId** | **string**| Invoice ID |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **invoiceId** | **string**| Invoice ID | |
 
 ### Return type
 
@@ -446,7 +467,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -479,6 +500,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\InvoiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -499,10 +523,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **invoiceId** | **string**| Invoice ID |
- **invoiceReq** | [**\Elepay\Model\InvoiceReq**](../Model/InvoiceReq.md)| インボイスリクエスト |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **invoiceId** | **string**| Invoice ID | |
+| **invoiceReq** | [**\Elepay\Model\InvoiceReq**](../Model/InvoiceReq.md)| インボイスリクエスト | |
 
 ### Return type
 
@@ -510,7 +534,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 

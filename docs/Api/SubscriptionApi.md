@@ -1,17 +1,17 @@
 # Elepay\SubscriptionApi
 
-All URIs are relative to https://api.elepay.io.
+All URIs are relative to https://api.elepay.io, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**cancelSubscription()**](SubscriptionApi.md#cancelSubscription) | **POST** /subscriptions/{subscriptionId}/cancel | Cancel subscription
-[**createSubscription()**](SubscriptionApi.md#createSubscription) | **POST** /subscriptions | Create subscription
-[**listSubscriptionPeriods()**](SubscriptionApi.md#listSubscriptionPeriods) | **GET** /subscriptions/{subscriptionId}/periods | List subscription periods
-[**listSubscriptions()**](SubscriptionApi.md#listSubscriptions) | **GET** /subscriptions | List subscriptions
-[**resumeSubscription()**](SubscriptionApi.md#resumeSubscription) | **POST** /subscriptions/{subscriptionId}/resume | Resume subscription
-[**retrieveSubscription()**](SubscriptionApi.md#retrieveSubscription) | **GET** /subscriptions/{subscriptionId} | Retrieve subscription
-[**startSubscription()**](SubscriptionApi.md#startSubscription) | **POST** /subscriptions/{subscriptionId}/start | Start subscription
-[**updateSubscription()**](SubscriptionApi.md#updateSubscription) | **POST** /subscriptions/{subscriptionId} | Update subscription
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**cancelSubscription()**](SubscriptionApi.md#cancelSubscription) | **POST** /subscriptions/{subscriptionId}/cancel | Cancel subscription |
+| [**createSubscription()**](SubscriptionApi.md#createSubscription) | **POST** /subscriptions | Create subscription |
+| [**listSubscriptionPeriods()**](SubscriptionApi.md#listSubscriptionPeriods) | **GET** /subscriptions/{subscriptionId}/periods | List subscription periods |
+| [**listSubscriptions()**](SubscriptionApi.md#listSubscriptions) | **GET** /subscriptions | List subscriptions |
+| [**resumeSubscription()**](SubscriptionApi.md#resumeSubscription) | **POST** /subscriptions/{subscriptionId}/resume | Resume subscription |
+| [**retrieveSubscription()**](SubscriptionApi.md#retrieveSubscription) | **GET** /subscriptions/{subscriptionId} | Retrieve subscription |
+| [**startSubscription()**](SubscriptionApi.md#startSubscription) | **POST** /subscriptions/{subscriptionId}/start | Start subscription |
+| [**updateSubscription()**](SubscriptionApi.md#updateSubscription) | **POST** /subscriptions/{subscriptionId} | Update subscription |
 
 
 ## `cancelSubscription()`
@@ -36,6 +36,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\SubscriptionApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -55,9 +58,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **subscriptionId** | **string**| Subscription ID |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **subscriptionId** | **string**| Subscription ID | |
 
 ### Return type
 
@@ -65,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -98,6 +101,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\SubscriptionApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -117,9 +123,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **subscriptionReq** | [**\Elepay\Model\SubscriptionReq**](../Model/SubscriptionReq.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **subscriptionReq** | [**\Elepay\Model\SubscriptionReq**](../Model/SubscriptionReq.md)|  | |
 
 ### Return type
 
@@ -127,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -160,6 +166,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\SubscriptionApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -181,11 +190,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **subscriptionId** | **string**| Subscription ID |
- **limit** | **int**| 最大件数 | [optional] [default to 20]
- **offset** | **int**| 検索開始位置 | [optional] [default to 0]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **subscriptionId** | **string**| Subscription ID | |
+| **limit** | **int**| 最大件数 | [optional] [default to 20] |
+| **offset** | **int**| 検索開始位置 | [optional] [default to 0] |
 
 ### Return type
 
@@ -193,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -226,6 +235,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\SubscriptionApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -236,7 +248,7 @@ $apiInstance = new Elepay\Api\SubscriptionApi(
 $customerId = 'customerId_example'; // string | Customer ID
 $from = 56; // int | 開始時間（UTC）。指定した時間以降に作成されたデータを取得します。
 $to = 56; // int | 終了時間（UTC）。指定した時間以前に作成されたデータを取得します
-$status = new \Elepay\Model\\Elepay\Model\SubscriptionStatusType(); // \Elepay\Model\SubscriptionStatusType | 定期課金ステータス
+$status = new \Elepay\Model\SubscriptionStatusType(); // SubscriptionStatusType | 定期課金ステータス
 $limit = 20; // int | 最大件数
 $offset = 0; // int | 検索開始位置
 
@@ -250,14 +262,14 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **customerId** | **string**| Customer ID | [optional]
- **from** | **int**| 開始時間（UTC）。指定した時間以降に作成されたデータを取得します。 | [optional]
- **to** | **int**| 終了時間（UTC）。指定した時間以前に作成されたデータを取得します | [optional]
- **status** | [**\Elepay\Model\SubscriptionStatusType**](../Model/.md)| 定期課金ステータス | [optional]
- **limit** | **int**| 最大件数 | [optional] [default to 20]
- **offset** | **int**| 検索開始位置 | [optional] [default to 0]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **customerId** | **string**| Customer ID | [optional] |
+| **from** | **int**| 開始時間（UTC）。指定した時間以降に作成されたデータを取得します。 | [optional] |
+| **to** | **int**| 終了時間（UTC）。指定した時間以前に作成されたデータを取得します | [optional] |
+| **status** | [**SubscriptionStatusType**](../Model/.md)| 定期課金ステータス | [optional] |
+| **limit** | **int**| 最大件数 | [optional] [default to 20] |
+| **offset** | **int**| 検索開始位置 | [optional] [default to 0] |
 
 ### Return type
 
@@ -265,7 +277,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -298,6 +310,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\SubscriptionApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -317,9 +332,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **subscriptionId** | **string**| Subscription ID |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **subscriptionId** | **string**| Subscription ID | |
 
 ### Return type
 
@@ -327,7 +342,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -360,6 +375,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\SubscriptionApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -379,9 +397,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **subscriptionId** | **string**| Subscription ID |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **subscriptionId** | **string**| Subscription ID | |
 
 ### Return type
 
@@ -389,7 +407,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -422,6 +440,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\SubscriptionApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -441,9 +462,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **subscriptionId** | **string**| Subscription ID |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **subscriptionId** | **string**| Subscription ID | |
 
 ### Return type
 
@@ -451,7 +472,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -484,6 +505,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\SubscriptionApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -504,10 +528,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **subscriptionId** | **string**| Subscription ID |
- **subscriptionUpdateReq** | [**\Elepay\Model\SubscriptionUpdateReq**](../Model/SubscriptionUpdateReq.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **subscriptionId** | **string**| Subscription ID | |
+| **subscriptionUpdateReq** | [**\Elepay\Model\SubscriptionUpdateReq**](../Model/SubscriptionUpdateReq.md)|  | |
 
 ### Return type
 
@@ -515,7 +539,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 

@@ -1,15 +1,15 @@
 # Elepay\ChargeApi
 
-All URIs are relative to https://api.elepay.io.
+All URIs are relative to https://api.elepay.io, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**captureCharge()**](ChargeApi.md#captureCharge) | **POST** /charges/{id}/capture | Capture charge
-[**createCharge()**](ChargeApi.md#createCharge) | **POST** /charges | Create charge
-[**listCharges()**](ChargeApi.md#listCharges) | **GET** /charges | List charges
-[**retrieveCharge()**](ChargeApi.md#retrieveCharge) | **GET** /charges/{id} | Retrieve charge
-[**retrieveChargeStatus()**](ChargeApi.md#retrieveChargeStatus) | **GET** /charges/{id}/status | Retrieve charge&#39;s status
-[**revokeCharge()**](ChargeApi.md#revokeCharge) | **POST** /charges/{id}/revoke | Revoke charge
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**captureCharge()**](ChargeApi.md#captureCharge) | **POST** /charges/{id}/capture | Capture charge |
+| [**createCharge()**](ChargeApi.md#createCharge) | **POST** /charges | Create charge |
+| [**listCharges()**](ChargeApi.md#listCharges) | **GET** /charges | List charges |
+| [**retrieveCharge()**](ChargeApi.md#retrieveCharge) | **GET** /charges/{id} | Retrieve charge |
+| [**retrieveChargeStatus()**](ChargeApi.md#retrieveChargeStatus) | **GET** /charges/{id}/status | Retrieve charge&#39;s status |
+| [**revokeCharge()**](ChargeApi.md#revokeCharge) | **POST** /charges/{id}/revoke | Revoke charge |
 
 
 ## `captureCharge()`
@@ -34,6 +34,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\ChargeApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -54,10 +57,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Charge ID |
- **chargeCaptureReq** | [**\Elepay\Model\ChargeCaptureReq**](../Model/ChargeCaptureReq.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Charge ID | |
+| **chargeCaptureReq** | [**\Elepay\Model\ChargeCaptureReq**](../Model/ChargeCaptureReq.md)|  | [optional] |
 
 ### Return type
 
@@ -65,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -98,6 +101,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\ChargeApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -117,9 +123,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **chargeReq** | [**\Elepay\Model\ChargeReq**](../Model/ChargeReq.md)| 支払リクエスト |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **chargeReq** | [**\Elepay\Model\ChargeReq**](../Model/ChargeReq.md)| 支払リクエスト | |
 
 ### Return type
 
@@ -127,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -160,6 +166,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\ChargeApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -170,12 +179,12 @@ $apiInstance = new Elepay\Api\ChargeApi(
 $paymentMethod = array(new \Elepay\Model\\Elepay\Model\PaymentMethodType()); // \Elepay\Model\PaymentMethodType[] | 決済方法(複数の指定が可能です)
 $from = 56; // int | 開始時間（UTC）。指定した時間以降に作成されたデータを取得します。
 $to = 56; // int | 終了時間（UTC）。指定した時間以前に作成されたデータを取得します
-$dateField = new \Elepay\Model\\Elepay\Model\ChargeDateTimeType(); // \Elepay\Model\ChargeDateTimeType | 開始時間と終了時間の項目を指定します。 - paid_time 払う時間 - create_time 決済新規時間
-$status = new \Elepay\Model\\Elepay\Model\ChargeStatusType(); // \Elepay\Model\ChargeStatusType | 支払状況
+$dateField = new \Elepay\Model\ChargeDateTimeType(); // ChargeDateTimeType | 開始時間と終了時間の項目を指定します。 - paid_time 払う時間 - create_time 決済新規時間
+$status = new \Elepay\Model\ChargeStatusType(); // ChargeStatusType | 支払状況
 $limit = 20; // int | 最大件数
 $offset = 0; // int | 検索開始位置
-$sort = new \Elepay\Model\\Elepay\Model\ChargeDateTimeType(); // \Elepay\Model\ChargeDateTimeType | ソート項目 - paid_time 払う時間 - create_time 決済新規時間
-$order = new \Elepay\Model\\Elepay\Model\SortOrderType(); // \Elepay\Model\SortOrderType | ソート順 - desc 降順 - asc 昇順
+$sort = new \Elepay\Model\ChargeDateTimeType(); // ChargeDateTimeType | ソート項目 - paid_time 払う時間 - create_time 決済新規時間
+$order = new \Elepay\Model\SortOrderType(); // SortOrderType | ソート順 - desc 降順 - asc 昇順
 
 try {
     $result = $apiInstance->listCharges($paymentMethod, $from, $to, $dateField, $status, $limit, $offset, $sort, $order);
@@ -187,17 +196,17 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **paymentMethod** | [**\Elepay\Model\PaymentMethodType[]**](../Model/\Elepay\Model\PaymentMethodType.md)| 決済方法(複数の指定が可能です) | [optional]
- **from** | **int**| 開始時間（UTC）。指定した時間以降に作成されたデータを取得します。 | [optional]
- **to** | **int**| 終了時間（UTC）。指定した時間以前に作成されたデータを取得します | [optional]
- **dateField** | [**\Elepay\Model\ChargeDateTimeType**](../Model/.md)| 開始時間と終了時間の項目を指定します。 - paid_time 払う時間 - create_time 決済新規時間 | [optional]
- **status** | [**\Elepay\Model\ChargeStatusType**](../Model/.md)| 支払状況 | [optional]
- **limit** | **int**| 最大件数 | [optional] [default to 20]
- **offset** | **int**| 検索開始位置 | [optional] [default to 0]
- **sort** | [**\Elepay\Model\ChargeDateTimeType**](../Model/.md)| ソート項目 - paid_time 払う時間 - create_time 決済新規時間 | [optional]
- **order** | [**\Elepay\Model\SortOrderType**](../Model/.md)| ソート順 - desc 降順 - asc 昇順 | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **paymentMethod** | [**\Elepay\Model\PaymentMethodType[]**](../Model/\Elepay\Model\PaymentMethodType.md)| 決済方法(複数の指定が可能です) | [optional] |
+| **from** | **int**| 開始時間（UTC）。指定した時間以降に作成されたデータを取得します。 | [optional] |
+| **to** | **int**| 終了時間（UTC）。指定した時間以前に作成されたデータを取得します | [optional] |
+| **dateField** | [**ChargeDateTimeType**](../Model/.md)| 開始時間と終了時間の項目を指定します。 - paid_time 払う時間 - create_time 決済新規時間 | [optional] |
+| **status** | [**ChargeStatusType**](../Model/.md)| 支払状況 | [optional] |
+| **limit** | **int**| 最大件数 | [optional] [default to 20] |
+| **offset** | **int**| 検索開始位置 | [optional] [default to 0] |
+| **sort** | [**ChargeDateTimeType**](../Model/.md)| ソート項目 - paid_time 払う時間 - create_time 決済新規時間 | [optional] |
+| **order** | [**SortOrderType**](../Model/.md)| ソート順 - desc 降順 - asc 昇順 | [optional] |
 
 ### Return type
 
@@ -205,7 +214,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -238,6 +247,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\ChargeApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -257,9 +269,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Charge ID |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Charge ID | |
 
 ### Return type
 
@@ -267,7 +279,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -300,6 +312,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\ChargeApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -319,9 +334,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Charge ID |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Charge ID | |
 
 ### Return type
 
@@ -329,7 +344,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -362,6 +377,9 @@ $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Elepay\Api\ChargeApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -381,9 +399,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Charge ID |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Charge ID | |
 
 ### Return type
 
@@ -391,7 +409,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 

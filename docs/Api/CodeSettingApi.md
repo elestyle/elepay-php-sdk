@@ -1,10 +1,10 @@
 # Elepay\CodeSettingApi
 
-All URIs are relative to https://api.elepay.io.
+All URIs are relative to https://api.elepay.io, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**listCodePaymentMethods()**](CodeSettingApi.md#listCodePaymentMethods) | **GET** /code-setting/payment-methods | List all enabled EasyQR payment methods
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**listCodePaymentMethods()**](CodeSettingApi.md#listCodePaymentMethods) | **GET** /code-setting/payment-methods | List all enabled EasyQR payment methods |
 
 
 ## `listCodePaymentMethods()`
@@ -28,6 +28,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = Elepay\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: bearerAuth
+$config = Elepay\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Elepay\Api\CodeSettingApi(
@@ -55,7 +58,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 

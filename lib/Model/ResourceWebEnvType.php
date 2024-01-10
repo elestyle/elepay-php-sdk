@@ -1,6 +1,6 @@
 <?php
 /**
- * CardBrandType
+ * ResourceWebEnvType
  *
  * PHP version 7.4
  *
@@ -31,36 +31,24 @@ namespace Elepay\Model;
 use \Elepay\ObjectSerializer;
 
 /**
- * CardBrandType Class Doc Comment
+ * ResourceWebEnvType Class Doc Comment
  *
  * @category Class
- * @description カードブランド
+ * @description リソースはWebの場合。利用可能環境 - all 全ての環境 - wallet_app ウォレットアプリ内の組み込みブラウザのみ可能 - web ウェブのみ, ウォレットアプリの中で利用不可
  * @package  Elepay
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class CardBrandType
+class ResourceWebEnvType
 {
     /**
      * Possible values of this enum
      */
-    public const VISA = 'visa';
+    public const ALL = 'all';
 
-    public const MASTERCARD = 'mastercard';
+    public const WALLET_APP = 'wallet_app';
 
-    public const AMEX = 'amex';
-
-    public const JCB = 'jcb';
-
-    public const DINERS = 'diners';
-
-    public const UNIONPAY = 'unionpay';
-
-    public const DISCOVER = 'discover';
-
-    public const FELICA = 'felica';
-
-    public const UNKNOWN = 'unknown';
+    public const WEB = 'web';
 
     /**
      * Gets allowable values of the enum
@@ -69,15 +57,9 @@ class CardBrandType
     public static function getAllowableEnumValues()
     {
         return [
-            self::VISA,
-            self::MASTERCARD,
-            self::AMEX,
-            self::JCB,
-            self::DINERS,
-            self::UNIONPAY,
-            self::DISCOVER,
-            self::FELICA,
-            self::UNKNOWN
+            self::ALL,
+            self::WALLET_APP,
+            self::WEB
         ];
     }
 }

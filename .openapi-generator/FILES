@@ -1,5 +1,5 @@
 .gitignore
-.php_cs
+.php-cs-fixer.dist.php
 .travis.yml
 README.md
 composer.json
@@ -54,6 +54,7 @@ docs/Model/RefundStatusType.md
 docs/Model/RefundsDto.md
 docs/Model/RefundsResponse.md
 docs/Model/ResourceType.md
+docs/Model/ResourceWebEnvType.md
 docs/Model/SortOrderType.md
 docs/Model/SourceDto.md
 docs/Model/SourceReq.md
@@ -128,6 +129,7 @@ lib/Model/RefundStatusType.php
 lib/Model/RefundsDto.php
 lib/Model/RefundsResponse.php
 lib/Model/ResourceType.php
+lib/Model/ResourceWebEnvType.php
 lib/Model/SortOrderType.php
 lib/Model/SourceDto.php
 lib/Model/SourceReq.php
@@ -148,3 +150,4 @@ lib/Model/TerminalReaderReq.php
 lib/Model/TerminalReadersResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Model/ResourceWebEnvTypeTest.php
